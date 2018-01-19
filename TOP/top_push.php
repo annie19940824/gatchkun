@@ -3,14 +3,39 @@ session_start();
 require('../dbconect_gatch.php');
 
 
+$login_id = $_SESSION['login_user']['user_id'];
+$login_condition =$_SESSION['login_user']['conditions'];
 
 
 
-$login_id = $_SESSION['user_info']['id'];
-$login_condition =$_SESSION['user_info']['conditions'];
+/*
+require('himajin.php');*/
+    $sql = "SELECT *
+            FROM   `gatchi_users`
+            WHERE  `login` = 1
+            AND    `user_id` != ?
+           ";
+    $data = array($login_id);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute($data);
+    $login_users = $stmt->fetchall();
 
-require('himajin.php');
+
 require('condition_gatch.php');
+
+    $sql = "SELECT *
+            FROM  `gatchi_users`
+            WHERE `login`= 1
+            AND   `conditions` =?
+            AND   `user_id` != ?
+           ";
+    $data = array($login_condition,$login_id);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute($data);
+    $condition_gatch = $stmt->fetchall();
+
+
+
 // require('request.php');
 // require('receive.php');
 
@@ -71,6 +96,9 @@ require('condition_gatch.php');
                         <img src="../profile_image/<?php echo $login_users['profileImage'] ?>">
                     </button>
                 </a>
+                
+                
+
                 <p><?php echo $login_users['username']; ?></p>
                 <button class="push">合致通知</button>
             </div>
@@ -87,10 +115,15 @@ require('condition_gatch.php');
                     <img src="../profile_image/<?php echo $condition_gatch['profileImage'] ?>">
                 </button>
             </a>
+               
+
                 <p><?php echo $condition_gatch['username']; ?></p>
                 <button class="push">合致通知</button>
             </div>
         <?php endforeach ?>
+
+<?php  ; ?>
+
     </div><!-- gatch -->
 
     <div id="condition">

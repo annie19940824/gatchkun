@@ -124,8 +124,6 @@ if(!empty($_POST)){ // [J-01]
 		$errors['profile_image'] = 'blank';
 	}
 
-	var_dump($errors);
-
 	if(empty($errors)){
 		echo 'エラーがありませんでした。確認画面へ移動します<br>';
 
@@ -133,6 +131,7 @@ if(!empty($_POST)){ // [J-01]
 		// これで画像を保存することができる
 
 		// エラーがない場合はセッションにもデータを保存してあげる
+
 		$_SESSION['user_info']['username']=$username;
 		$_SESSION['user_info']['email']=$email;
 		$_SESSION['user_info']['password']=$password;

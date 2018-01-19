@@ -2,7 +2,7 @@
 session_start();
 require('dbconnect.php');
 
-	if(!isset($_SESSION['login_user']['user_id'])){
+	if(!isset($_SESSION['user_info']['user_id'])){
 		// $_SESSIONが存在しない、つまり前の画面から飛んできていない
 		// $_SESSIONがない状態だとエラーが発生するので、
 		// 強制的に、前の画面に戻してあげる
