@@ -7,22 +7,21 @@ $user = $_SESSION['login_user']['user_id'];
 $other = $_GET['id'];
 
 if (!isset($_GET['id'])) {
-  header('Location: ../TOP/top_push.php');
+  header('Location: /TOP/top_push.php');
   exit();
 }
-
-
+  
   if(!empty($_POST)){
           $errors = array();
           $chat = htmlspecialchars($_POST['chat']);
 
-  if($chat == ''){
+      if($chat == ''){
           $errors['chat'] = 'blank';
 
                   }
- if(empty($errors)){
+      if(empty($errors)){
       $sql ='INSERT INTO `gatch_chat` SET
-                                      `user_id`=?,
+                                      `users_id`=?,
                                       `other_id`=?,
                                       `chat` = ?,
                                       `created`=NOW()
@@ -30,11 +29,16 @@ if (!isset($_GET['id'])) {
       $data = array($user,$other,$chat); 
       $stmt = $dbh->prepare($sql); 
       $stmt->execute($data); 
+     
+
+
+
       header('Location: chatpage.php'.'?id='.$other);
       exit();
       }
 
 }
+
 /* チャット画面にchatを表示させるためのsql*/
       $sql = 'SELECT  `chat`,
                       `user_name`,
@@ -53,7 +57,7 @@ if (!isset($_GET['id'])) {
        $stmt->execute($data);
        $tweets = $stmt->fetchAll();
 
-
+ var_dump($tweets);
 
 /*自分のプロフィールを表示したい*/
        $sql='SELECT `user_id`,`user_name`,`picture`, `created`
@@ -82,7 +86,7 @@ if (!isset($_GET['id'])) {
 
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
-	
+	<link rel="stylesheet" type="text/css" href="css/chatmain.css">
 </head>
 <body>
 	<h1 style="text-align: center;">はい合致チャット画面</h1>
@@ -117,7 +121,7 @@ if (!isset($_GET['id'])) {
             </div>
           <?php } ?>
           <br>
-          <a href="../YUSUKE1/TOP/top_push.php" class="btn btn-info">
+          <a href="TOP/top_push.php" class="btn btn-info">
             もどる
           </a>
           <br><br>
@@ -135,6 +139,11 @@ if (!isset($_GET['id'])) {
                 <div class="chat-face">
                 <img src="LOGIN/profile_image/<?php echo  $user_profile['picture'];  ?>" alt="自分のチャット画像です。" width="90" height="90">
                 </div>
+                <br>
+                <br>
+                <div>
+                <?php echo $user_profile['user_name'] ; ?>
+                </div>
                 <div class="chat-area">
                   <div class="chat-hukidashi">
                   
@@ -150,10 +159,11 @@ if (!isset($_GET['id'])) {
                 <img src="LOGIN/profile_image/<?php echo $other_profile['picture'];  ?>"
             alt="相手のチャット画像です。" width="90" height="90">
                 </div>
+                 <?php echo $other_profile['user_name'] ; ?>
                 <div class="chat-area">
                   <div class="chat-hukidashi someone">
                   
-                    <?php echo $t['chat']; ?>
+                   <?php echo $t['chat']; ?>
                   
                   </div>
                 </div>
@@ -163,7 +173,6 @@ if (!isset($_GET['id'])) {
       </div><!-- 8/12 -->
 
             <!--  ここまでチャット画面 -->
-
 			<div class="col-xs-4" ><!-- 12/12 -->
         <h3 style="text-align: center;" >合致メイト</h3>
         ようこそ：<?php echo $other_profile['user_name']; ?>さん<br>

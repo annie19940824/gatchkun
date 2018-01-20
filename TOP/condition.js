@@ -146,7 +146,7 @@ $('#alcohol').on('click',function(){
 
 /*その他   */    
     $('#sonota').on('click',function(){
-    $.ajax({
+    $.ajax(　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{
             type:"POST",
             url:"condition.php",
             data:{
