@@ -6,23 +6,19 @@ require('../dbconect_gatch.php');
 $login_id = $_SESSION['login_user']['user_id'];
 $login_condition =$_SESSION['login_user']['conditions'];
 
-
-
-/*
-require('himajin.php');*/
+/*require('himajin.php');*/
     $sql = "SELECT *
             FROM   `gatchi_users`
             WHERE  `login` = 1
-            AND    `user_id` != ?
-           ";
+            AND    `user_id` != ?";
     $data = array($login_id);
     $stmt = $dbh->prepare($sql);
     $stmt->execute($data);
     $login_users = $stmt->fetchall();
 
 
-require('condition_gatch.php');
-
+/*require('condition_gatch.php');*/
+    
     $sql = "SELECT *
             FROM  `gatchi_users`
             WHERE `login`= 1
@@ -33,21 +29,6 @@ require('condition_gatch.php');
     $stmt = $dbh->prepare($sql);
     $stmt->execute($data);
     $condition_gatch = $stmt->fetchall();
-
-
-
-// require('request.php');
-// require('receive.php');
-
-// if (empty($_POST['tochatpage'])) {
-//     $sql='INSERT INTO `gatch`
-//              SET  `requesting_user`=?,
-//                   `receive_user` =?
-//     ';
-//     $data=array($_POST['jibun'],$_POST['aite']);
-//     $stmt=$dbh->prepare($sql);
-//     $stmt->execute($data);
-// }
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +42,7 @@ require('condition_gatch.php');
     <!-- ========fontawesome========-->
     <link rel="stylesheet" type="text/css" href="../font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- ========jQuery======== -->
-    <script src="../jQuery/jquery-3.1.1.js"</script>
+    <script src="../jQuery/jquery-3.1.1.js"></script>
     <script src="../jQuery/jquery-migrate-1.4.1.js"></script>
     <!-- ========AJAX======== -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -73,6 +54,9 @@ require('condition_gatch.php');
         var login_condition = <?php echo json_encode($login_condition); ?>;
     </script>
 </head>
+
+
+
 
 <body>
     <header>
@@ -88,41 +72,46 @@ require('condition_gatch.php');
         </div>
     </header>
 
+
     <div id="himajin">
         <?php foreach($login_users as $login_users): ?>
             <div>
-                <a href="../../ANNA1/chatpage.php?id=<?php echo $login_users['id']; ?>" style="text-decoration: none;">
+                <a href="../chatpage.php?id=<?php echo $login_users['id']; ?>" style="text-decoration: none;">
                     <button type="submit" class="tochat">
-                        <img src="../profile_image/<?php echo $login_users['profileImage'] ?>">
+                    <img src="../LOGIN/profile_image/<?php echo $login_users['picture'] ;?>">
                     </button>
                 </a>
                 
                 
 
-                <p><?php echo $login_users['username']; ?></p>
+                <p><?php echo $login_users['user_name']; ?></p>
                 <button class="push">合致通知</button>
             </div>
         <?php endforeach ?>
     </div><!-- himajin -->
 
+
     <div id="gatch">
         <h1>合致ユーザー</h1>
+  
         <?php foreach($condition_gatch as $condition_gatch): ?>
             <div>
-            <a href="../../ANNA1/chatpage.php?id=<?php echo $condition_gatch['id']?>"
-            style="text-decoration: none;">
-                <button type="submit" class="tochat">
-                    <img src="../profile_image/<?php echo $condition_gatch['profileImage'] ?>">
-                </button>
-            </a>
-               
+                
+             <a href="../chatpage.php?id=<?php echo $condition_gatch['id']?>" style="text-decoration: none;">
 
-                <p><?php echo $condition_gatch['username']; ?></p>
+                <button type="submit" class="tochat">
+
+                <img src="../LOGIN/profile_image/<?php
+                 echo $login_users['picture'];?>">
+                
+
+                </button>
+             </a>
+             <p><?php echo $condition_gatch['user_name']; ?></p>
                 <button class="push">合致通知</button>
             </div>
         <?php endforeach ?>
-
-<?php  ; ?>
+        <?php  ; ?>
 
     </div><!-- gatch -->
 
@@ -140,7 +129,7 @@ require('condition_gatch.php');
                     <img src="../images/i_cafe.gif">
                 </button>
             </div>
-    </div><!-- condition -->
+     </div><!-- condition -->
 <script type="text/javascript" src="condition.js"></script>
 <script type="text/javascript" src="push.js"></script>
 

@@ -45,7 +45,6 @@ if(!empty($_POST)){ // [J-01]
 		$sql = "SELECT * FROM `gatchi_users`
 				WHERE `email` = ?
 				AND `password` = ?";
-
 		// ?マークを代入する
 		$data = array($email,$password);
 		$stmt = $dbh->prepare($sql);
@@ -57,21 +56,17 @@ if(!empty($_POST)){ // [J-01]
 		// 1行取得する
 		$record = $stmt->fetch(PDO::FETCH_ASSOC);
 		if($record){ // [J-06]
-			echo '合致しました<br>';
-
 			// $record['id'] -> DBの値
 			// $record['username'] -> DBの値
 			// $record['email'] -> DBの値
 			// $record['password'] -> DBの値
 			// これらはすべてDBのカラムとカラムに入っている値が$recordに入っている状態
-
 			//すべてのユーザーデータが入った変数$recordを一時的に保持しておく
 			$_SESSION['login_user'] = $record;
 
 			// リダイレクト (ポスイト送信を破棄してリンクを飛ばす)
 			header('Location: cushion_page.php');
 			exit();
-
 		} // [J-06] リダイレクト条件閉鎖
 
 		else{ //[J-07]
