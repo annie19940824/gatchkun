@@ -122,7 +122,7 @@ $login_condition =$_SESSION['login_user']['conditions'];
                     <img src="../images/i_karaoke.gif">
                 </button>
 
-　　　　　　　　　<!-- ドライブ -->
+<!-- ドライブ -->
                 <button id="drive">
                     <img src="../images/i_drive.gif">
                 </button>
@@ -133,32 +133,32 @@ $login_condition =$_SESSION['login_user']['conditions'];
                     </button>
 
                 <!--宅飲み -->
- 　　　　　　　　<button id="insake">
+ <button id="insake">
                     <img src="../images/i_takunomi.gif">
                 </button>
 
-　　　　　　　　　<!-- カフェ -->
+<!-- カフェ -->
                 <button id="cafe">
                     <img src="../images/i_cafe.gif">
                 </button>
 
-　　　　　　　　　<!--買い物 -->
-　　　　　　　　　<button id="kaimono">
+<!--買い物 -->
+<button id="kaimono">
                     <img src="../images/i_kaimono.gif">
                 </button>
 
-　　　　　　　　　<!-- ご飯 -->
-　　　　　　　　 <button id="meshi">
+<!-- ご飯 -->
+ <button id="meshi">
                     <img src="../images/i_meshi.gif">
                 </button>
                 
                 <!-- ゲーム -->
-　　　　　　　　 <button id="game">
+ <button id="game">
                     <img src="../images/i_game.gif">
                 </button>
                  
                 <!--その他-->
-　　　　　　　　 <button id="sonota">
+ <button id="sonota">
                     <img src="../images/i_sonota.gif">
                 </button>
 
