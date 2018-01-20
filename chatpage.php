@@ -2,55 +2,34 @@
 
 session_start();
 require('dbconect_gatch.php');
-/*仮データ*/
-
-// $record=$stmt->fetch(PDO::FETCH_ASSOC);
-
-/*var_dump($record);*/
-
-/*chatに自分と相手のidデータを持ってくるように紐づける*/
-// $sql='SELECT `requesting_user`,`receive_user`
-//       FROM `gatch` WHERE `gatch_id`=?';
-// $data=array(1);
-// $stmt=$dbh->prepare($sql);
-// $stmt->execute($data);
-// $record=$stmt->fetch(PDO::FETCH_ASSOC);
-
-// $user= $record['requesting_user'];
-// $other= $record['receive_user'];
 
 $user = $_SESSION['login_user']['user_id'];
 $other = $_GET['id'];
 
 if (!isset($_GET['id'])) {
-  header('Location: ../YUSUKE1/TOP/top_push.php');
+  header('Location: ../TOP/top_push.php');
   exit();
 }
 
 
-// 何かしらボタンが押されたら、ここの中のコードが動く
-if(!empty($_POST)){
+  if(!empty($_POST)){
           $errors = array();
           $chat = htmlspecialchars($_POST['chat']);
 
   if($chat == ''){
           $errors['chat'] = 'blank';
-          echo '何も入っていません';
+
                   }
  if(empty($errors)){
-      // エラーがなかったら、ここのif文の処理が動く
-
-      // ツイートテーブルに呟いた内容を保存しておく！
       $sql ='INSERT INTO `gatch_chat` SET
                                       `user_id`=?,
                                       `other_id`=?,
                                       `chat` = ?,
                                       `created`=NOW()
        ';
-      $data = array($user,$other,$chat); // ?マークある場合は順番に配列をセットする
-      $stmt = $dbh->prepare($sql); // SQL文を準備する
-      $stmt->execute($data); // ?マークを上書きして実行！
-
+      $data = array($user,$other,$chat); 
+      $stmt = $dbh->prepare($sql); 
+      $stmt->execute($data); 
       header('Location: chatpage.php'.'?id='.$other);
       exit();
       }
@@ -58,13 +37,13 @@ if(!empty($_POST)){
 }
 /* チャット画面にchatを表示させるためのsql*/
       $sql = 'SELECT  `chat`,
-                      `username`,
+                      `user_name`,
                       `user_id`,
                       `other_id`,
-                      `profileImage`
+                      `picture`
               FROM     `gatch_chat`
-              LEFT JOIN `users`
-              ON `gatch_chat`.`user_id`=`users`.`id`
+              LEFT JOIN `gatchi_users`
+              ON `gatch_chat`.`users_id`=`gatchi_users`.`user_id`
               WHERE (user_id = ? AND other_id =?)
               OR (user_id=? AND other_id=?)
               ORDER BY `gatch_chat`.`created` DESC
@@ -77,8 +56,8 @@ if(!empty($_POST)){
 
 
 /*自分のプロフィールを表示したい*/
-       $sql='SELECT `id`,`username`,`profileImage`, `created`
-             FROM `users` WHERE `id`=?';
+       $sql='SELECT `user_id`,`user_name`,`picture`, `created`
+             FROM `gatchi_users` WHERE `user_id`=?';
        $data = array($user);
        $stmt = $dbh->prepare($sql);
        $stmt->execute($data);
@@ -86,8 +65,8 @@ if(!empty($_POST)){
 
 /*相手のプロフィールを表示したい*/
 
-       $sql='SELECT `id`,`username`,`profileImage`,`created`
-             FROM `users` WHERE `id`=?';
+       $sql='SELECT `user_id`,`user_name`,`picture`,`created`
+             FROM `gatchi_users` WHERE `user_id`=?';
        $data = array($other);
        $stmt = $dbh->prepare($sql);
        $stmt->execute($data);
@@ -100,51 +79,15 @@ if(!empty($_POST)){
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>チャットページ</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
-	<meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
-	<meta name="author" content="FreeHTML5.co" />
 
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
-
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
-
-	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="annabox/css_anna/animate_anna.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css_anna/icomoon_anna.css">
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css_anna/bootstrap_anna.css">
-	<!-- Owl Carousel -->
-	<link rel="stylesheet" href="css_anna/owl.carousel.min_anna.css">
-	<link rel="stylesheet" href="css_anna/owl.theme.default.min_anna.css">
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="css_anna/style_anna.css">
-
-	<!-- Modernizr JS -->
-	<script src="js_anna/modernizr-2.6.2.min_anna.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	
 </head>
 <body>
 	<h1 style="text-align: center;">はい合致チャット画面</h1>
   <p style="text-align: center; font-size: 20px">
-    <?php echo $other_profile['username'];?>さんと合致しました！！
+    <?php echo $other_profile['user_name'];?>さんと合致しました！！
   </p>
 
   <div class="container">
@@ -153,12 +96,12 @@ if(!empty($_POST)){
           <h3 style="text-align: center;">
             マイプロフィール
           </h3>
-          ようこそ：<?php echo $user_profile['username'] ; ?>さん<br>
-          <img src="profile_image/<?php echo $user_profile['profileImage'];?>" width="50px"><br>
+          ようこそ：<?php echo $user_profile['user_name'] ; ?>さん<br>
+          <img src="LOGIN/profile_image/<?php echo $user_profile['picture'];?>" width="50px"><br>
 
           <span style="font-size: 12px ;text-align: center;">
             id : <?php echo $user_profile['user_id']; ?>
-            / ユーザー名 : <?php echo $user_profile['username'];?><br>
+            / ユーザー名 : <?php echo $user_profile['user_name'];?><br>
             登録日時:<?php echo $user_profile['created'] ;?>
           </span>
 
@@ -190,11 +133,13 @@ if(!empty($_POST)){
               <!-- 自分のつぶやき -->
               <div class="chat-box">
                 <div class="chat-face">
-                <img src="profile_image/<?php echo  $user_profile['profile_image'];  ?>" alt="自分のチャット画像です。" width="90" height="90">
+                <img src="LOGIN/profile_image/<?php echo  $user_profile['picture'];  ?>" alt="自分のチャット画像です。" width="90" height="90">
                 </div>
                 <div class="chat-area">
                   <div class="chat-hukidashi">
+                  
                     <?php echo $t['chat']; ?>
+                  
                   </div>
                 </div>
               </div>
@@ -202,12 +147,14 @@ if(!empty($_POST)){
               <!-- 相手のつぶやき -->
               <div class="chat-box">
                 <div class="chat-face">
-                <img src="profile_image/<?php echo $other_profile['profileImage'];  ?>"
-            alt="誰かのチャット画像です。" width="90" height="90">
+                <img src="LOGIN/profile_image/<?php echo $other_profile['picture'];  ?>"
+            alt="相手のチャット画像です。" width="90" height="90">
                 </div>
                 <div class="chat-area">
                   <div class="chat-hukidashi someone">
+                  
                     <?php echo $t['chat']; ?>
+                  
                   </div>
                 </div>
               </div>
@@ -219,11 +166,11 @@ if(!empty($_POST)){
 
 			<div class="col-xs-4" ><!-- 12/12 -->
         <h3 style="text-align: center;" >合致メイト</h3>
-        ようこそ：<?php echo $other_profile['username']; ?>さん<br>
-        <img src="profile_image/<?php echo $other_profile['profile_image'];?>" width="50px"><br>
+        ようこそ：<?php echo $other_profile['user_name']; ?>さん<br>
+        <img src="LOGIN/profile_image/<?php echo $other_profile['picture'];?>" width="50px"><br>
         <span style="font-size: 12px">
-          id:<?php echo $other_profile['id']; ?>/
-          ユーザー名:<?php echo $other_profile['username']; ?><br>
+          id:<?php echo $other_profile['user_id']; ?>/
+          ユーザー名:<?php echo $other_profile['user_name']; ?><br>
           登録日時 :<?php echo $other_profile['created'];?>
         </span>
 		  </div><!-- 12/12 -->

@@ -1,13 +1,16 @@
 <?php
 // AJAXで飛ばすから require('../dbconnect.php'); が必要
-require('../dbconnect.php');
-	$sql ="UPDATE `users`
-		   SET    `conditioned` =?
-		   WHERE  `id` =?
-	";
-	$data = array($_POST['condition'], $_POST['login_id']);
+session_start();
+require('../dbconect_gatch.php');
+	$sql ='UPDATE `gatchi_users`
+		   SET    `conditions` =?
+		   WHERE `user_id` =?
+	';
+
+	$data = array($_POST['login_condition'], $_POST['login_id']);
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute($data);
+	$_SESSION['login_user']['conditions']=$_POST['login_condition'];
 
 	echo "aaaa";
 ?>

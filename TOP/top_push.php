@@ -55,9 +55,6 @@ $login_condition =$_SESSION['login_user']['conditions'];
     </script>
 </head>
 
-
-
-
 <body>
     <header>
         <span style="line-height: 56px; font-size: 25px;">ようこそ暇人さん</span>
@@ -74,17 +71,18 @@ $login_condition =$_SESSION['login_user']['conditions'];
 
 
     <div id="himajin">
-        <?php foreach($login_users as $login_users): ?>
+        <?php foreach($login_users as $login_user): ?>
             <div>
-                <a href="../chatpage.php?id=<?php echo $login_users['id']; ?>" style="text-decoration: none;">
+                <a href="../chatpage.php?id=<?php echo $login_user['user_id']; ?>" style="text-decoration: none;">
                     <button type="submit" class="tochat">
-                    <img src="../LOGIN/profile_image/<?php echo $login_users['picture'] ;?>">
+                    <img src="../LOGIN/profile_image/<?php echo $login_user['picture'] ;?>">
                     </button>
                 </a>
                 
                 
 
-                <p><?php echo $login_users['user_name']; ?></p>
+                <p><?php echo $login_user['user_name']; ?></p>
+
                 <button class="push">合致通知</button>
             </div>
         <?php endforeach ?>
@@ -102,10 +100,10 @@ $login_condition =$_SESSION['login_user']['conditions'];
                 <button type="submit" class="tochat">
 
                 <img src="../LOGIN/profile_image/<?php
-                 echo $login_users['picture'];?>">
-                
+                 echo $condition_gatch['picture'];?>">
 
                 </button>
+
              </a>
              <p><?php echo $condition_gatch['user_name']; ?></p>
                 <button class="push">合致通知</button>
@@ -118,19 +116,55 @@ $login_condition =$_SESSION['login_user']['conditions'];
     <div id="condition">
         <p>あなたのコンディションは<img id="test" src="../images/<?php echo $login_condition; ?>">です</p>
             <div>
-                <button id="karaoke" style="width: 100px;">カラオケ</button>
+            
+                <!-- カラオケ -->
+                <button id="karaoke">
+                    <img src="../images/i_karaoke.gif">
+                </button>
+
+　　　　　　　　　<!-- ドライブ -->
                 <button id="drive">
                     <img src="../images/i_drive.gif">
                 </button>
-                <button id="alcohol">
-                    <img src="../images/i_nomi.gif">
+                
+                    <!-- アルコール -->
+                    <button id="alcohol">
+                        <img src="../images/i_nomi.gif">
+                    </button>
+
+                <!--宅飲み -->
+ 　　　　　　　　<button id="insake">
+                    <img src="../images/i_takunomi.gif">
                 </button>
+
+　　　　　　　　　<!-- カフェ -->
                 <button id="cafe">
                     <img src="../images/i_cafe.gif">
                 </button>
+
+　　　　　　　　　<!--買い物 -->
+　　　　　　　　　<button id="kaimono">
+                    <img src="../images/i_kaimono.gif">
+                </button>
+
+　　　　　　　　　<!-- ご飯 -->
+　　　　　　　　 <button id="meshi">
+                    <img src="../images/i_meshi.gif">
+                </button>
+                
+                <!-- ゲーム -->
+　　　　　　　　 <button id="game">
+                    <img src="../images/i_game.gif">
+                </button>
+                 
+                <!--その他-->
+　　　　　　　　 <button id="sonota">
+                    <img src="../images/i_sonota.gif">
+                </button>
+
             </div>
      </div><!-- condition -->
-<script type="text/javascript" src="condition.js"></script>
+<script type="text/javascript" src="condition.js?id="<?= date(); ?>></script>
 <script type="text/javascript" src="push.js"></script>
 
 </body>

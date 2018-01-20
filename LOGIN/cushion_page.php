@@ -60,11 +60,11 @@ require('../dbconect_gatch.php');
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-4">
-		<img src="../images/gatchi_logo88.gif" width="40%">
+	 <img src="../images/gatchi_logo88.gif" width="40%">
 	</div>
 
 	<div class="col-xs-8" float="left">
-		<img src="../images/header_asset02.jpg" width="35%">
+	 <img src="../images/header_asset02.jpg" width="35%">
 	</div>
 		</div>
 			</div>
@@ -79,22 +79,33 @@ require('../dbconect_gatch.php');
 	<h1>今のあなたの気分は？</h1>
 	<h3 style="margin-bottom: 30px">ひとつだけ選択できます。</h3>
 
-<form action="" method="POST">
-<p style="margin-bottom: 15px">
-<input type="radio" name="conditions" value="insake">飲みに行こ
-<input style="margin-left: 25px" type="radio" name="conditions" value="drive">ドライブ行こ
-<input style="margin-left: 25px" type="radio" name="conditions" value="outsake">宅飲みしよ
-<br>
-<br>
-<input type="radio" name="conditions" value="game">ゲームしよ
-<input style="margin-left: 25px" type="radio" name="conditions" value="cafe">カフェろ
-<input style="margin-left: 25px" type="radio" name="conditions" value="meal">メシ行こ
-<br>
-<br>
-<input type="radio" name="conditions" value="shop">買い物行こ
-<input style="margin-left: 25px" type="radio" name="conditions" value="karaoke">カラオケ行こ
-<input style="margin-left: 25px" type="radio" name="conditions" value="other">その他
-</p>
+   <form action="" method="POST">
+   <p style="margin-bottom: 15px">
+
+   <input type="radio" name="conditions" value="i_nomi.gif">飲みに行こ
+
+   <input style="margin-left: 25px" type="radio" name="conditions" value="i_drive.gif">ドライブ行こ
+
+   <input style="margin-left: 25px" type="radio" name="conditions" value="i_takunomi.gif  ">宅飲みしよ
+
+		<br>
+		<br>
+
+		<input type="radio" name="conditions" value="i_game.gif">ゲームしよ
+
+		<input style="margin-left: 25px" type="radio" name="conditions" value="i_cafe.gif">カフェろ
+
+		<input style="margin-left: 25px" type="radio" name="conditions" value="i_meshi.gif">メシ行こ
+
+		<br>
+		<br>
+
+		<input type="radio" name="conditions" value="i_kaimono.gif">買い物行こ
+
+		<input style="margin-left: 25px" type="radio" name="conditions" value="i_karaoke.gif">カラオケ行こ
+
+		<input style="margin-left: 25px" type="radio" name="conditions" value="i_sonota.gif">その他
+        </p>
 
 	<h1>とりあえずつぶやいておきましょう</h1>
 	<h3 style="margin-bottom: 30px; color: navy">暇人募集のつぶやき（２０文字以内）</h3>
@@ -121,12 +132,6 @@ require('../dbconect_gatch.php');
 
 		?>
     </footer>
-
-
-
-
-
-
 
 </body>
 </html>
