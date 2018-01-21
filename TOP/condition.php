@@ -3,7 +3,7 @@
 session_start();
 require('../dbconect_gatch.php');
 	$sql ='UPDATE `gatchi_users`
-		   SET    `conditions` =?
+    	   SET    `conditions` =?
 		   WHERE `user_id` =?
 	';
 
@@ -12,5 +12,6 @@ require('../dbconect_gatch.php');
 	$stmt->execute($data);
 	$_SESSION['login_user']['conditions']=$_POST['login_condition'];
 
-	echo "aaaa";
+
+
 ?>

@@ -56,9 +56,7 @@ if (!isset($_GET['id'])) {
        $stmt = $dbh->prepare($sql);
        $stmt->execute($data);
        $tweets = $stmt->fetchAll();
-
- var_dump($tweets);
-
+       
 /*自分のプロフィールを表示したい*/
        $sql='SELECT `user_id`,`user_name`,`picture`, `created`
              FROM `gatchi_users` WHERE `user_id`=?';
