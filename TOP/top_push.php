@@ -104,6 +104,10 @@ $login_condition =$_SESSION['login_user']['conditions'];
 
              </a>
              <p><?php echo $condition_gatch['user_name'];
+               
+
+
+
                       echo$condition_gatch['tubuyaki'];?></p>
             
              

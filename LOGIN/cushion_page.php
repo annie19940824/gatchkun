@@ -25,7 +25,7 @@ require('../dbconect_gatch.php');
 		$stmt = $dbh->prepare($sql); // SQL文セット完了
 		$stmt->execute($data); // ?マークを上書きしてSQL実行
 
-        $_SESSION['user_info']['conditions'] = $_POST['conditions'];
+        $_SESSION['login_user']['conditions'] = $_POST['conditions'];
 
 
 		header('Location:../TOP/top_push.php');
@@ -126,11 +126,7 @@ require('../dbconect_gatch.php');
 
 
 	<footer style="width: 100%; background-color: #f8f2f2 ; float: left; padding-bottom: 20px;" >
-	       <?php 
 
-		require('../footer.html'); 
-
-		?>
     </footer>
 
 </body>
