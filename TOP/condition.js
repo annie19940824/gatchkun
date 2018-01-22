@@ -1,6 +1,6 @@
 $(function(){
 
-/*カラオケ*/
+    /*カラオケ*/
    $('#karaoke').on('click',function(){
         $.ajax({
             type:"POST",
@@ -11,15 +11,14 @@ $(function(){
             }
         })
         .done(function(data){
-            $('#test').attr('src','../images/?');
+            $('#test').attr('src','../images/i_karaoke.gif');
             console.log(data);
-            $('body').load('http://localhost/annie/gatchkun/TOP/top_push.php');
+            $('body').load('http://localhost/20171030/gatchkun/TOP/top_push.php');
 
         })
     });
-   
 
-/*ドライブ*/
+    /*ドライブ*/
    $('#drive').on('click',function(){
         $.ajax({
             type:"POST",
@@ -30,34 +29,34 @@ $(function(){
             }
         })
         .done(function(data){
-            $('#test').attr('src','../images/?');
+            $('#test').attr('src','../images/i_drive.gif');
             console.log(data);
-            $('body').load('http://localhost/annie/gatchkun/TOP/top_push.php')
+            $('body').load('http://localhost/20171030/gatchkun/TOP/top_push.php');
+        });
     });
-});
 
 
-/*アルコール*/
-$('#alcohol').on('click',function(){
-    $.ajax({
-            type:"POST",
-            url:"condition.php",
-            data:{
-                "login_id": login_id,
-                "login_condition": "i_nomi.gif",
-            }
-        })
-        .done(function(data){
-            $('#test').attr('src','../images/?');
-            console.log(data);
-            $('body').load('http://localhost/annie/gatchkun/TOP/top_push.php')
+    /*アルコール*/
+    $('#alcohol').on('click',function(){
+        $.ajax({
+                type:"POST",
+                url:"condition.php",
+                data:{
+                    "login_id": login_id,
+                    "login_condition": "i_nomi.gif",
+                }
+            })
+            .done(function(data){
+                $('#test').attr('src','../images/i_nomi.gif');
+                console.log(data);
+                $('body').load('http://localhost/20171030/gatchkun/TOP/top_push.php')
+        });
     });
-});
 
 
     /*宅のみ*/
    $('#insake').on('click',function(){
-    $.ajax({
+        $.ajax({
             type:"POST",
             url:"condition.php",
             data:{
@@ -66,17 +65,16 @@ $('#alcohol').on('click',function(){
             }
         })
         .done(function(data){
-            $('#test').attr('src','../images/?');
+            $('#test').attr('src','../images/i_takunomi.gif');
             console.log(data);
-            $('body').load('http://localhost/annie/gatchkun/TOP/top_push.php')
+            $('body').load('http://localhost/20171030/gatchkun/TOP/top_push.php')
+        });
     });
-});
 
 
-/*カフェ */  
+    /*カフェ */
     $('#cafe').on('click',function(){
-
-    $.ajax({
+        $.ajax({
             type:"POST",
             url:"condition.php",
             data:{
@@ -85,34 +83,34 @@ $('#alcohol').on('click',function(){
             }
         })
         .done(function(data){
-            $('#test').attr('src','../images/?');
+            $('#test').attr('src','../images/i_cafe.gif');
             console.log(data);
-            $('body').load('http://localhost/annie/gatchkun/TOP/top_push.php')
+            $('body').load('http://localhost/20171030/gatchkun/TOP/top_push.php')
+        });
     });
-});
 
 
-  /*買い物*/
- $('#kaimono').on('click',function(){
-    $.ajax({
+    /*買い物*/
+     $('#kaimono').on('click',function(){
+        $.ajax({
             type:"POST",
             url:"condition.php",
             data:{
                 "login_id": login_id,
                 "login_condition": "i_kaimono.gif",
-            }
+        }
         })
         .done(function(data){
-            $('#test').attr('src','../images/?');
+            $('#test').attr('src','../images/i_kaimono.gif');
             console.log(data);
-            $('body').load('http://localhost/annie/gatchkun/TOP/top_push.php')
+            $('body').load('http://localhost/20171030/gatchkun/TOP/top_push.php')
+        });
     });
-});
 
-    
+
     /*ご飯*/
     $('#meshi').on('click',function(){
-    $.ajax({
+        $.ajax({
             type:"POST",
             url:"condition.php",
             data:{
@@ -121,15 +119,15 @@ $('#alcohol').on('click',function(){
             }
         })
         .done(function(data){
-            $('#test').attr('src','../images/?');
+            $('#test').attr('src','../images/i_meshi.gif');
             console.log(data);
-            $('body').load('http://localhost/annie/gatchkun/TOP/top_push.php')
+            $('body').load('http://localhost/20171030/gatchkun/TOP/top_push.php')
+        });
     });
-});
 
-      /*ゲーム */ 
+    /*ゲーム */
     $('#game').on('click',function(){
-    $.ajax({
+        $.ajax({
             type:"POST",
             url:"condition.php",
             data:{
@@ -138,15 +136,15 @@ $('#alcohol').on('click',function(){
             }
         })
         .done(function(data){
-            $('#test').attr('src','../images/?');
+            $('#test').attr('src','../images/i_game.gif');
             console.log(data);
-            $('body').load('http://localhost/annie/gatchkun/TOP/top_push.php')
+            $('body').load('http://localhost/20171030/gatchkun/TOP/top_push.php')
+        });
     });
-});
 
-/*その他   */    
+    /*その他   */
     $('#sonota').on('click',function(){
-    $.ajax(　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{
+        $.ajax({
             type:"POST",
             url:"condition.php",
             data:{
@@ -157,9 +155,8 @@ $('#alcohol').on('click',function(){
         .done(function(data){
             $('#test').attr('src','../images/i_sonota.gif');
             console.log(data);
-           // $('body').load('http://localhost/annie/gatchkun/TOP/top_push.php')
+            $('body').load('http://localhost/20171030/gatchkun/TOP/top_push.php')
+        });
     });
-
-});
 });
 
