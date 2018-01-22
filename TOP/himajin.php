@@ -4,12 +4,10 @@
 	$sql = "SELECT *
 			FROM   `gatchi_users`
 			WHERE  `login` = 1
-			AND    `id` != ?
+			AND    `user_id` != ?
 		   ";
 	$data = array($login_id);
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute($data);
 	$login_users = $stmt->fetchall();
-
-	var_dump($login_users);
 ?>

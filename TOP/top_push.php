@@ -6,29 +6,8 @@ require('../dbconect_gatch.php');
 $login_id = $_SESSION['login_user']['user_id'];
 $login_condition =$_SESSION['login_user']['conditions'];
 
-/*require('himajin.php');*/
-    $sql = "SELECT *
-            FROM   `gatchi_users`
-            WHERE  `login` = 1
-            AND    `user_id` != ?";
-    $data = array($login_id);
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute($data);
-    $login_users = $stmt->fetchall();
-
-
-/*require('condition_gatch.php');*/
-
-    $sql = "SELECT *
-            FROM  `gatchi_users`
-            WHERE `login`= 1
-            AND   `conditions` =?
-            AND   `user_id` != ?
-           ";
-    $data = array($login_condition,$login_id);
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute($data);
-    $condition_gatch = $stmt->fetchall();
+require('himajin.php'); // [$login_users]に暇人全員のデータを格納してある
+require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデータを格納してある
 ?>
 
 <!DOCTYPE html>
@@ -144,8 +123,7 @@ $login_condition =$_SESSION['login_user']['conditions'];
 <!-- <script type="text/javascript" src="condition.js?id="<?= date(); ?>></script>
  -->
 <script type="text/javascript" src="condition.js"></script>
-
- <script type="text/javascript" src="push.js"></script>
+<script type="text/javascript" src="push.js"></script>
 
 </body>
 </html>
