@@ -27,6 +27,8 @@ require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデ�
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- ========push.js======== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js">Push.Permission.request();</script>
+    <!-- ========firebase======== -->
+    <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
     <!-- ========PHPで定義した変数をJSで使う======== -->
     <script type="text/javascript">
         var login_id = <?php echo json_encode($login_id); ?>;
@@ -53,7 +55,7 @@ require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデ�
         <?php foreach($login_users as $login_user): ?>
             <div>
                 <a href="../chatpage.php?id=<?php echo $login_user['user_id']; ?>" style="text-decoration: none;">
-                    <button type="submit" class="tochat">
+                    <button type="submit" class="tochat" id="<?php echo $login_user['user_id']; ?>">
                     <img src="../LOGIN/profile_image/<?php echo $login_user['picture'] ;?>">
                     </button>
                 </a>
@@ -69,7 +71,7 @@ require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデ�
         <?php foreach($condition_gatch as $condition_gatch): ?>
             <div>
                 <a href="../chatpage.php?id=<?php echo $condition_gatch['user_id']?>" style="text-decoration: none;">
-                    <button type="submit" class="tochat">
+                    <button type="submit" class="tochat" id="<?php echo $condition_gatch['user_id']?>">
                     <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>">
                     </button>
                 </a>
@@ -124,6 +126,57 @@ require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデ�
  -->
 <script type="text/javascript" src="condition.js"></script>
 <script type="text/javascript" src="push.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCAXV5bDJUvHI0CUgnDQBC5yBHya5TurXY",
+    authDomain: "toppush-sumple.firebaseapp.com",
+    databaseURL: "https://toppush-sumple.firebaseio.com",
+    projectId: "toppush-sumple",
+    storageBucket: "toppush-sumple.appspot.com",
+    messagingSenderId: "909608741708"
+  };
+var pushRef = new Firebase("https://toppush-sumple.firebaseio.com/e");
+$(function(){
 
+    //if (true) {
+        $("[id='<?php echo $login_user['user_id']; ?>']").on('click',function(){
+            pushRef.push({
+                login_id: <?php echo $login_id; ?>,
+                other_id: <?php echo $login_user['user_id']; ?>
+            });
+        });
+    //}else if(true){
+        $("[id='<?php echo $condition_gatch['user_id']; ?>']").on('click',function(){
+            pushRef.push({
+                login_id: <?php echo $login_id; ?>,
+                other_id: <?php echo $condition_gatch['user_id']; ?>
+            });
+        });
+    //}
+});
+    // データベースにデータが追加されたときに発動する
+    pushRef.limitToLast(10).on('child_added', function (snapshot) {
+        //取得したデータ
+        var data = snapshot.val();
+        var sent_id = data.login_id;
+        var receive_id = data.other_id;
+
+    // idが自分と同じだったら通知を表示するようにする
+    // ○○と合致しました
+        if (receive_id === <?php echo $login_id; ?>) {
+            Push.create('はい！合致~', {
+                body: '通知',
+                icon: 'icon.png',
+                timeout: 8000, // 通知が消えるタイミング
+                vibrate: [100, 100, 100], // モバイル端末でのバイブレーション秒数
+                onClick: function() {
+                // 通知がクリックされた場合の設定
+                console.log(this);
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>
