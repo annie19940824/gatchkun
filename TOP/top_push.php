@@ -123,83 +123,90 @@ require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデ�
                 </button>
             </div>
     </div><!-- condition -->
-<!-- <script type="text/javascript" src="condition.js?id="<?= date(); ?>></script>
- -->
-<script type="text/javascript" src="condition.js"></script>
-<script type="text/javascript" src="push.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyCAXV5bDJUvHI0CUgnDQBC5yBHya5TurXY",
-    authDomain: "toppush-sumple.firebaseapp.com",
-    databaseURL: "https://toppush-sumple.firebaseio.com",
-    projectId: "toppush-sumple",
-    storageBucket: "toppush-sumple.appspot.com",
-    messagingSenderId: "909608741708"
-  };
-var pushRef = new Firebase("https://toppush-sumple.firebaseio.com/e");
-$(function(){
+    <!-- <script type="text/javascript" src="condition.js?id="<?= date(); ?>></script>
+     -->
+    <script type="text/javascript" src="condition.js"></script>
 
-    $("[id='<?php echo $login_user['user_id']; ?>']").on('click',function(){
-        pushRef.push({
-            login_id: <?php echo $login_id; ?>,
-            other_id: <?php echo $login_user['user_id']; ?>
-        });
-    });
-    $("[id='<?php echo $condition_gatch['user_id']; ?>']").on('click',function(){
-        pushRef.push({
-            login_id: <?php echo $login_id; ?>,
-            other_id: <?php echo $condition_gatch['user_id']; ?>
-        });
-    });
-});
-    // データベースにデータが追加されたときに発動する
-    pushRef.limitToLast(10).on('child_added', function (snapshot) {
-        //取得したデータ
-        var data = snapshot.val();
-        var sent_id = data.login_id;
-        var receive_id = data.other_id;
 
-    // idが自分と同じだったら通知を表示するようにする
-    // ○○と合致しました
-        if (receive_id === <?php echo $login_id; ?>) {
-            Push.create('はい！合致~', {
-                body: '通知',
-                icon: 'icon.png',
+    <!-- node(express) -->
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script>
+        var myId = <?= $_SESSION['login_user']['user_id']; ?>;
+        var socket = io('http://localhost:3000');
+        $('#push').click(() => {
+            socket.emit('pushSend', {id: myId});
+            return false;
+        });
+        socket.on('pushOn', (data) => {
+          console.log(myId);
+          if(myId==data['id']){
+            Push.create('合致！', {
+                body: '更新をお知らせします！',
+                icon: 'profile_image/01.jpg',
                 timeout: 8000, // 通知が消えるタイミング
-                vibrate: [100, 100, 100], // モバイル端末でのバイブレーション秒数
+                // モバイル端末でのバイブレーション秒数
+                vibrate: [100, 100, 100],
                 onClick: function() {
-                // 通知がクリックされた場合の設定
-                console.log(this);
+                    // 通知がクリックされた場合の設定
+                    console.log(this);
                 }
             });
-        }
+          }
+        });
+    </script><!-- node -->
+
+<!-- =========================firebase関連(使いません) ===========================-->
+   <!--  <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCAXV5bDJUvHI0CUgnDQBC5yBHya5TurXY",
+        authDomain: "toppush-sumple.firebaseapp.com",
+        databaseURL: "https://toppush-sumple.firebaseio.com",
+        projectId: "toppush-sumple",
+        storageBucket: "toppush-sumple.appspot.com",
+        messagingSenderId: "909608741708"
+      };
+    var pushRef = new Firebase("https://toppush-sumple.firebaseio.com/e");
+    $(function(){
+
+        $("").on('click',function(){
+            pushRef.push({
+                login_id: ?,
+                other_id: ?
+            });
+        });
+        $("").on('click',function(){
+            pushRef.push({
+                login_id: ?,
+                other_id: ?
+            });
+        });
     });
-</script>
-<script src="http://localhost:3000/socket.io/socket.io.js"></script>
-<script>
-    var myId = <?= $_SESSION['login_user']['user_id']; ?>;
-    var socket = io('http://localhost:3000');
-    $('#push').click(() => {
-        socket.emit('pushSend', {id: myId});
-        return false;
-    });
-    socket.on('pushOn', (data) => {
-      console.log(myId);
-      if(myId==data['id']){
-        Push.create('こんにちは！', {
-            body: '更新をお知らせします！',
-            icon: 'profile_image/01.jpg',
-            timeout: 8000, // 通知が消えるタイミング
-            // モバイル端末でのバイブレーション秒数
-            vibrate: [100, 100, 100],
-            onClick: function() {
-                // 通知がクリックされた場合の設定
-                console.log(this);
+        // データベースにデータが追加されたときに発動する
+        pushRef.limitToLast(10).on('child_added', function (snapshot) {
+            //取得したデータ
+            var data = snapshot.val();
+            var sent_id = data.login_id;
+            var receive_id = data.other_id;
+
+        // idが自分と同じだったら通知を表示するようにする
+        // ○○と合致しました
+            if (receive_id === ?) {
+                Push.create('はい！合致~', {
+                    body: '通知',
+                    icon: 'icon.png',
+                    timeout: 8000, // 通知が消えるタイミング
+                    vibrate: [100, 100, 100], // モバイル端末でのバイブレーション秒数
+                    onClick: function() {
+                    // 通知がクリックされた場合の設定
+                    console.log(this);
+                    }
+                });
             }
         });
-      }
-    });
-</script>
+    </script> -->
+<!-- =======================firebase関連終了============================ -->
+
+
 </body>
 </html>
