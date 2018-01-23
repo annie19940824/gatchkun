@@ -38,6 +38,7 @@ require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデ�
 
 <body>
     <header>
+        <button id="push">ほげほげ</button>
         <span style="line-height: 56px; font-size: 25px;">ようこそ暇人さん</span>
         <div id="hamburger">
             <i class="fa fa-bars" aria-hidden="true"></i>
@@ -55,7 +56,7 @@ require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデ�
         <?php foreach($login_users as $login_user): ?>
             <div>
                 <a href="../chatpage.php?id=<?php echo $login_user['user_id']; ?>" style="text-decoration: none;">
-                    <button type="submit" class="tochat" id="<?php echo $login_user['user_id']; ?>">
+                    <button type="submit" class="tochat push" id="<?php echo $login_user['user_id']; ?>">
                     <img src="../LOGIN/profile_image/<?php echo $login_user['picture'] ;?>">
                     </button>
                 </a>
@@ -139,21 +140,18 @@ require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデ�
 var pushRef = new Firebase("https://toppush-sumple.firebaseio.com/e");
 $(function(){
 
-    //if (true) {
-        $("[id='<?php echo $login_user['user_id']; ?>']").on('click',function(){
-            pushRef.push({
-                login_id: <?php echo $login_id; ?>,
-                other_id: <?php echo $login_user['user_id']; ?>
-            });
+    $("[id='<?php echo $login_user['user_id']; ?>']").on('click',function(){
+        pushRef.push({
+            login_id: <?php echo $login_id; ?>,
+            other_id: <?php echo $login_user['user_id']; ?>
         });
-    //}else if(true){
-        $("[id='<?php echo $condition_gatch['user_id']; ?>']").on('click',function(){
-            pushRef.push({
-                login_id: <?php echo $login_id; ?>,
-                other_id: <?php echo $condition_gatch['user_id']; ?>
-            });
+    });
+    $("[id='<?php echo $condition_gatch['user_id']; ?>']").on('click',function(){
+        pushRef.push({
+            login_id: <?php echo $login_id; ?>,
+            other_id: <?php echo $condition_gatch['user_id']; ?>
         });
-    //}
+    });
 });
     // データベースにデータが追加されたときに発動する
     pushRef.limitToLast(10).on('child_added', function (snapshot) {
@@ -176,6 +174,31 @@ $(function(){
                 }
             });
         }
+    });
+</script>
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script>
+    var myId = <?= $_SESSION['login_user']['user_id']; ?>;
+    var socket = io('http://localhost:3000');
+    $('#push').click(() => {
+        socket.emit('pushSend', {id: myId});
+        return false;
+    });
+    socket.on('pushOn', (data) => {
+      console.log(myId);
+      if(myId==data['id']){
+        Push.create('こんにちは！', {
+            body: '更新をお知らせします！',
+            icon: 'profile_image/01.jpg',
+            timeout: 8000, // 通知が消えるタイミング
+            // モバイル端末でのバイブレーション秒数
+            vibrate: [100, 100, 100],
+            onClick: function() {
+                // 通知がクリックされた場合の設定
+                console.log(this);
+            }
+        });
+      }
     });
 </script>
 </body>
