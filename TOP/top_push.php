@@ -26,7 +26,7 @@ require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデ�
     <!-- ========AJAX======== -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- ========push.js======== -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js">Push.Permission.request();</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
     <!-- ========firebase======== -->
     <script src="https://cdn.firebase.com/js/client/2.3.2/firebase.js"></script>
     <!-- ========PHPで定義した変数をJSで使う======== -->
@@ -56,7 +56,7 @@ require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデ�
         <?php foreach($login_users as $login_user): ?>
             <div>
                 <a href="../chatpage.php?id=<?php echo $login_user['user_id']; ?>" style="text-decoration: none;">
-                    <button type="submit" class="tochat push" id="<?php echo $login_user['user_id']; ?>">
+                    <button type="submit" class="tochat" id="<?php echo $login_user['user_id']; ?>" onclick="push(<?php echo $login_user['user_id']; ?>)">
                     <img src="../LOGIN/profile_image/<?php echo $login_user['picture'] ;?>">
                     </button>
                 </a>
@@ -133,12 +133,24 @@ require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデ�
     <script>
         var myId = <?= $_SESSION['login_user']['user_id']; ?>;
         var socket = io('http://localhost:3000');
-        $('#push').click(() => {
-            socket.emit('pushSend', {id: myId});
-            return false;
-        });
+
+        // $('#push').click(() => {
+        //     socket.emit('pushSend', {id: myId});
+        //     return false;
+        // });
+            function push(id){
+                var otherId = id;
+                socket.emit('pushSend',
+                    {sentId: myId,
+                     receiveId: otherId
+
+                    });
+                return false;
+            };
+
         socket.on('pushOn', (data) => {
           console.log(myId);
+          console.log(data['id']);
           if(myId==data['id']){
             Push.create('合致！', {
                 body: '更新をお知らせします！',
