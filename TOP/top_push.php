@@ -123,49 +123,15 @@ require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデ�
                 </button>
             </div>
     </div><!-- condition -->
-    <!-- <script type="text/javascript" src="condition.js?id="<?= date(); ?>></script>
-     -->
     <script type="text/javascript" src="condition.js"></script>
-
-
-    <!-- node(express) -->
     <script src="http://localhost:3000/socket.io/socket.io.js"></script>
     <script>
         var myId = <?= $_SESSION['login_user']['user_id']; ?>;
+        var myName = "<?= $_SESSION['login_user']['user_name']; ?>";
+        var picture = "<?= $_SESSION['login_user']['picture']; ?>";
         var socket = io('http://localhost:3000');
-
-        // $('#push').click(() => {
-        //     socket.emit('pushSend', {id: myId});
-        //     return false;
-        // });
-            function push(id){
-                var otherId = id;
-                socket.emit('pushSend',
-                    {sentId: myId,
-                     receiveId: otherId
-
-                    });
-                return false;
-            };
-
-        socket.on('pushOn', (data) => {
-          console.log(myId);
-          console.log(data['id']);
-          if(myId==data['id']){
-            Push.create('合致！', {
-                body: '更新をお知らせします！',
-                icon: 'profile_image/01.jpg',
-                timeout: 8000, // 通知が消えるタイミング
-                // モバイル端末でのバイブレーション秒数
-                vibrate: [100, 100, 100],
-                onClick: function() {
-                    // 通知がクリックされた場合の設定
-                    console.log(this);
-                }
-            });
-          }
-        });
-    </script><!-- node -->
+    </script>
+    <script type="text/javascript" src="push.js"></script>
 
 <!-- =========================firebase関連(使いません) ===========================-->
    <!--  <script>
