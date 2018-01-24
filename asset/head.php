@@ -1,3 +1,36 @@
+<?php
+session_start();
+require('../dbconect_gatch.php');
+
+
+$login_id = $_SESSION['login_user']['user_id'];
+$login_condition =$_SESSION['login_user']['conditions'];
+
+/*require('himajin.php');*/
+    $sql = "SELECT *
+            FROM   `gatchi_users`
+            WHERE  `login` = 1
+            AND    `user_id` != ?";
+    $data = array($login_id);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute($data);
+    $login_users = $stmt->fetchall();
+
+/*require('condition_gatch.php');*/
+    
+    $sql = "SELECT *
+            FROM  `gatchi_users`
+            WHERE `login`= 1
+            AND   `conditions` =?
+            AND   `user_id` != ?
+           ";
+    $data = array($login_condition,$login_id);
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute($data);
+    $condition_gatch = $stmt->fetchall();
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,34 +89,64 @@
 
 <header>
 	<div class="navbar navbar-default navbar-fixed-top">
+		
 		<div class="container">
-			<div class="navbar-header">
+		   <div class="row">
+			 <div class="col-xs-10 ">			   
+			   <div class="navbar-header">
 				<a href="" class="navbar-brand">
-				<img src="images/gatchi_logo88.gif" style="width:150px;height:70px; top:10px;">	
-				</a>
-				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</div>
-			<div class="navbar-collapse collapse" id="navbar-main">
-				<ul class="nav navbar-nav">
-					<li><a href="../gatchpage/TOP/top_push.php">Top</a></li>
-					<li><a href="../gatchpage/LOGIN/cushion_page.php">マイページ</a></li>
-					<li><a href="../gatchpage/ID/ID_create_input.php">友達追加</a></li>
-					<li><a href="">ログアウト</a></li>
-					          
-				</ul>
-			   
+					<img src="images/gatchi_logo88.gif" style="width:150px;height:70px; bottom: :10px;">	
+					</a>
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
 
+				<div class="navbar-collapse collapse" id="navbar-main">
+					<ul class="nav navbar-nav">
+						<li><a href="../gatchpage/TOP/top_push.php">Top</a></li>
+						<li><a href="../gatchpage/LOGIN/cushion_page.php">マイページ</a></li>
+						<li><a href="../gatchpage/ID/ID_create_input.php">友達追加</a></li>
+						<li><a href="">ログアウト</a></li>	          
+				    </ul>
+			    </div>
+             </div>
+           <div class="col-xs-2">	  
 			   <i class="fa fa-user-plus" aria-hidden="true" style="font-size: 50px"></i>
-               <i class="fa fa-bell" aria-hidden="true" style="font-size: 50px" ></i>
-			</div>
-
-		</div>
+               <i class="fa fa-bell" aria-hidden="true" style="font-size: 50px"></i>
+			 </div>
+         </div>
+       </div>
+		
 	</div> 
- </header>
+   </header>
+
+	<!--  第二ヘッダー -->
+	<div class="container" style="">
+		<div class="row">
+			<div class="col-xs-12 visible-xs">
+				ほげほげほげほげほげほげほげほげほげ <!-- スマホ用の表示 -->
+			</div>
+			<div class="col-md-4 col-sm-4 hidden-xs">
+				
+				<p>あなたのコンディションは<img id="test" src="images/<?php echo $login_condition; ?>">です</p>
+			
+			</div>
+			
+			<div class="col-md-4 col-sm-4 hidden-xs">
+			
+			</div>
+			
+			<div class="col-md-4 col-sm-4 hidden-xs text-right">
+				
+				<p>コンディションを変更する</p>
+			
+            </div>
+		</div>
+	</div>
+
 
 <?php 
 	// ここにメインコンテンツを表示する
