@@ -1,6 +1,8 @@
 <?php
 session_start();
 require('../dbconect_gatch.php');
+$_SESSION['login_user']['user_id'] =1;
+$_SESSION['login_user']['conditions'] = 1 ;
 
 
 $login_id = $_SESSION['login_user']['user_id'];
@@ -124,27 +126,31 @@ $login_condition =$_SESSION['login_user']['conditions'];
    </header>
 
 	<!--  第二ヘッダー -->
-	<div class="container" style="">
+	<div style="background-color: black; padding: ">
+　　	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 visible-xs">
 				ほげほげほげほげほげほげほげほげほげ <!-- スマホ用の表示 -->
 			</div>
-			<div class="col-md-4 col-sm-4 hidden-xs">
+			<div class="col-md-4 col-sm-4 hidden-xs" style="background-color: black;">
 				
-				<p>あなたのコンディションは<img id="test" src="images/<?php echo $login_condition; ?>">です</p>
+				<p style="color:#efe597;">あなたのコンディションは
+					<img id="test" src="images/i_cafe.gif" style="width:50px;height:50px;">
+				です</p>
 			
 			</div>
 			
-			<div class="col-md-4 col-sm-4 hidden-xs">
+			<div class="col-md-4 col-sm-4 hidden-xs" style="background-color: black;">
 			
 			</div>
 			
-			<div class="col-md-4 col-sm-4 hidden-xs text-right">
+			<div class="col-md-4 col-sm-4 hidden-xs text-right" style="background-color: black;">
 				
-				<p>コンディションを変更する</p>
+				<a  href="../gatchpage/LOGIN/cushion_page.php" style="color:#efe597;">コンディションを変更する</a>
 			
             </div>
 		</div>
+	</div>
 	</div>
 
 
