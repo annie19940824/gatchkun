@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -64,7 +62,7 @@
 			 <div class="col-xs-10 ">			   
 			   <div class="navbar-header">
 				<a href="" class="navbar-brand">
-					<img src="images/gatchi_logo88.gif" style="width:150px;height:70px; bottom: :10px;">	
+					<img src="../../asset/images/gatchi_logo88.gif" style="width:150px;height:70px; bottom: :10px;">	
 					</a>
 					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
 						<span class="icon-bar"></span>
@@ -88,11 +86,7 @@
 			 </div>
          </div>
        </div>
-		
-	</div> 
-   </header>
-
-	<!--  第二ヘッダー -->
+		<!--  第二ヘッダー -->
 	<div style="background-color: black; padding: ">
 　　	<div class="container">
 		<div class="row">
@@ -103,7 +97,7 @@
 			<div class="col-md-4 col-sm-4 hidden-xs" style="background-color: black;">
 				
 				<p style="color:#efe597;">あなたのコンディションは
-					<img id="test" src="images/<?php echo $login_user['picture'] ;?>" style="width:50px;height:50px;">
+					<img id="test" src="../../asset/images/<?= $_SESSION['login_user']['conditions'] ?>" style="width:50px;height:50px;">
 				です</p>
 			
 			</div>
@@ -121,12 +115,10 @@
 		</div>
 	</div>
 </div>
+	</div> 
+   </header>
 
-
-<?php 
-	// ここにメインコンテンツを表示する
-//	require('../../YUSUKE1/chat.php');
- ?>
+	
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

@@ -165,6 +165,10 @@ if(!empty($_POST)){ // [J-01]
 </head>
 
 <body>
+<?php
+ require('../../asset/head.php');
+?>
+
 
 	<?= require('../../asset/head.php'); ?>
 
