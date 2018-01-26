@@ -3,6 +3,10 @@
 session_start();
 require('../dbconect_gatch.php');
 
+
+$login_id = $_SESSION['login_user']['user_id'];
+$login_condition =$_SESSION['login_user']['conditions'];
+
 $user = $_SESSION['login_user']['user_id'];
 $other = $_GET['id'];
 
@@ -86,6 +90,10 @@ if (!isset($_GET['id'])) {
 	<link rel="stylesheet" href="../asset/rin/Rin-3.3.7-2/dist/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="../asset/rin/Rin-3.3.7-2/dist/css/chatmain.css">
 </head>
+
+<?php  require(); ?>
+
+
 <body>
 	<h1 style="text-align: center;">はい合致チャット画面</h1>
   <p style="text-align: center; font-size: 20px">
