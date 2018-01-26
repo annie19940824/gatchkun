@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+require('../../dbconect_gatch.php');
+
+
+$login_id = $_SESSION['login_user']['user_id'];
+$login_condition =$_SESSION['login_user']['conditions'];
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>

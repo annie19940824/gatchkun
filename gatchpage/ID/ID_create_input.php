@@ -2,6 +2,14 @@
 require('../../dbconect_gatch.php');
 require('ID_sql.php');
 
+session_start();
+
+$login_id = $_SESSION['login_user']['user_id'];
+$login_condition =$_SESSION['login_user']['conditions'];
+
+
+
+
 
  ?>
 

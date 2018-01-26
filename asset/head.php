@@ -1,36 +1,3 @@
-<?php
-session_start();
-require('../dbconect_gatch.php');
-$_SESSION['login_user']['user_id'] =1;
-$_SESSION['login_user']['conditions'] = 1 ;
-
-
-$login_id = $_SESSION['login_user']['user_id'];
-$login_condition =$_SESSION['login_user']['conditions'];
-
-/*require('himajin.php');*/
-    $sql = "SELECT *
-            FROM   `gatchi_users`
-            WHERE  `login` = 1
-            AND    `user_id` != ?";
-    $data = array($login_id);
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute($data);
-    $login_users = $stmt->fetchall();
-
-/*require('condition_gatch.php');*/
-    
-    $sql = "SELECT *
-            FROM  `gatchi_users`
-            WHERE `login`= 1
-            AND   `conditions` =?
-            AND   `user_id` != ?
-           ";
-    $data = array($login_condition,$login_id);
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute($data);
-    $condition_gatch = $stmt->fetchall();
-?>
 
 
 <!DOCTYPE html>
@@ -130,13 +97,13 @@ $login_condition =$_SESSION['login_user']['conditions'];
 　　	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 visible-xs">
-				ほげほげほげほげほげほげほげほげほげ
+	
 			<!-- スマホ用の表示 -->
 			</div>
 			<div class="col-md-4 col-sm-4 hidden-xs" style="background-color: black;">
 				
 				<p style="color:#efe597;">あなたのコンディションは
-					<img id="test" src="images/i_cafe.gif" style="width:50px;height:50px;">
+					<img id="test" src="images/<?php echo $login_user['picture'] ;?>" style="width:50px;height:50px;">
 				です</p>
 			
 			</div>
