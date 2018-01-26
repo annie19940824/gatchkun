@@ -91,7 +91,7 @@ if (!isset($_GET['id'])) {
 	<link rel="stylesheet" type="text/css" href="../asset/rin/Rin-3.3.7-2/dist/css/chatmain.css">
 </head>
 
-<?php  require(); ?>
+<?php  require('../asethead.php'); ?>
 
 
 <body>
