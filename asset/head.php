@@ -130,7 +130,8 @@ $login_condition =$_SESSION['login_user']['conditions'];
 　　	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 visible-xs">
-				ほげほげほげほげほげほげほげほげほげ <!-- スマホ用の表示 -->
+				ほげほげほげほげほげほげほげほげほげ
+			<!-- スマホ用の表示 -->
 			</div>
 			<div class="col-md-4 col-sm-4 hidden-xs" style="background-color: black;">
 				
@@ -144,14 +145,15 @@ $login_condition =$_SESSION['login_user']['conditions'];
 			
 			</div>
 			
-			<div class="col-md-4 col-sm-4 hidden-xs text-right" style="background-color: black;">
-				
-				<a  href="../gatchpage/LOGIN/cushion_page.php" style="color:#efe597;">コンディションを変更する</a>
+			<div class="col-md-4 col-sm-4 hidden-xs text-right" style="background-color: black;">	
+				<a  href="../gatchpage/LOGIN/cushion_page.php" style="color:#efe597;">
+				コンディションを変更する
+			    </a>
 			
             </div>
 		</div>
 	</div>
-	</div>
+</div>
 
 
 <?php 
