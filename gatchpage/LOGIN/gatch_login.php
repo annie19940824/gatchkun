@@ -166,6 +166,8 @@ if(!empty($_POST)){ // [J-01]
 
 <body>
 
+	<?= require('../../asset/head.php'); ?>
+
 	<h1>はい合致〜！| ログイン画面</h1>
 
 	<div class="container">
