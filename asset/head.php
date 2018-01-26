@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<title>Rin</title>
-   
+
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	  <!-- ========fontawesome========-->
     <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
@@ -107,7 +107,7 @@
 			</div>
 			
 			<div class="col-md-4 col-sm-4 hidden-xs text-right" style="background-color: black;">	
-				<a  href="../gatchpage/LOGIN/cushion_page.php" style="color:#efe597;">
+				<a  href="../LOGIN/cushion_page.php" style="color:#efe597;">
 				コンディションを変更する
 			    </a>
 			

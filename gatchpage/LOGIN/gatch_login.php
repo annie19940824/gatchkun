@@ -1,10 +1,9 @@
-<?php 
+<?php
 session_start();
 require('../../dbconect_gatch.php');
 $username='';
 $email='';
 $password='';
-
 if(!empty($_POST)){ // [J-01]
 	// このif文の中はログインボタンを押したときのみ動作する
 	if (!empty($_POST['login'])) {
@@ -149,8 +148,6 @@ if(!empty($_POST)){ // [J-01]
  ?>
 
 
-
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -165,11 +162,6 @@ if(!empty($_POST)){ // [J-01]
 </head>
 
 <body>
-<?php
- require('../../asset/head.php');
-?>
-
-
 	<?= require('../../asset/head.php'); ?>
 
 	<h1>はい合致〜！| ログイン画面</h1>
@@ -179,7 +171,6 @@ if(!empty($_POST)){ // [J-01]
 	<div class="col-xs-4">
 
 	<form action="" method="POST" accept-charset="utf-8">
-	
 	<?php if(isset($errors['login']) && $errors['login'] == 'ng'){ ?>
 	<div class="alert alert-danger">
 		Eメールアドレスまたはパスワードが違います
@@ -264,18 +255,16 @@ if(!empty($_POST)){ // [J-01]
  	使用できる拡張子は、「jpg」，「png」，「gif」のみです。
  	</div>
  	<?php } ?>
- 
+
  	<input type="hidden" name="create" value="create">
 
  	<!-- 送信ボタンエリア -->
  	<input type="submit" name="登録確認" class="btn btn-primary btn-s">
 
  	</form>
-		
+
 	</div>
 
-
-		
 	</div>
 
 </div>

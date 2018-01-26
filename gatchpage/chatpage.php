@@ -14,7 +14,7 @@ if (!isset($_GET['id'])) {
   header('Location: /TOP/top_push.php');
   exit();
 }
-  
+
   if(!empty($_POST)){
           $errors = array();
           $chat = htmlspecialchars($_POST['chat']);
@@ -30,12 +30,9 @@ if (!isset($_GET['id'])) {
                                       `chat` = ?,
                                       `created`=NOW()
        ';
-      $data = array($user,$other,$chat); 
-      $stmt = $dbh->prepare($sql); 
-      $stmt->execute($data); 
-     
-
-
+      $data = array($user,$other,$chat);
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute($data);
 
       header('Location: chatpage.php'.'?id='.$other);
       exit();
@@ -60,7 +57,7 @@ if (!isset($_GET['id'])) {
        $stmt = $dbh->prepare($sql);
        $stmt->execute($data);
        $tweets = $stmt->fetchAll();
-       
+
 /*自分のプロフィールを表示したい*/
        $sql='SELECT `user_id`,`user_name`,`picture`, `created`
              FROM `gatchi_users` WHERE `user_id`=?';
