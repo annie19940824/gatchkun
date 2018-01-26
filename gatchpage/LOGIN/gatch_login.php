@@ -156,9 +156,16 @@ if(!empty($_POST)){ // [J-01]
 <head>
 	<meta charset="utf-8">
 	<title>ログイン画面</title>
+    <!-- ========fontawesome========-->
+    <link rel="stylesheet" type="text/css" href="../../asset/font-awesome-4.7.0/css/font-awesome.min.css">
+        <!-- ========stylesheet======== -->
 	<link rel="stylesheet" type="text/css" href="../../asset/css/bootstrap.css">
+	<!-- ========共通CSS======== -->
+	<link rel="stylesheet" type="text/css" href="../../asset/css/common.css">
 </head>
+
 <body>
+
 	<h1>はい合致〜！| ログイン画面</h1>
 
 	<div class="container">
@@ -174,7 +181,7 @@ if(!empty($_POST)){ // [J-01]
 	<?php } ?>
 
 	<!-- メールアドレス入力エリア -->
-	<h3>会員ログイン</h3>
+	<h3 class="theme">会員ログイン</h3>
 	<label>メールアドレス</label><br>
 		<input type="text" name="email" placeholder="Eメールアドレス" value="<?php echo $email; ?>"><br>
 
@@ -194,14 +201,14 @@ if(!empty($_POST)){ // [J-01]
 	<?php } // [J-09]パスワードのブランク確認閉鎖  ?><br>
 	<input type="hidden" name="login" value="login">
 	<!-- 送信ボタンエリア -->
-	<input type="submit" value="ログイン">
+	<input type="submit" value="ログイン" class="btn btn-primary btn-s">
 
 	</form>
 	</div>
 
 
 	<div class="col-xs-8">
-	<h3>はい合致〜！ 新規会員登録</h3>
+	<h3 class="theme">はい合致〜！ 新規会員登録</h3>
 
 	<form action="" method="POST" enctype="multipart/form-data">
 
@@ -255,7 +262,7 @@ if(!empty($_POST)){ // [J-01]
  	<input type="hidden" name="create" value="create">
 
  	<!-- 送信ボタンエリア -->
- 	<input type="submit" name="登録確認">
+ 	<input type="submit" name="登録確認" class="btn btn-primary btn-s">
 
  	</form>
 		
