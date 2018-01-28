@@ -18,7 +18,6 @@ $login_condition =$_SESSION['login_user']['conditions'];
 
 
 /*require('condition_gatch.php');*/
-    
     $sql = "SELECT *
             FROM  `gatchi_users`
             WHERE `login`= 1
@@ -46,8 +45,6 @@ $login_condition =$_SESSION['login_user']['conditions'];
     <script src="../../jQuery/jquery-migrate-1.4.1.js"></script>
     <!-- ========AJAX======== -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!-- ========push.js======== -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js">Push.Permission.request();</script>
     <!-- ========PHPで定義した変数をJSで使う======== -->
     <script type="text/javascript">
         var login_id = <?php echo json_encode($login_id); ?>;
@@ -75,13 +72,11 @@ $login_condition =$_SESSION['login_user']['conditions'];
             <div>
                 <a href="../chatpage.php?id=<?php echo $login_user['user_id']; ?>" style="text-decoration: none;">
                     <button type="submit" class="tochat">
-                    <img src="../LOGIN/profile_image/<?php echo $login_user['picture'] ;?>">
+                        <img src="../LOGIN/profile_image/<?php echo $login_user['picture'] ;?>">
                     </button>
                 </a>
-                
-    
                 <p><?php echo $login_user['user_name']; ?></p>
-             　<p><?php echo $login_user['tubuyaki'];?></p>
+             <p><?php echo $login_user['tubuyaki'];?></p>
             </div>
         <?php endforeach ?>
     </div><!-- himajin -->
@@ -89,40 +84,28 @@ $login_condition =$_SESSION['login_user']['conditions'];
 
     <div id="gatch">
         <h1>合致ユーザー</h1>
-  
         <?php foreach($condition_gatch as $condition_gatch): ?>
             <div>
-                
-             <a href="../chatpage.php?id=<?php echo $condition_gatch['id']?>" style="text-decoration: none;">
-
-                <button type="submit" class="tochat">
-
-                <img src="../LOGIN/profile_image/<?php
-                 echo $condition_gatch['picture'];?>">
-
-                </button>
-
-             </a>
-             <p><?php echo $condition_gatch['user_name'];
-               
-
-
-
-                      echo$condition_gatch['tubuyaki'];?></p>
-            
-             
-             <p style="text-align: right;"><?php echo$condition_gatch['tubuyaki'];?></p>
-
+                <a href="../chatpage.php?id=<?php echo $condition_gatch['id']?>" style="text-decoration: none;">
+                    <button type="submit" class="tochat">
+                        <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>">
+                    </button>
+                </a>
+                <p>
+                    <?php echo $condition_gatch['user_name']; ?>
+                    <?php echo $condition_gatch['tubuyaki']; ?>
+                </p>
+                <p style="text-align: right;">
+                    <?php echo$condition_gatch['tubuyaki'];?>
+                </p>
             </div>
         <?php endforeach ?>
-        <?php  ; ?>
 
     </div><!-- gatch -->
 
     <div id="condition">
         <p>あなたのコンディションは<img id="test" src="../../asset/images/<?php echo $login_condition; ?>">です</p>
             <div>
-            
                 <!-- カラオケ -->
                 <button id="karaoke">
                     <img src="../../asset/images/i_karaoke.gif">
@@ -132,7 +115,6 @@ $login_condition =$_SESSION['login_user']['conditions'];
                 <button id="drive">
                     <img src="../../asset/images/i_drive.gif">
                 </button>
-                
                     <!-- アルコール -->
                     <button id="alcohol">
                         <img src="../../asset/images/i_nomi.gif">
@@ -157,25 +139,20 @@ $login_condition =$_SESSION['login_user']['conditions'];
                 <button id="meshi">
                     <img src="../../asset/images/i_meshi.gif">
                 </button>
-                
+
                 <!-- ゲーム -->
                  <button id="game">
                     <img src="../../asset/images/i_game.gif">
                 </button>
-                 
+
                 <!--その他-->
                 <button id="sonota">
                     <img src="../../asset/images/i_sonota.gif">
                 </button>
-
             </div>
-     </div><!-- condition -->
+    </div><!-- condition -->
 <script type="text/javascript" src="condition.js?id="<?= date(); ?>></script>
-<script type="text/javascript" src="push.js"></script>
 
 </body>
 </html>
-<?php
-// ・自動的にphpファイルを読み込む方法
-// ・phpファイルにデータを送信する前に条件分岐する方法
- ?>
+

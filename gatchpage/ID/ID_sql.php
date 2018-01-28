@@ -1,11 +1,6 @@
-<?php 
-   
-/*ID入力関数*/
-   
-   
-
+<?php
+// ID入力
 	if (!empty($_POST)) {
-
 
 		$sql ="SELECT `random`
 			   FROM   `friend-add`
@@ -13,17 +8,18 @@
 		$data = array();
 		$stmt = $dbh->prepare($sql);
 		$stmt->execute($data);
-		$random = $stmt->fetchall();
 
+		$random = $stmt->fetchall();
 		$inputedId = $_POST['idInput'];
+
 		foreach ($random as $key) {
 			if ($key['random'] == $inputedId) {
 
-				$inputer =rand(1,100);
+				$inputer =rand(1,100); // ここを$_SESSION変更する
 				$sql ="UPDATE `friend-add`
-			   		   SET `inputer_id` = ?,
-			   		   	   `relation_created` = NOW()
-			   		   WHERE `random` = ?";
+			   		   	  SET `inputer_id` = ?,
+			   		   	      `relation_created` = NOW()
+			   		    WHERE `random` = ?";
 				$data = array($inputer,$inputedId);
 				$stmt = $dbh->prepare($sql);
 				$stmt->execute($data);
@@ -33,14 +29,14 @@
 				continue;
 			}
 		} // foreach
+
 		header('Location:ID_create_input.php');
 		exit();
 	} // if (!empty($_POST))
 
 
 
-/*ID出力画面
-*/
+/*ID出力画面*/
 
 $loginuser = rand(101,200);
 // $loginuser = 30;
@@ -49,22 +45,23 @@ $loginuser = rand(101,200);
 	$r_str = null;
 
 
-		for ($i = 0; $i < 20; $i++) {
-			$r_str .= $str[rand(0, count($str) - 1)];
-		}
-		// ここで$_strがDBにないか確認
-		if (!empty($_POST)) { // $_strをコピーしたら
-			echo "<br><br>".$_POST['onetimeId']."をコピーしました";
+	for ($i = 0; $i < 20; $i++) {
+		$r_str .= $str[rand(0, count($str) - 1)];
+	}
+	// ここで$_strがDBにないか確認
+	if (!empty($_POST)) { // $_strをコピーしたら
+		echo "<br><br>".$_POST['onetimeId']."をコピーしました";
 
-			$sql ="INSERT INTO `friend-add`
-				   SET `creater_id` = ?,
-				   	   `random` = ?,
-		 			   `random_created` = NOW()";
-			$data = array($loginuser,$_POST['onetimeId']);
-			$stmt = $dbh->prepare($sql);
-			$stmt->execute($data);
-		}
+		$sql ="INSERT INTO `friend-add`
+			   SET `creater_id` = ?,
+			   	   `random` = ?,
+	 			   `random_created` = NOW()";
+		$data = array($loginuser,$_POST['onetimeId']);
+		$stmt = $dbh->prepare($sql);
+		$stmt->execute($data);
+	}
 
+	// コピー履歴
 	$sql = "SELECT `random`,`random_created`
 			FROM   `friend-add`
 			WHERE  `creater_id` = ?
@@ -74,5 +71,4 @@ $loginuser = rand(101,200);
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute($data);
 	$created_id = $stmt->fetchall();
-
 ?>

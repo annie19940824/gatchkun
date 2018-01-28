@@ -1,11 +1,7 @@
 <?php
-
 require('../../dbconect_gatch.php');
 
-require('ID_sql.php');
-
-
- date_default_timezone_set('Asia/Manila');
+date_default_timezone_set('Asia/Manila');
 
 	$sql = "SELECT `random_created`,`inputer_id`,`random`
 			FROM `friend-add`
@@ -34,9 +30,4 @@ require('ID_sql.php');
 			echo "<br>".$key['random']."<br>上記のIDは24時間入力されませんでした<br>新たなIDを発行・コピーしてください<br>";
 		} // if
 	} // foreach
-
-
-
-
-
 ?>

@@ -11,7 +11,4 @@ require('../dbconect_gatch.php');
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute($data);
 	$_SESSION['login_user']['conditions']=$_POST['login_condition'];
-
-
-
 ?>

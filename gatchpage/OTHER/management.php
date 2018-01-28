@@ -34,7 +34,6 @@ $login_condition =$_SESSION['login_user']['conditions'];
 
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="../css/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -46,17 +45,14 @@ $login_condition =$_SESSION['login_user']['conditions'];
 	<link rel="stylesheet" href="../css/owl.theme.default.min.css">
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="kai_style.css">
-
 	<link rel="stylesheet" type="text/css" href="yoka_privacy.css">
-
-
 	<!-- Modernizr JS -->
 	<script src="../js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
 </head>
 <body>
@@ -67,7 +63,6 @@ $login_condition =$_SESSION['login_user']['conditions'];
 
 	<div id="himajin">
 		<img src="../images/himajin_line.jpg" id="himajin-list">
-		
 	</div>
 
 
@@ -75,10 +70,10 @@ $login_condition =$_SESSION['login_user']['conditions'];
 	<div id="fh5co-page">
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 
-		
+
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 			<!-- <div id="adjustment-2">
-				
+
 			</div> -->
 
 			<h1 id="fh5co-logo"><a href="kai_index.html"><img src="../images/gatchi_logo88.gif" alt="Free HTML5 Bootstrap Website Template"></a></h1>
@@ -100,7 +95,7 @@ $login_condition =$_SESSION['login_user']['conditions'];
 					<li><a href="riyou-kiyaku.html">利用規約</a></li>
 					<li><a href="contact.html">ヘルプ</a></li>
 				</ul>
-			 
+
 			</div>
 			</nav>
 

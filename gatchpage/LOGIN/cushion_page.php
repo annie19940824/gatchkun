@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 require('../../dbconect_gatch.php');
 
@@ -19,7 +19,7 @@ require('../../dbconect_gatch.php');
 		$tubuyaki = $_POST['tubuyaki'];
 
 		$sql = 'UPDATE `gatchi_users` SET `conditions`=?,`tubuyaki`=?,`login`=1 WHERE `user_id`=?';
-										
+
 		// ?マークを上書きするデータを用意する
 		$data = array($conditions,$tubuyaki,$_SESSION['login_user']['user_id']);
 		$stmt = $dbh->prepare($sql); // SQL文セット完了
@@ -30,25 +30,14 @@ require('../../dbconect_gatch.php');
 
 		header('Location:../TOP/top_push.php');
 		exit();
-
 	}
-
-
-
-
 ?>
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="ja">
 <head>
 	<meta charset="utf-8">
 	<title>コンディション設定ページ</title>
-
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" type="text/css" href="../../asset/rin/Rin-3.3.7-2/dist/css/bootstrap.css">
 	<!-- Theme style  -->
@@ -60,15 +49,13 @@ require('../../dbconect_gatch.php');
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-4">
-	 <img src="../../asset/images/gatchi_logo88.gif" width="40%">
-	</div>
-
-	<div class="col-xs-8" float="left">
-	 <img src="../../asset/images/header_asset02.jpg" width="35%">
-	</div>
-		</div>
+				<img src="../../asset/images/gatchi_logo88.gif" width="40%">
 			</div>
-	
+			<div class="col-xs-8" float="left">
+	 			<img src="../../asset/images/header_asset02.jpg" width="35%">
+			</div>
+		</div>
+	</div>
 </header>
 
 <div id="heading">
@@ -117,17 +104,9 @@ require('../../dbconect_gatch.php');
 	<input type="submit" value="合致候補を探す">
 </a>
 </form>
-	
-
-	
-
 </div>
-
-
-
 	<footer style="width: 100%; background-color: #f8f2f2 ; float: left; padding-bottom: 20px;" >
 
     </footer>
-
 </body>
 </html>

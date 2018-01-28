@@ -17,7 +17,6 @@ $(function(){
 
         })
     });
-   
 
 /*ドライブ*/
    $('#drive').on('click',function(){
@@ -73,7 +72,7 @@ $('#alcohol').on('click',function(){
 });
 
 
-/*カフェ */  
+/*カフェ */
     $('#cafe').on('click',function(){
 
     $.ajax({
@@ -109,7 +108,7 @@ $('#alcohol').on('click',function(){
     });
 });
 
-    
+
     /*ご飯*/
     $('#meshi').on('click',function(){
     $.ajax({
@@ -127,7 +126,7 @@ $('#alcohol').on('click',function(){
     });
 });
 
-      /*ゲーム */ 
+      /*ゲーム */
     $('#game').on('click',function(){
     $.ajax({
             type:"POST",
@@ -144,9 +143,9 @@ $('#alcohol').on('click',function(){
     });
 });
 
-/*その他   */    
+/*その他   */
     $('#sonota').on('click',function(){
-    $.ajax(　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　{
+    $.ajax({
             type:"POST",
             url:"condition.php",
             data:{

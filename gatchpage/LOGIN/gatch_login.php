@@ -160,117 +160,105 @@ if(!empty($_POST)){ // [J-01]
 	<!-- ========共通CSS======== -->
 	<link rel="stylesheet" type="text/css" href="../../asset/css/common.css">
 </head>
-
 <body>
 	<?= require('../../asset/head.php'); ?>
 
 	<h1>はい合致〜！| ログイン画面</h1>
 
 	<div class="container">
-	<div class="row">
-	<div class="col-xs-4">
+		<div class="row">
+			<div class="col-xs-4">
+				<form action="" method="POST" accept-charset="utf-8">
+					<?php if(isset($errors['login']) && $errors['login'] == 'ng'){ ?>
+						<div class="alert alert-danger">
+							Eメールアドレスまたはパスワードが違います
+						</div>
+					<?php } ?>
 
-	<form action="" method="POST" accept-charset="utf-8">
-	<?php if(isset($errors['login']) && $errors['login'] == 'ng'){ ?>
-	<div class="alert alert-danger">
-		Eメールアドレスまたはパスワードが違います
-	</div>
-	<?php } ?>
+					<!-- メールアドレス入力エリア -->
+					<h3 class="theme">会員ログイン</h3>
+					<label>メールアドレス</label><br>
+					<input type="text" name="email" placeholder="Eメールアドレス" value="<?php echo $email; ?>"><br>
 
-	<!-- メールアドレス入力エリア -->
-	<h3 class="theme">会員ログイン</h3>
-	<label>メールアドレス</label><br>
-		<input type="text" name="email" placeholder="Eメールアドレス" value="<?php echo $email; ?>"><br>
+					<?php if(isset($errors['email']) && $errors['email'] == 'blank'){ ?>
+						<div class="alert alert-danger">
+							Eメールアドレスを入力してください
+						</div>
+					<?php } // [J-08]Eメールアドレスのブランク確認閉鎖 ?>
 
-	<?php if(isset($errors['email']) && $errors['email'] == 'blank'){ ?>
-	<div class="alert alert-danger">
-	Eメールアドレスを入力してください</div>
-	<?php } // [J-08]Eメールアドレスのブランク確認閉鎖 ?>
+					<!-- パスワード入力エリア -->
+					<label>パスワード</label><br>
+						<input type="text" name="password"><br>
 
-	<!-- パスワード入力エリア -->
-	<label>パスワード</label><br>
-		<input type="text" name="password">
-		<br>
-
-	<?php if(isset($errors['password']) && $errors['password'] == 'blank'){ // [J-09] ?>
-	<div class="alert alert-danger">
-	パスワードを入力してください</div>
-	<?php } // [J-09]パスワードのブランク確認閉鎖  ?><br>
-	<input type="hidden" name="login" value="login">
-	<!-- 送信ボタンエリア -->
-	<input type="submit" value="ログイン" class="btn btn-primary btn-s">
-
-	</form>
-	</div>
+					<?php if(isset($errors['password']) && $errors['password'] == 'blank'){ // [J-09] ?>
+					<div class="alert alert-danger">
+					パスワードを入力してください</div>
+					<?php } // [J-09]パスワードのブランク確認閉鎖  ?><br>
+					<input type="hidden" name="login" value="login">
+					<!-- 送信ボタンエリア -->
+					<input type="submit" value="ログイン" class="btn btn-primary btn-s">
+				</form>
+			</div>
 
 
-	<div class="col-xs-8">
-	<h3 class="theme">はい合致〜！ 新規会員登録</h3>
+			<div class="col-xs-8">
+				<h3 class="theme">はい合致〜！ 新規会員登録</h3>
 
-	<form action="" method="POST" enctype="multipart/form-data">
+				<form action="" method="POST" enctype="multipart/form-data">
+					<label>ユーザー名</label><br>
+					<input type="text" name="username" placeholder="例：合致ときめき子" value="<?php echo $username; ?>"><br>
 
-	<label>ユーザー名</label><br>
-	<input type="text" name="username" placeholder="例：合致ときめき子" value="<?php echo $username; ?>">
-	<br>
+					<?php if(isset($errors['username']) && $errors['username'] == 'blank'){ ?>
+					<div class="alert alert-danger">
+						ユーザー名を入力してください
+					</div>
+					<?php } ?>
 
-	<?php if(isset($errors['username']) && $errors['username'] == 'blank'){ ?>
-	<div class="alert alert-danger">
-	ユーザー名を入力してください
-	</div>
-	<?php } ?>
+					<!-- メールアドレス入力エリア -->
+					<label>メールアドレス</label><br>
+					<input type="text" name="email" placeholder="Eメールアドレス" value="<?php echo $email; ?>"><br>
 
-	<!-- メールアドレス入力エリア -->
-	<label>メールアドレス</label><br>
-		<input type="text" name="email" placeholder="Eメールアドレス" value="<?php echo $email; ?>"><br>
+					<?php if(isset($errors['email']) && $errors['email'] == 'blank'){ ?>
+					<div class="alert alert-danger">
+						Eメールアドレスを入力してください
+					</div>
+					<?php } ?>
 
-	<?php if(isset($errors['email']) && $errors['email'] == 'blank'){ ?>
-	<div class="alert alert-danger">
-	Eメールアドレスを入力してください
-	</div>
-	<?php } ?>
+					<!-- パスワード入力エリア -->
+					<label>パスワード</label><br>
+					<input type="text" name="password">
+					<br>
 
-	<!-- パスワード入力エリア -->
-	<label>パスワード</label><br>
-	<input type="text" name="password">
-	<br>
+					<?php if(isset($errors['password']) && $errors['password'] == 'blank'){ ?>
+					<div class="alert alert-danger">
+						パスワードを入力してください
+					</div>
+					<?php } ?>
 
-	<?php if(isset($errors['password']) && $errors['password'] == 'blank'){ ?>
-	<div class="alert alert-danger">
-	パスワードを入力してください
-	</div>
-	<?php } ?>
+					<!-- プロフィール画像アップロードエリア -->
+					<label>プロフィール画像</label>
+					<input type="file" name="profile_image" accept="image/*">
+					<br>
 
-	<!-- プロフィール画像アップロードエリア -->
-	<label>プロフィール画像</label>
-	<input type="file" name="profile_image" accept="image/*">
-	<br>
+					<?php if(isset($isset['profile_image']) && $errors['profile_image'] == 'blank'){ ?>
+					<div class="alert alert-danger">
+						画像を選択してください
+					</div>
+					<?php } ?>
 
-	<?php if(isset($isset['profile_image']) && $errors['profile_image'] == 'blank'){ ?>
-	<div class="alert alert-danger">
-	画像を選択してください</div>
-	<?php } ?>
+					<?php if(isset($errors['profile_image']) && $errors['profile_image'] == 'extention'){ ?>
+				 	<div class="alert alert-danger">
+				 	使用できる拡張子は、「jpg」，「png」，「gif」のみです。
+				 	</div>
+				 	<?php } ?>
 
-	<?php if(isset($errors['profile_image']) && $errors['profile_image'] == 'extention'){ ?>
- 	<div class="alert alert-danger">
- 	使用できる拡張子は、「jpg」，「png」，「gif」のみです。
- 	</div>
- 	<?php } ?>
+				 	<input type="hidden" name="create" value="create">
 
- 	<input type="hidden" name="create" value="create">
-
- 	<!-- 送信ボタンエリア -->
- 	<input type="submit" name="登録確認" class="btn btn-primary btn-s">
-
- 	</form>
-
-	</div>
-
-	</div>
-
-</div>
-
-
-</div>
-
+				 	<!-- 送信ボタンエリア -->
+				 	<input type="submit" name="登録確認" class="btn btn-primary btn-s">
+				</form>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

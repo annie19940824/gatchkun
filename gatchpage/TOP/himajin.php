@@ -10,6 +10,4 @@
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute($data);
 	$login_users = $stmt->fetchall();
-
-	var_dump($login_users);
 ?>
