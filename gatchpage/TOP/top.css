@@ -130,14 +130,9 @@ header {
 	outline: none;
 	background: transparent;
 }
-#condition .tochat:active{
-	position: relative;
-		top: 7px;
-	outline: none;
-}
 /*----------------------------gatch--------------------------------*/
 #gatch {
-	width: 50%;
+	width: 100%;
 	height: 50%;
 	/*background-color: orange;*/
 	position: fixed;
@@ -178,41 +173,3 @@ header {
 #gatch button{
 	margin-left: 15px;
 }
-/*--------------------------condition---------------------------*/
-#condition {
-	width: 50%;
-	height: 50%;
-/*	background-color: skyblue;
-*/	position: fixed;
-		left: 50%;
-		top: 50%;
-	text-align: center;
-	overflow-x: auto;
-	border-top: 2px solid #44ff44;
-}
-#condition button{
-	margin: 10px;
-	padding: 0;
-	border: none;
-	outline: none;
-	background: transparent;
-}
-#condition button:active{
-	position: relative;
-		top: 5px;
-	outline: none;
-}
-#condition button:hover{
-	border: 3px solid red;
-	border-radius: 20px;
-	outline: none;
-}
-#condition img{
-	width: 50px;
-	height: 50px;
-	display: block;
-}
-#condition #test{
-	display: inline-block;
-}
-
