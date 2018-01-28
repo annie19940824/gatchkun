@@ -35,7 +35,7 @@ body{
 	box-sizing: border-box;
 }
 
-header {
+/*header {
 	width: 100%;
 	height: 20%;
 	background-color: #44ff44;
@@ -44,7 +44,7 @@ header {
 		left: 0;
 	z-index: 100;
 	text-align: center;
-}
+}*/
 #hamburger{
 	font-size: 25px;
 	position: absolute;
@@ -86,15 +86,17 @@ header {
 	width: 90%;
 	height: 40%;
 	background-color: #f4f4f4;
-	position: fixed;
+	margin-top: 50px;
+	margin-left: 5%;
+/*	position: fixed;
 		bottom: 45%;
 		left: 5%;
 		right: 5%;
-	z-index: 10;
+	z-index: 10;*/
 	text-align: center;
 	overflow-x: auto;
 	overflow-y: hidden;
-	white-space:nowrap;
+	white-space: nowrap;
 	border-bottom: 2px solid black;
 	padding-bottom: 30px;
 }
@@ -111,7 +113,7 @@ header {
 	height: 100px;
 	display: block;
 	border-radius: 100%;
-	margin-top: 100%;
+	margin-top: 80%;
 }
 .tochat img:hover{
 	border: 5px solid yellow;
@@ -122,7 +124,6 @@ header {
 }
 #himajin p{
 	display: block;
-	margin: 10px;
 	font-size: 20px;
 }
 #himajin .tochat{
@@ -136,20 +137,16 @@ header {
 /*----------------------------gatch--------------------------------*/
 #gatch {
 	width: 100%;
-	margin-top: 500px;
 	/*background-color: orange;*/
 	text-align: center;
 }
 #gatch div{
 	height: 150px;
-	vertical-align: left;
-	position: relative;
 }
 #gatch div img{
 	width: 100px;
 	height: 100px;
 	display: inline-block;
-	border-radius: 100%;
 }
 #gatch .tochat{
 	padding: 0;
@@ -164,8 +161,6 @@ header {
 #gatch p{
 	width: 100px;
 	font-size: 20px;
-	position: absolute;
-		top:10px;
 }
 #gatch button{
 	margin-left: 15px;
