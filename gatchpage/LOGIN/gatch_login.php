@@ -158,25 +158,19 @@ if(!empty($_POST)){ // [J-01]
 	<title>ログイン画面</title>
     <!-- ========fontawesome========-->
     <link rel="stylesheet" type="text/css" href="../../asset/font-awesome-4.7.0/css/font-awesome.min.css">
-        <!-- ========stylesheet======== -->
+    <!-- ========stylesheet======== -->
 	<link rel="stylesheet" type="text/css" href="../../asset/css/bootstrap.css">
 	<!-- ========共通CSS======== -->
 	<link rel="stylesheet" type="text/css" href="../../asset/css/common.css">
 </head>
 
 <body>
-<?php
- require('../../asset/head.php');
-?>
 
-
-	<?= require('../../asset/head.php'); ?>
-
-	<h1>はい合致〜！| ログイン画面</h1>
+	<?= require('../../asset/head2.php'); ?>
 
 	<div class="container">
 	<div class="row">
-	<div class="col-xs-4">
+	<div class="col-xs-6">
 
 	<form action="" method="POST" accept-charset="utf-8">
 	
@@ -189,15 +183,19 @@ if(!empty($_POST)){ // [J-01]
 	<!-- メールアドレス入力エリア -->
 	<h3 class="theme">会員ログイン</h3>
 	<label>メールアドレス</label><br>
-		<input type="text" name="email" placeholder="Eメールアドレス" value="<?php echo $email; ?>"><br>
+		<input style="width: 80%" type="text" name="email" placeholder="Eメールアドレス" value="<?php echo $email; ?>"><br>
 
 	<?php if(isset($errors['email']) && $errors['email'] == 'blank'){ ?>
 	<div class="alert alert-danger">
 	Eメールアドレスを入力してください</div>
 	<?php } // [J-08]Eメールアドレスのブランク確認閉鎖 ?>
 
+	<br>
+
 	<!-- パスワード入力エリア -->
-	<label>パスワード</label><br>
+	<label>パスワード
+		<span id="hosoku">あはは</span>
+	</label><br>
 		<input type="text" name="password">
 		<br>
 
@@ -213,7 +211,7 @@ if(!empty($_POST)){ // [J-01]
 	</div>
 
 
-	<div class="col-xs-8">
+	<div class="col-xs-6">
 	<h3 class="theme">はい合致〜！ 新規会員登録</h3>
 
 	<form action="" method="POST" enctype="multipart/form-data">
