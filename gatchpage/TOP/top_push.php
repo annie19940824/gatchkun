@@ -78,7 +78,7 @@ $login_condition =$_SESSION['login_user']['conditions'];
                     </button>
                 </a>
                 <p><?php echo $login_user['user_name']; ?></p>
-             <p><?php echo $login_user['tubuyaki'];?></p>
+                <p><?php echo $login_user['tubuyaki'];?></p>
             </div>
         <?php endforeach ?>
     </div><!-- himajin -->
@@ -86,30 +86,17 @@ $login_condition =$_SESSION['login_user']['conditions'];
 
     <div id="gatch">
         <h1>合致ユーザー</h1>
-
         <?php foreach($condition_gatch as $condition_gatch): ?>
-            <div>
-
-             <a href="../chatpage.php?id=<?php echo $condition_gatch['id']?>" style="text-decoration: none;">
-
-                <button type="submit" class="tochat">
-
-                <img src="../LOGIN/profile_image/<?php
-                 echo $condition_gatch['picture'];?>">
-
-                </button>
-
-             </a>
-             <p><?php echo $condition_gatch['user_name'];
-
-
-
-                      echo$condition_gatch['tubuyaki'];?></p>
-             <p style="text-align: right;"><?php echo$condition_gatch['tubuyaki'];?></p>
-
-            </div>
+            <!-- <div>
+                <a href="../chatpage.php?id=<?php echo $condition_gatch['id']?>" style="text-decoration: none;">
+                    <button type="submit" class="tochat">
+                        <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>">
+                    </button>
+                </a>
+                <p><?php echo $condition_gatch['user_name'];?></p>
+                <p style="text-align: right;"><?php echo $condition_gatch['tubuyaki'];?></p>
+            </div> -->
         <?php endforeach ?>
-
     </div><!-- gatch -->
 <script type="text/javascript" src="condition.js?id="<?= date(); ?>></script>
 <script type="text/javascript" src="push.js"></script>
