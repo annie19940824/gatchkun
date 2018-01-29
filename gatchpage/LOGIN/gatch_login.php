@@ -113,13 +113,12 @@ if(!empty($_POST)){ // [J-01]
 		$filename=$_FILES['profile_image']['name'];
 		$ext = substr($filename,-3);
 
-		if($ext != 'jpg' && $ext !='png' && $ext !='gif')
+		if($ext != 'jpg' && $ext !='png' && $ext !='gif'){
 			$errors['profile_image'] = 'extention';
+		}
 	}else{
 		$errors['profile_image'] = 'blank';
 	}
-
-	var_dump($errors);
 
 	if(empty($errors)){
 		echo 'エラーがありませんでした。確認画面へ移動します<br>';
@@ -168,7 +167,6 @@ if(!empty($_POST)){ // [J-01]
 	<div class="col-xs-6">
 
 	<form action="" method="POST" accept-charset="utf-8">
-	
 	<?php if(isset($errors['login']) && $errors['login'] == 'ng'){ ?>
 	<div class="alert alert-danger">
 		Eメールアドレスまたはパスワードが違います
@@ -263,18 +261,16 @@ if(!empty($_POST)){ // [J-01]
  	使用できる拡張子は、「jpg」，「png」，「gif」のみです。
  	</div>
  	<?php } ?>
- 
+
  	<input type="hidden" name="create" value="create">
 
  	<!-- 送信ボタンエリア -->
  	<input type="submit" name="登録確認" class="btn btn-primary btn-s">
 
  	</form>
-		
+
 	</div>
 
-
-		
 	</div>
 
 </div>

@@ -4,9 +4,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
 	<title>Rin</title>
-
 	<link rel="stylesheet" type="text/css" href="../asset/css/bootstrap.css">
 	  <!-- ========fontawesome========-->
     <link rel="stylesheet" type="text/css" href="../asset/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -57,13 +55,12 @@
 
 <header>
 	<div class="navbar navbar-default navbar-fixed-top">
-		
 		<div class="container">
 		   <div class="row">
-			 <div class="col-xs-10 ">			   
+			 <div class="col-xs-10">
 			   <div class="navbar-header">
 				<a href="" class="navbar-brand">
-					<img src="../asset/images/gatchi_logo88.gif" style="width:150px;height:70px; bottom: :10px;">	
+					<img src="../asset/images/gatchi_logo88.gif" style="width:150px;height:70px; bottom: :10px;">
 					</a>
 					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
 						<span class="icon-bar"></span>
@@ -77,11 +74,11 @@
 						<li><a href="../gatchpage/TOP/top_push.php">Top</a></li>
 						<li><a href="../gatchpage/LOGIN/cushion_page.php">マイページ</a></li>
 						<li><a href="../gatchpage/ID/ID_create_input.php">友達追加</a></li>
-						<li><a href="">ログアウト</a></li>	          
+						<li><a href="">ログアウト</a></li>
 				    </ul>
 			    </div>
              </div>
-           <div class="col-xs-2">	  
+           <div class="col-xs-2">
 			   <i class="fa fa-user-plus" aria-hidden="true" style="font-size: 50px"></i>
                <i class="fa fa-bell" aria-hidden="true" style="font-size: 50px"></i>
 			 </div>
@@ -89,37 +86,32 @@
        </div>
 		<!--  第二ヘッダー -->
 	<div style="background-color: black; padding: ">
-　　	<div class="container">
+	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 visible-xs">
-	
+
 			<!-- スマホ用の表示 -->
 			</div>
 			<div class="col-md-4 col-sm-4 hidden-xs" style="background-color: black;">
-				
+
 				<p style="color:#efe597;">あなたのコンディションは
 					<img id="test" src="../asset/images/<?= $_SESSION['login_user']['conditions'] ?>" style="width:50px;height:50px;">
 				です</p>
-			
+
 			</div>
-			
 			<div class="col-md-4 col-sm-4 hidden-xs" style="background-color: black;">
-			
+
 			</div>
-			
-			<div class="col-md-4 col-sm-4 hidden-xs text-right" style="background-color: black;">	
+			<div class="col-md-4 col-sm-4 hidden-xs text-right" style="background-color: black;">
 				<a  href="../LOGIN/cushion_page.php" style="color:#efe597;">
 				コンディションを変更する
 			    </a>
-			
             </div>
 		</div>
 	</div>
 </div>
-	</div> 
+	</div>
    </header>
-
-	
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
