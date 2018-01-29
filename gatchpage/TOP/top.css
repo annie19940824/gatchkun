@@ -1,99 +1,45 @@
 p,button{
 	display: inline-block;
 }
-
-/*ul{
-	list-style: none;
-}
-li{
-	position: relative;
-}
-li a:after{
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  content: '';
-  height: 40px;
-  width: 100%;
-  border-bottom: solid 2px green;
-
-  -webkit-transform: scaleX(0.0001);
-  -ms-transform: scaleX(0.0001);
-  transform: scaleX(0.0001);
-  -webkit-transition: -webkit-transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out;
-}
-li a:hover:after {
-  -webkit-transform: scaleX(1);
-  -ms-transform: scaleX(1);
-  transform: scaleX(1);*/
-/*}*/
-
-
 body{
 	background-color: #f4f4f4;
 	box-sizing: border-box;
+	margin: 0 auto;
 }
-
-header {
-	width: 100%;
-	height: 50px;
-	background-color: #44ff44;
-	position: fixed;
-		top: 0;
-		left: 0;
-	z-index: 10;
-	text-align: center;
-}
-#hamburger{
-	font-size: 25px;
-	position: absolute;
-		top: 25%;
-		left: 2%;
-}
-#friend-add{
-	font-size: 25px;
-	position: absolute;
-		top: 20%;
-		right: 6%;
-}
-#friend-add a{
-	color: black;
-}
-#alert{
-	font-size: 25px;
-	position: absolute;
-		top: 25%;
-		right: 2%;
-}
-/*#sidevar {
-	width: 15%;
-	height: 900px;
-	background-color: gray;
-	padding-top: 50px;
-	float: left;
-	position: fixed;
-		left: 0;
-		top: 50px;
-	text-align: center;
-}
-#sidevar a{
-	font-size: 20px;
-}*/
 /*----------------------------himajin-----------------------*/
+.himajin-container{
+	width: 96%;
+	margin: 0 2%;
+	padding: 0;
+}
+.icon{
+	width: 5%;
+	height: 283px;
+	line-height: 150px;
+	color: #efe597;
+	padding: 0;
+	float: left;
+}
+.himajin-container i{
+	font-size: 70px;
+}
 #himajin {
 	/*width: 35%;*/
-	width: 80%;
-	height: 50%;
-	/*background-color: green;*/
-	position: fixed;
-		bottom: 50%;
-		left: 10%;
-		right:10%;
+	width: 90%;
+	background-color: #f4f4f4;
+	margin: 0;
+/*	position: fixed;
+		bottom: 45%;
+		left: 5%;
+		right: 5%;
+	z-index: 10;*/
 	text-align: center;
 	overflow-x: auto;
 	overflow-y: hidden;
-	white-space:nowrap;
+	white-space: nowrap;
+	border-bottom: 2px solid black;
+	padding-bottom: 30px;
+	float: left;
 }
 #himajin::-webkit-scrollbar{
 	display: none;
@@ -101,14 +47,13 @@ header {
 #himajin div{
 	display: inline-block;
     padding:0 20px;
-    vertical-align:top;
+    vertical-align: top;
 }
 #himajin img{
 	width: 100px;
 	height: 100px;
 	display: block;
 	border-radius: 100%;
-	margin-top: 100%;
 }
 .tochat img:hover{
 	border: 5px solid yellow;
@@ -119,7 +64,6 @@ header {
 }
 #himajin p{
 	display: block;
-	margin: 10px;
 	font-size: 20px;
 }
 #himajin .tochat{
@@ -130,34 +74,11 @@ header {
 	outline: none;
 	background: transparent;
 }
-#condition .tochat:active{
-	position: relative;
-		top: 7px;
-	outline: none;
-}
 /*----------------------------gatch--------------------------------*/
 #gatch {
-	width: 50%;
-	height: 50%;
-	/*background-color: orange;*/
-	position: fixed;
-		left: 0;
-		top: 50%;
+	width: 86%;
 	text-align: center;
-	overflow-x: auto;
-	border-top: 2px solid #44ff44;
-	border-right: 2px solid #44ff44;
-}
-#gatch div{
-	height: 150px;
-	vertical-align: left;
-	position: relative;
-}
-#gatch div img{
-	width: 100px;
-	height: 100px;
-	display: inline-block;
-	border-radius: 100%;
+	margin: 30px 7%;
 }
 #gatch .tochat{
 	padding: 0;
@@ -169,50 +90,31 @@ header {
 	display: inline-block;
 	height: 100px;
 }
-#gatch p{
-	width: 100px;
-	font-size: 20px;
-	position: absolute;
-		top:10px;
-}
 #gatch button{
 	margin-left: 15px;
 }
-/*--------------------------condition---------------------------*/
-#condition {
-	width: 50%;
-	height: 50%;
-/*	background-color: skyblue;
-*/	position: fixed;
-		left: 50%;
-		top: 50%;
-	text-align: center;
-	overflow-x: auto;
-	border-top: 2px solid #44ff44;
-}
-#condition button{
-	margin: 10px;
-	padding: 0;
-	border: none;
-	outline: none;
-	background: transparent;
-}
-#condition button:active{
-	position: relative;
-		top: 5px;
-	outline: none;
-}
-#condition button:hover{
-	border: 3px solid red;
-	border-radius: 20px;
-	outline: none;
-}
-#condition img{
-	width: 50px;
-	height: 50px;
-	display: block;
-}
-#condition #test{
+.gatch-box{
+	width: 600px;
+	height: 100px;
+	background-color: #efe597;
 	display: inline-block;
+	box-sizing: border-box;
+	text-align: left;
+	margin-bottom: 25px;
+	border: 1px solid black;
 }
-
+.gatch-pic{
+	float: left;
+	width: 100px;
+	height: 100px;
+	padding: 10px;
+}
+.gatch-cond{
+	float: right;
+	width: 100px;
+	height: 100px;
+	padding: 10px;
+}
+.gatch-tubuyaki{
+	font-size: 20px;
+}

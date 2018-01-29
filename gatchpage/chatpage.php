@@ -175,8 +175,22 @@ if (!isset($_GET['id'])) {
       </div><!-- 7/12 -->
 
             <!--  ここまでチャット画面 -->
+<<<<<<< HEAD
 			
 			<!-- ここまで相手のプロフィール -->
+=======
+			<div class="col-xs-4" ><!-- 12/12 -->
+        <h3 style="text-align: center;" >合致メイト</h3>
+        ようこそ：<?php echo $other_profile['user_name']; ?>さん<br>
+        <img src="LOGIN/profile_image/<?php echo $other_profile['picture'];?>" width="50px"><br>
+        <span style="font-size: 12px">
+          id:<?php echo $other_profile['user_id']; ?>/
+          ユーザー名:<?php echo $other_profile['user_name']; ?><br>
+          登録日時 :<?php echo $other_profile['created'];?>
+        </span>
+		  </div><!-- 12/12 -->
+			
+>>>>>>> yusuke
 		</div>
 	</div>
 
