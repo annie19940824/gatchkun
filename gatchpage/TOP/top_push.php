@@ -38,8 +38,8 @@ $login_condition =$_SESSION['login_user']['conditions'];
     <title>練習</title>
     <!-- ========stylesheet======== -->
     <link rel="stylesheet" type="text/css" href="../../asset/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../../asset/css/">
     <link rel="stylesheet" type="text/css" href="top.css">
+    <link rel="stylesheet" type="text/css" href="../../asset/css/common.css">
     <!-- ========fontawesome========-->
     <link rel="stylesheet" type="text/css" href="../../asset/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- ========jQuery======== -->
@@ -58,12 +58,14 @@ $login_condition =$_SESSION['login_user']['conditions'];
 
 <body>
     <?php require('../../asset/head.php'); ?>
-
-    <div style="width: 100%; margin: 0; padding: 0;" >
-        <div style="width: 5%; height: 283px; line-height: 450px; color: orange; padding: 0; float: left;">
-            <i class="fa fa-caret-left" aria-hidden="true" style="font-size: 70px;"></i>
+    <h3 class="theme" style="margin: 170px 0 0 6%;">
+        ログインしている暇人一覧
+    </h3>
+    <div class="himajin-container">
+        <div class="icon">
+            <i class="fa fa-caret-left" aria-hidden="true"></i>
         </div>
-        <div id="himajin" style="float: left;">
+        <div id="himajin">
             <?php foreach($login_users as $login_user): ?>
                 <div>
                     <a href="../chatpage.php?id=<?php echo $login_user['user_id']; ?>" style="text-decoration: none;">
@@ -76,23 +78,27 @@ $login_condition =$_SESSION['login_user']['conditions'];
                 </div>
             <?php endforeach ?>
         </div><!-- himajin -->
-        <div style="width: 5%; height: 283px; line-height: 450px; color: orange; padding: 0; margin-right: 0; float: left; text-align: right;">
-            <i class="fa fa-caret-right" aria-hidden="true" style="font-size: 70px;"></i>
-         </div>
+        <div class="icon" style="text-align: right;">
+            <i class="fa fa-caret-right" aria-hidden="true"></i>
+        </div>
     </div>
 
-    <div id="gatch" style="margin-top: 30px; width: 100%;">
+    <h3 class="theme" style="margin-left: 6%;">
+        合致候補の暇人
+    </h3>
+    <div id="gatch">
         <?php foreach($condition_gatch as $condition_gatch): ?>
             <div class="col-xs-6">
-                <div class="gatch-box" style="width: 600px; height: 100px; background-color: orange; display: inline-block; text-align: left; box-sizing: border-box; text-align: center;">
-                    <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>" style="padding: 10px;">
-                    <p style="margin-left: 30px; font-size: 25px">
+                <div class="gatch-box">
+                    <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>" class="gatch-pic">
+                    <p style="margin-left: 30px; font-size: 30px">
                         <?php echo $condition_gatch['user_name'];?>
-                    </p>
-                    <p>
+                        <br>
+                        <span class="gatch-tubuyaki">
                         <?php echo $condition_gatch['tubuyaki'];?>
+                        </span>
                     </p>
-                    <img src="../../asset/images/<?php echo $condition_gatch['conditions'];?>" style="float: right; width: 70px; height: 70px; ">
+                    <img src="../../asset/images/<?php echo $condition_gatch['conditions'];?>" class="gatch-cond">
                 </div>
             </div>
         <?php endforeach ?>
