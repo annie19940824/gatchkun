@@ -37,7 +37,7 @@
 						<li><a href="../gatchpage/TOP/top_push.php">Top</a></li>
 						<li><a href="../gatchpage/LOGIN/cushion_page.php">マイページ</a></li>
 						<li><a href="../gatchpage/ID/ID_create_input.php">友達追加</a></li>
-						<li><a href="">ログアウト</a></li>
+						<li><a href="../../asset/logout.php">ログアウト</a></li>
 				    </ul>
 			    </div>
              </div>
