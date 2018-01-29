@@ -45,26 +45,46 @@ body{
 	display: none;
 }
 #himajin div{
+	width: 15%;
 	display: inline-block;
     padding:0 20px;
     vertical-align: top;
 }
-#himajin img{
+.himajin-pic{
 	width: 100px;
 	height: 100px;
 	display: block;
 	border-radius: 100%;
 }
+.himajin-cond{
+	width: 40px;
+	height: 40px;
+	position: absolute;
+		top: 70px;
+		left: 70px;
+}
 .tochat img:hover{
 	border: 5px solid yellow;
+}
+.tochat .himajin-cond:hover{
+	border: none;
 }
 .tochat img:active{
 	position: relative;
 		top: 3px;
 }
-#himajin p{
+.tochat .himajin-cond:active{
+	position: none;
+}
+.himajin-name{
 	display: block;
+	font-weight: bold;
 	font-size: 20px;
+}
+.himajin-tub{
+	display: block;
+	word-wrap: break-word;
+	white-space: normal;
 }
 #himajin .tochat{
 	display: inline-block;
@@ -73,6 +93,7 @@ body{
 	border: none;
 	outline: none;
 	background: transparent;
+	position: relative;
 }
 /*----------------------------gatch--------------------------------*/
 #gatch {
