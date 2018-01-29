@@ -160,8 +160,8 @@ if(!empty($_POST)){ // [J-01]
 	<!-- ========共通CSS======== -->
 	<link rel="stylesheet" type="text/css" href="../../asset/css/common.css">
 </head>
-<body style="margin-top: 100px;">
-<?= require('../../asset/head2.php'); ?>
+<body style="margin-top: 70px;">
+<?php require('../../asset/head2.php'); ?>
 
 	<div class="container">
 	<div class="row">
@@ -281,7 +281,7 @@ if(!empty($_POST)){ // [J-01]
 <br>
 <br>
 
-<?= require('../../asset/footer.php'); ?>
+<?php require('../../asset/footer.php'); ?>
 
 </body>
 </html>

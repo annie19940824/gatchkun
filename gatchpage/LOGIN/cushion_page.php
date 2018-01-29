@@ -48,7 +48,7 @@ require('../../dbconect_gatch.php');
 	<link rel="stylesheet" type="text/css" href="../../asset/rin/Rin-3.3.7-2/dist/css/cushion_page.css">
 </head>
 <body style="margin-top: 70px;">
-	<?= require('../../asset/head2.php'); ?>
+	<?php require('../../asset/head2.php'); ?>
 
 	<div id="heading">
 		<p>ようこそ、暇人の　
@@ -61,20 +61,26 @@ require('../../dbconect_gatch.php');
 	<div class="row">
 	<div class="col-xs-6">
 	
-		<h3 class="theme">今のあなたの気分は？ (ひとつだけ選択)</h3>
+		<h3 class="theme" style="margin-bottom: 30px;">今のあなたの気分は？ (ひとつだけ選択)</h3>
 
    			<form action="" method="POST">
-   			<p style="margin-bottom: 1px">
+   	
+   	<!-- ラジオボタン1段目 -->
+   		<div class="container">
+		<div class="row">
+		<div class="col-xs-2">
+
+   			<p>
    			<input type="radio" name="conditions" value="i_nomi.gif">
    			<span class="condition">
    			<img src="../../asset/images/i_nomi.gif" style="width: 45px;">
    			</span>
-   			飲みに行こ
-   			</p>
+   			<span class="conditions">飲みに行こ
+   			</span>
+   		</div>
 
-   			<br>
+   		<div class="col-xs-3">
    			
-   			<p style="margin-bottom: 1px">
    			<input type="radio" name="conditions" value="i_drive.gif">
    			<span class="condition">
    			<img src="../../asset/images/i_drive.gif" style="width: 45px;">
@@ -82,19 +88,26 @@ require('../../dbconect_gatch.php');
    			ドライブ行こ
    			</p>
 
-   			<br>
+   		</div>
+   		</div>
+   		</div>
 
-   			<p style="margin-bottom: 1px">
+		<br>
+
+   		<div class="container">
+		<div class="row">
+		<div class="col-xs-2">
+
+   			<p>
    			<input type="radio" name="conditions" value="i_takunomi.gif  ">
    			<span class="condition">
    			<img src="../../asset/images/i_takunomi.gif" style="width: 45px;">
    			</span>
    			宅飲みしよ
-   			</p>
 
-			<br>
+		</div>
 
-			<p style="margin-bottom: 1px">
+		<div class="col-xs-3">
 			<input type="radio" name="conditions" value="i_game.gif">
 			<span class="condition">
 			<img src="../../asset/images/i_game.gif" style="width: 45px;">
@@ -102,19 +115,26 @@ require('../../dbconect_gatch.php');
    			ゲームしよ
    			</p>
 
-   			<br>
+   		</div>
+   		</div>
+   		</div>
 
-   			<p style="margin-bottom: 1px">
+   		<br>
+
+		<div class="container">
+		<div class="row">
+		<div class="col-xs-2"> 		
+   			<p>
 			<input type="radio" name="conditions" value="i_cafe.gif">
 			<span class="condition">
 			<img src="../../asset/images/i_cafe.gif" style="width: 45px;">
    			</span>
    			カフェろ
-   			</p>
 
-   			<br>
+   		</div>
+   			
+   		<div class="col-xs-3">
 
-   			<p style="margin-bottom: 1px">
 			<input type="radio" name="conditions" value="i_meshi.gif">
 			<span class="condition">
 			<img src="../../asset/images/i_meshi.gif" style="width: 45px;">
@@ -122,19 +142,27 @@ require('../../dbconect_gatch.php');
    			メシ行こ
    			</p>
 
+   		</div>
+   		</div>
+   		</div>
+
 			<br>
 
-			<p style="margin-bottom: 1px">
+		<div class="container">
+		<div class="row">
+		<div class="col-xs-2">
+
+			<p>
 			<input type="radio" name="conditions" value="i_kaimono.gif">
 			<span class="condition">
 			<img src="../../asset/images/i_kaimono.gif" style="width: 45px;">
    			</span>
    			買い物行こ
-   			</p>
 
-   			<br>
+   		</div>
 
-   			<p style="margin-bottom: 1px">
+   		<div class="col-xs-3">
+
 			<input type="radio" name="conditions" value="i_karaoke.gif">
 			<span class="condition">
 			<img src="../../asset/images/i_karaoke.gif" style="width: 45px;">
@@ -142,15 +170,27 @@ require('../../dbconect_gatch.php');
    			カラオケ行こ
    			</p>
 
+   		</div>
+   		</div>
+   		</div>
+
    			<br>
 
-   			<p style="margin-bottom: 1px">
+   		<div class="container">
+		<div class="row">
+		<div class="col-xs-6">
+
+   			<p>
 			<input type="radio" name="conditions" value="i_sonota.gif">
 			<span class="condition">
 			<img src="../../asset/images/i_sonota.gif" style="width: 45px;">
    			</span>
    			その他
    			</p>
+
+   		</div>
+   		</div>
+   		</div>
 
         </p>
     </div>
@@ -159,7 +199,7 @@ require('../../dbconect_gatch.php');
 
     <div class="col-xs-6">
 
-	<h3 class="theme">ログインする前につぶやいておきましょう</h3>
+	<h3 class="theme" style="margin-bottom: 30px;">ログインする前につぶやいておきましょう</h3>
 		
 		<p>20文字以内で入力できます</p>
 		<textarea style="width:85%;" name="tubuyaki" placeholder="例：金沢駅前で暇してます"></textarea>
@@ -179,7 +219,7 @@ require('../../dbconect_gatch.php');
 <br>
 <br>
 
-<?= require('../../asset/footer.php'); ?>
+<?php require('../../asset/footer.php'); ?>
 	
 </body>
 </html>
