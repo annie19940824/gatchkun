@@ -9,28 +9,8 @@ if (!isset($_SESSION['login_user']['user_id'])) {
 $login_id = $_SESSION['login_user']['user_id'];
 $login_condition =$_SESSION['login_user']['conditions'];
 
-/*require('himajin.php');*/
-    $sql = "SELECT *
-            FROM   `gatchi_users`
-            WHERE  `login` = 1
-            AND    `user_id` != ?";
-    $data = array($login_id);
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute($data);
-    $login_users = $stmt->fetchall();
-
-
-/*require('condition_gatch.php');*/
-    $sql = "SELECT *
-            FROM  `gatchi_users`
-            WHERE `login`= 1
-            AND   `conditions` =?
-            AND   `user_id` != ?
-           ";
-    $data = array($login_condition,$login_id);
-    $stmt = $dbh->prepare($sql);
-    $stmt->execute($data);
-    $condition_gatch = $stmt->fetchall();
+require('himajin.php'); // [$login_users]に暇人全員のデータを格納してある
+require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデータを格納してある
 ?>
 
 <!DOCTYPE html>
@@ -74,7 +54,7 @@ $login_condition =$_SESSION['login_user']['conditions'];
                 <?php foreach($login_users as $login_user): ?>
                     <div>
                         <a href="../chatpage.php?id=<?php echo $login_user['user_id']; ?>" style="text-decoration: none;">
-                            <button class="tochat">
+                            <button class="tochat" id="<?php echo $login_user['user_id']; ?>">
                                 <img src="../LOGIN/profile_image/<?php echo $login_user['picture'] ;?>" class="himajin-pic">
                                 <img src="../../asset/images/<?php echo $login_user['conditions'] ;?>" class="himajin-cond">
                             </button>
@@ -98,7 +78,7 @@ $login_condition =$_SESSION['login_user']['conditions'];
             <?php foreach($condition_gatch as $condition_gatch): ?>
                 <div class="col-xs-6">
                     <a href="../chatpage.php?id=<?php echo $condition_gatch['user_id']; ?>" style="text-decoration: none; color: black;">
-                        <button class="tochat">
+                        <button class="tochat" id="<?php echo $condition_gatch['user_id']?>">
                         <div class="gatch-box">
                             <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>" class="gatch-pic">
                             <p style="margin-left: 30px; font-size: 30px">
@@ -123,6 +103,13 @@ $login_condition =$_SESSION['login_user']['conditions'];
 
 
 <script type="text/javascript" src="condition.js?id="<?= date(); ?>></script>
-<script type="text/javascript" src="push.js"></script>
+ <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script>
+        var myId = <?= $_SESSION['login_user']['user_id']; ?>;
+        var myName = "<?= $_SESSION['login_user']['user_name']; ?>";
+        var picture = "<?= $_SESSION['login_user']['picture']; ?>";
+        var socket = io('http://localhost:3000');
+    </script>
+    <script type="text/javascript" src="push.js"></script>
 </body>
 </html>
