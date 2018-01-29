@@ -186,7 +186,7 @@ if (!isset($_GET['id'])) {
           登録日時 :<?php echo $other_profile['created'];?>
         </span>
 		  </div><!-- 12/12 -->
-			<!-- ここまで相手のプロフィール -->
+			
 		</div>
 	</div>
 
