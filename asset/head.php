@@ -1,19 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Rin</title>
-	<link rel="stylesheet" type="text/css" href="../asset/css/bootstrap.css">
-	  <!-- ========fontawesome========-->
-    <link rel="stylesheet" type="text/css" href="../asset/font-awesome-4.7.0/css/font-awesome.min.css">
-
-</head>
-<body>
-
-
-
 <header>
 	<div class="navbar navbar-default navbar-fixed-top" style="background-color: #f4f4f4;
 ">
@@ -82,14 +66,6 @@
 	</div>
 </div>
    </header>
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-
-<script type="text/javascript">
-	$('.bs-component [data-toggle="popover"]').popover();
-	$('.bs-component [data-toggle="tooltip"]').tooltip();
-</script>
 
 </body>
 </html>

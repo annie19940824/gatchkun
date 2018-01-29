@@ -26,12 +26,12 @@ require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデ�
     <!-- ========fontawesome========-->
     <link rel="stylesheet" type="text/css" href="../../asset/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- ========jQuery======== -->
-    <script src="../../jQuery/jquery-3.1.1.js"></script>
-    <script src="../../jQuery/jquery-migrate-1.4.1.js"></script>
+    <script src="../../YUSUKE1/jQuery/jquery-3.1.1.js"></script>
+    <script src="../../YUSUKE1/jQuery/jquery-migrate-1.4.1.js"></script>
     <!-- ========AJAX======== -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- ========push.js======== -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js">Push.Permission.request();</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
     <!-- ========PHPで定義した変数をJSで使う======== -->
     <script type="text/javascript">
         var login_id = <?php echo json_encode($login_id); ?>;
@@ -53,8 +53,8 @@ require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデ�
             <div id="himajin">
                 <?php foreach($login_users as $login_user): ?>
                     <div>
-                        <a href="../chatpage.php?id=<?php echo $login_user['user_id']; ?>" style="text-decoration: none;">
-                            <button class="tochat" id="<?php echo $login_user['user_id']; ?>">
+                        <a href="   " style="text-decoration: none;">
+                            <button class="tochat" id="<?php echo $login_user['user_id']; ?>" onclick="push(<?php echo $login_user['user_id']; ?>)">
                                 <img src="../LOGIN/profile_image/<?php echo $login_user['picture'] ;?>" class="himajin-pic">
                                 <img src="../../asset/images/<?php echo $login_user['conditions'] ;?>" class="himajin-cond">
                             </button>
@@ -78,7 +78,7 @@ require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデ�
             <?php foreach($condition_gatch as $condition_gatch): ?>
                 <div class="col-xs-6">
                     <a href="../chatpage.php?id=<?php echo $condition_gatch['user_id']; ?>" style="text-decoration: none; color: black;">
-                        <button class="tochat" id="<?php echo $condition_gatch['user_id']?>">
+                        <button class="tochat" id="<?php echo $condition_gatch['user_id']?>" onclick="push(<?php echo $login_user['user_id']; ?>)">
                         <div class="gatch-box">
                             <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>" class="gatch-pic">
                             <p style="margin-left: 30px; font-size: 30px">
@@ -101,15 +101,13 @@ require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデ�
     <?php require('../../asset/footer.php'); ?>
     </div>
 
-
-<script type="text/javascript" src="condition.js?id="<?= date(); ?>></script>
- <script src="http://localhost:3000/socket.io/socket.io.js"></script>
-    <script>
-        var myId = <?= $_SESSION['login_user']['user_id']; ?>;
-        var myName = "<?= $_SESSION['login_user']['user_name']; ?>";
-        var picture = "<?= $_SESSION['login_user']['picture']; ?>";
-        var socket = io('http://localhost:3000');
-    </script>
-    <script type="text/javascript" src="push.js"></script>
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script>
+    var myId = <?= $_SESSION['login_user']['user_id']; ?>;
+    var myName = "<?= $_SESSION['login_user']['user_name']; ?>";
+    var picture = "<?= $_SESSION['login_user']['picture']; ?>";
+    var socket = io('http://localhost:3000');
+</script>
+<script type="text/javascript" src="push.js"></script>
 </body>
 </html>
