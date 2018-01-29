@@ -58,6 +58,7 @@ $login_condition =$_SESSION['login_user']['conditions'];
 
 <body>
     <?php require('../../asset/head.php'); ?>
+
     <h3 class="theme" style="margin: 170px 0 0 6%;">
         ログインしている暇人一覧
     </h3>
@@ -82,30 +83,37 @@ $login_condition =$_SESSION['login_user']['conditions'];
         <div class="icon" style="text-align: right;">
             <i class="fa fa-caret-right" aria-hidden="true"></i>
         </div>
-    </div>
+    </div><!-- himajin-container -->
 
     <h3 class="theme" style="margin-left: 6%;">
         合致候補の暇人
     </h3>
-    <div id="gatch">
-        <?php foreach($condition_gatch as $condition_gatch): ?>
-            <div class="col-xs-6">
-                <div class="gatch-box">
-                    <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>" class="gatch-pic">
-                    <p style="margin-left: 30px; font-size: 30px">
-                        <?php echo $condition_gatch['user_name'];?>
-                        <br>
-                        <span class="gatch-tubuyaki">
-                        <?php echo $condition_gatch['tubuyaki'];?>
-                        </span>
-                    </p>
-                    <img src="../../asset/images/<?php echo $condition_gatch['conditions'];?>" class="gatch-cond">
+    <div id="gatch" class="container">
+        <div class="row">
+            <?php foreach($condition_gatch as $condition_gatch): ?>
+                <div class="col-xs-6">
+                    <div class="gatch-box">
+                        <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>" class="gatch-pic">
+                        <p style="margin-left: 30px; font-size: 30px">
+                            <?php echo $condition_gatch['user_name'];?>
+                            <br>
+                            <span class="gatch-tubuyaki">
+                            <?php echo $condition_gatch['tubuyaki'];?>
+                            </span>
+                        </p>
+                        <img src="../../asset/images/<?php echo $condition_gatch['conditions'];?>" class="gatch-cond">
+                    </div>
                 </div>
-            </div>
-        <?php endforeach ?>
+            <?php endforeach ?>
+        </div>
     </div><!-- gatch -->
+
+    <div style="display: block;">
+    <?php require('../../asset/footer.php'); ?>
+    </div>
+
+
 <script type="text/javascript" src="condition.js?id="<?= date(); ?>></script>
 <script type="text/javascript" src="push.js"></script>
-
 </body>
 </html>
