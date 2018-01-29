@@ -38,6 +38,7 @@ $login_condition =$_SESSION['login_user']['conditions'];
     <title>練習</title>
     <!-- ========stylesheet======== -->
     <link rel="stylesheet" type="text/css" href="../../asset/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../asset/css/">
     <link rel="stylesheet" type="text/css" href="top.css">
     <!-- ========fontawesome========-->
     <link rel="stylesheet" type="text/css" href="../../asset/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -56,122 +57,47 @@ $login_condition =$_SESSION['login_user']['conditions'];
 </head>
 
 <body>
-    <!-- <header>
-        <span style="line-height: 56px; font-size: 25px;">ようこそ暇人さん</span>
-        <div id="hamburger">
-            <i class="fa fa-bars" aria-hidden="true"></i>
-        </div>
-        <div id="friend-add">
-            <a href="../ID/ID_create_input.php"><i class="fa fa-user-plus" aria-hidden="true"></i></a>
-        </div>
-        <div id="alert">
-            <i class="fa fa-bell" aria-hidden="true"></i></i>
-        </div>
-    </header> -->
     <?php require('../../asset/head.php'); ?>
 
-    <div id="himajin">
-        <?php foreach($login_users as $login_user): ?>
-            <div>
-                <a href="../chatpage.php?id=<?php echo $login_user['user_id']; ?>" style="text-decoration: none;">
-                    <button type="submit" class="tochat">
-                    <img src="../LOGIN/profile_image/<?php echo $login_user['picture'] ;?>">
-                    </button>
-                </a>
-                <p><?php echo $login_user['user_name']; ?></p>
-                <p><?php echo $login_user['tubuyaki'];?></p>
-            </div>
-        <?php endforeach ?>
-    </div><!-- himajin -->
-
-
-    <div id="gatch" class="container">
-        <h1>合致ユーザー</h1>
-        <?php foreach($condition_gatch as $condition_gatch): ?>
-            <!-- <div>
-                <a href="../chatpage.php?id=<?php echo $condition_gatch['id']?>" style="text-decoration: none;">
-                    <button type="submit" class="tochat">
-                        <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>">
-                    </button>
-                </a>
-                <p><?php echo $condition_gatch['user_name'];?></p>
-                <p style="text-align: right;"><?php echo $condition_gatch['tubuyaki'];?></p>
-            </div> -->
-        <?php endforeach ?>
-        <div class="row">
-            <div class="col-xs-offset-1 col-xs-5">
-                <div class="gatch-box" style="width: 600px; height: 100px; background-color: orange; display: inline-block; text-align: left; box-sizing: border-box;">
-                    <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>" style="padding: 10px;">
-                    <p style="margin-left: 30px; font-size: 25px">
-                        <?php echo $condition_gatch['user_name'];?>
-                    </p>
-                    <p>
-                        <?php echo $condition_gatch['tubuyaki'];?>
-                    </p>
-                    <img src="../../asset/images/<?php echo $condition_gatch['conditions'];?>" style="float: right; width: 70px; height: 70px; ">
-                </div>
-            </div>
-            <div class="col-xs-5">
-                <div class="gatch-box" style="width: 600px; height: 100px; background-color: orange; display: inline-block; text-align: left; box-sizing: border-box;">
-                    <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>" style="padding: 10px;">
-                    <p style="margin-left: 30px; font-size: 25px">
-                        <?php echo $condition_gatch['user_name'];?>
-                    </p>
-                    <p>
-                        <?php echo $condition_gatch['tubuyaki'];?>
-                    </p>
-                    <img src="../../asset/images/<?php echo $condition_gatch['conditions'];?>" style="float: right; width: 70px; height: 70px; ">
-                </div>
-            </div>
-           <div class="col-xs-offset-1 col-xs-5">
-                <div class="gatch-box" style="width: 600px; height: 100px; background-color: orange; display: inline-block; text-align: left; box-sizing: border-box;">
-                    <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>" style="padding: 10px;">
-                    <p style="margin-left: 30px; font-size: 25px">
-                        <?php echo $condition_gatch['user_name'];?>
-                    </p>
-                    <p>
-                        <?php echo $condition_gatch['tubuyaki'];?>
-                    </p>
-                    <img src="../../asset/images/<?php echo $condition_gatch['conditions'];?>" style="float: right; width: 70px; height: 70px; ">
-                </div>
-            </div>
-            <div class="col-xs-5">
-                <div class="gatch-box" style="width: 600px; height: 100px; background-color: orange; display: inline-block; text-align: left; box-sizing: border-box;">
-                    <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>" style="padding: 10px;">
-                    <p style="margin-left: 30px; font-size: 25px">
-                        <?php echo $condition_gatch['user_name'];?>
-                    </p>
-                    <p>
-                        <?php echo $condition_gatch['tubuyaki'];?>
-                    </p>
-                    <img src="../../asset/images/<?php echo $condition_gatch['conditions'];?>" style="float: right; width: 70px; height: 70px; ">
-                </div>
-            </div><div class="col-xs-offset-1 col-xs-5">
-                <div class="gatch-box" style="width: 600px; height: 100px; background-color: orange; display: inline-block; text-align: left; box-sizing: border-box;">
-                    <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>" style="padding: 10px;">
-                    <p style="margin-left: 30px; font-size: 25px">
-                        <?php echo $condition_gatch['user_name'];?>
-                    </p>
-                    <p>
-                        <?php echo $condition_gatch['tubuyaki'];?>
-                    </p>
-                    <img src="../../asset/images/<?php echo $condition_gatch['conditions'];?>" style="float: right; width: 70px; height: 70px; ">
-                </div>
-            </div>
-            <div class="col-xs-5">
-                <div class="gatch-box" style="width: 600px; height: 100px; background-color: orange; display: inline-block; text-align: left; box-sizing: border-box;">
-                    <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>" style="padding: 10px;">
-                    <p style="margin-left: 30px; font-size: 25px">
-                        <?php echo $condition_gatch['user_name'];?>
-                    </p>
-                    <p>
-                        <?php echo $condition_gatch['tubuyaki'];?>
-                    </p>
-                    <img src="../../asset/images/<?php echo $condition_gatch['conditions'];?>" style="float: right; width: 70px; height: 70px; ">
-                </div>
-            </div>
+    <div style="width: 100%; margin: 0; padding: 0;" >
+        <div style="width: 5%; height: 283px; line-height: 450px; color: orange; padding: 0; float: left;">
+            <i class="fa fa-caret-left" aria-hidden="true" style="font-size: 70px;"></i>
         </div>
+        <div id="himajin" style="float: left;">
+            <?php foreach($login_users as $login_user): ?>
+                <div>
+                    <a href="../chatpage.php?id=<?php echo $login_user['user_id']; ?>" style="text-decoration: none;">
+                        <button type="submit" class="tochat">
+                        <img src="../LOGIN/profile_image/<?php echo $login_user['picture'] ;?>">
+                        </button>
+                    </a>
+                    <p><?php echo $login_user['user_name']; ?></p>
+                    <p><?php echo $login_user['tubuyaki'];?></p>
+                </div>
+            <?php endforeach ?>
+        </div><!-- himajin -->
+        <div style="width: 5%; height: 283px; line-height: 450px; color: orange; padding: 0; margin-right: 0; float: left; text-align: right;">
+            <i class="fa fa-caret-right" aria-hidden="true" style="font-size: 70px;"></i>
+         </div>
+    </div>
+
+    <div id="gatch" style="margin-top: 30px; width: 100%;">
+        <?php foreach($condition_gatch as $condition_gatch): ?>
+            <div class="col-xs-6">
+                <div class="gatch-box" style="width: 600px; height: 100px; background-color: orange; display: inline-block; text-align: left; box-sizing: border-box; text-align: center;">
+                    <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>" style="padding: 10px;">
+                    <p style="margin-left: 30px; font-size: 25px">
+                        <?php echo $condition_gatch['user_name'];?>
+                    </p>
+                    <p>
+                        <?php echo $condition_gatch['tubuyaki'];?>
+                    </p>
+                    <img src="../../asset/images/<?php echo $condition_gatch['conditions'];?>" style="float: right; width: 70px; height: 70px; ">
+                </div>
+            </div>
+        <?php endforeach ?>
     </div><!-- gatch -->
+
 <script type="text/javascript" src="condition.js?id="<?= date(); ?>></script>
 <script type="text/javascript" src="push.js"></script>
 

@@ -113,13 +113,12 @@ if(!empty($_POST)){ // [J-01]
 		$filename=$_FILES['profile_image']['name'];
 		$ext = substr($filename,-3);
 
-		if($ext != 'jpg' && $ext !='png' && $ext !='gif')
+		if($ext != 'jpg' && $ext !='png' && $ext !='gif'){
 			$errors['profile_image'] = 'extention';
+		}
 	}else{
 		$errors['profile_image'] = 'blank';
 	}
-
-	var_dump($errors);
 
 	if(empty($errors)){
 		echo 'エラーがありませんでした。確認画面へ移動します<br>';
@@ -240,7 +239,7 @@ if(!empty($_POST)){ // [J-01]
 					<input type="file" name="profile_image" accept="image/*">
 					<br>
 
-					<?php if(isset($isset['profile_image']) && $errors['profile_image'] == 'blank'){ ?>
+					<?php if(isset($errors['profile_image']) && $errors['profile_image'] == 'blank'){ ?>
 					<div class="alert alert-danger">
 						画像を選択してください
 					</div>
