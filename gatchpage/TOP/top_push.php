@@ -2,7 +2,10 @@
 session_start();
 require('../../dbconect_gatch.php');
 
-
+if (!isset($_SESSION['login_user']['user_id'])) {
+    header('Location: ../LOGIN/gatch_login.php');
+    exit();
+}
 $login_id = $_SESSION['login_user']['user_id'];
 $login_condition =$_SESSION['login_user']['conditions'];
 
@@ -71,7 +74,7 @@ $login_condition =$_SESSION['login_user']['conditions'];
                 <?php foreach($login_users as $login_user): ?>
                     <div>
                         <a href="../chatpage.php?id=<?php echo $login_user['user_id']; ?>" style="text-decoration: none;">
-                            <button type="submit" class="tochat">
+                            <button class="tochat">
                                 <img src="../LOGIN/profile_image/<?php echo $login_user['picture'] ;?>" class="himajin-pic">
                                 <img src="../../asset/images/<?php echo $login_user['conditions'] ;?>" class="himajin-cond">
                             </button>
@@ -94,17 +97,21 @@ $login_condition =$_SESSION['login_user']['conditions'];
         <div class="row">
             <?php foreach($condition_gatch as $condition_gatch): ?>
                 <div class="col-xs-6">
-                    <div class="gatch-box">
-                        <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>" class="gatch-pic">
-                        <p style="margin-left: 30px; font-size: 30px">
-                            <?php echo $condition_gatch['user_name'];?>
-                            <br>
-                            <span class="gatch-tubuyaki">
-                            <?php echo $condition_gatch['tubuyaki'];?>
-                            </span>
-                        </p>
-                        <img src="../../asset/images/<?php echo $condition_gatch['conditions'];?>" class="gatch-cond">
-                    </div>
+                    <a href="../chatpage.php?id=<?php echo $condition_gatch['user_id']; ?>" style="text-decoration: none; color: black;">
+                        <button class="tochat">
+                        <div class="gatch-box">
+                            <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>" class="gatch-pic">
+                            <p style="margin-left: 30px; font-size: 30px">
+                                <?php echo $condition_gatch['user_name'];?>
+                                <br>
+                                <span class="gatch-tubuyaki">
+                                <?php echo $condition_gatch['tubuyaki'];?>
+                                </span>
+                            </p>
+                            <img src="../../asset/images/<?php echo $condition_gatch['conditions'];?>" class="gatch-cond">
+                        </div>
+                        </button>
+                    </a>
                 </div>
             <?php endforeach ?>
         </div>

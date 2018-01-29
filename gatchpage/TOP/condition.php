@@ -1,4 +1,6 @@
 <?php
+// 仕様変更により使われません
+
 // AJAXで飛ばすから require('../dbconnect.php'); が必要
 session_start();
 require('../dbconect_gatch.php');

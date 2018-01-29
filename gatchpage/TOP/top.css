@@ -64,7 +64,7 @@ body{
 		left: 70px;
 }
 .tochat .himajin-pic:hover{
-	border: 5px solid yellow;
+	border: 5px solid #33ff00;
 }
 .tochat .himajin-pic:active{
 	position: relative;
@@ -93,7 +93,7 @@ body{
 #gatch {
 	width: 86%;
 	text-align: center;
-	margin: 0 0 25px 7%;
+	margin: -15px 0 25px 7%;
 }
 #gatch .tochat{
 	padding: 0;
@@ -105,9 +105,14 @@ body{
 	display: inline-block;
 	height: 100px;
 }
-#gatch button{
-	margin-left: 15px;
+#gatch .gatch-box:hover{
+	background-color: #33ff00
 }
+#gatch .tochat:active{
+	position: relative;
+		top: 3px;
+}
+
 .gatch-box{
 	width: 600px;
 	height: 100px;
@@ -115,7 +120,7 @@ body{
 	display: inline-block;
 	box-sizing: border-box;
 	text-align: left;
-	margin-bottom: 25px;
+	margin-bottom: 50px;
 	border: 1px solid black;
 }
 .gatch-pic{
