@@ -30,3 +30,8 @@ span.condition {
 span.conditions {
 	margin-right: 30px;
 }
+
+span.obi {
+	position: left;
+	margin-top: auto;
+}
