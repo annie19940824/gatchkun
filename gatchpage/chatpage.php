@@ -2,7 +2,7 @@
 
 session_start();
 require('../dbconect_gatch.php');
-
+ require('../asset/head.php');
 
 $login_id = $_SESSION['login_user']['user_id'];
 $login_condition =$_SESSION['login_user']['conditions'];
@@ -88,7 +88,9 @@ if (!isset($_GET['id'])) {
 	<link rel="stylesheet" type="text/css" href="../asset/rin/Rin-3.3.7-2/dist/css/chatmain.css">
 </head>
 
-<?php  require('../asethead.php'); ?>
+
+
+
 
 
 <body>
@@ -99,19 +101,16 @@ if (!isset($_GET['id'])) {
 
   <div class="container">
 		<div class="row">
-			<div class="col-xs-4"><!-- 4/12 -->
-          <h3 style="text-align: center;">
-            マイプロフィール
-          </h3>
-          ようこそ：<?php echo $user_profile['user_name'] ; ?>さん<br>
-          <img src="LOGIN/profile_image/<?php echo $user_profile['picture'];?>" width="50px"><br>
-
-          <span style="font-size: 12px ;text-align: center;">
-            id : <?php echo $user_profile['user_id']; ?>
-            / ユーザー名 : <?php echo $user_profile['user_name'];?><br>
-            登録日時:<?php echo $user_profile['created'] ;?>
-          </span>
-
+			<div class="col-xs-5"><!-- 5/12 -->
+        <h3 style="text-align: center;" >チャット相手</h3>
+        ようこそ：<?php echo $other_profile['user_name']; ?>さん<br>
+        <img src="LOGIN/profile_image/<?php echo $other_profile['picture'];?>" width="50px"><br>
+        <span style="font-size: 12px">
+          id:<?php echo $other_profile['user_id']; ?>/
+          ユーザー名:<?php echo $other_profile['user_name']; ?><br>
+          登録日時 :<?php echo $other_profile['created'];?>
+        </span>
+    
           <form method="POST" action="">
             <textarea name="chat"></textarea>
             <br>
@@ -124,23 +123,22 @@ if (!isset($_GET['id'])) {
             </div>
           <?php } ?>
           <br>
-          <a href="TOP/top_push.php" class="btn btn-info">
-            もどる
-          </a>
+      
           <br><br>
-          <a href="logout.php" class="btn btn-danger">
-            ログアウト
-          </a>
-      </div><!-- 4/12 -->
+         
+      </div><!-- 5/12 -->
 
-      <div class="col-xs-4"><!-- 8/12 -->
+      <div class="col-xs-7"><!-- 7/12 -->
+        <div class="chat_boder" style="width: 400px; height: 50px;border: solid #008080;">
           <h3 style="text-align: center;">チャット画面</h3>
+         
+
           <?php foreach($tweets as $t){ ?>
             <?php if($t['user_id']==$user){ // 自分だったら  ?>
               <!-- 自分のつぶやき -->
               <div class="chat-box">
                 <div class="chat-face">
-                <img src="LOGIN/profile_image/<?php echo  $user_profile['picture'];  ?>" alt="自分のチャット画像です。" width="90" height="90">
+                <img src="LOGIN/profile_image/<?php echo  $user_profile['picture']; ?>" alt="自分のチャット画像です。" width="90" height="90">
                 </div>
                 <br>
                 <br>
@@ -168,28 +166,25 @@ if (!isset($_GET['id'])) {
                   
                    <?php echo $t['chat']; ?>
                   
-                  </div>
-                </div>
-              </div>
-            <?php }?><!-- if -->
-          <?php }?><!-- foreach -->
-      </div><!-- 8/12 -->
+                   </div>
+                 </div>
+               </div>
+              <?php }?><!-- if -->
+            <?php }?><!-- foreach -->
+          </div>
+      </div><!-- 7/12 -->
 
             <!--  ここまでチャット画面 -->
-			<div class="col-xs-4" ><!-- 12/12 -->
-        <h3 style="text-align: center;" >合致メイト</h3>
-        ようこそ：<?php echo $other_profile['user_name']; ?>さん<br>
-        <img src="LOGIN/profile_image/<?php echo $other_profile['picture'];?>" width="50px"><br>
-        <span style="font-size: 12px">
-          id:<?php echo $other_profile['user_id']; ?>/
-          ユーザー名:<?php echo $other_profile['user_name']; ?><br>
-          登録日時 :<?php echo $other_profile['created'];?>
-        </span>
-		  </div><!-- 12/12 -->
+			
 			<!-- ここまで相手のプロフィール -->
 		</div>
 	</div>
 
+<?php
 
+require('../asset/footer.php');
+
+
+?>
 </body>
 </html>
