@@ -21,7 +21,7 @@
 		   <div class="row">
 			 <div class="col-xs-2">
 				<a href="">
-					<img src="../../asset/images/gatchi_logo88.gif" style="width:95%; bottom: :10px;">
+					<img src="../asset/images/gatchi_logo88.gif" style="width:95%; bottom: :10px;">
 					</a>
 			</div>
 			<div class="col-xs-8">
@@ -63,7 +63,7 @@
 
 
 				<span class="obi" style="color:#efe597;">あなたのコンディションは
-					<img id="test" src="../../asset/images/<?= $_SESSION['login_user']['conditions'] ?>" style="width:50px;height:50px;">
+					<img id="test" src="../asset/images/<?= $_SESSION['login_user']['conditions'] ?>" style="width:50px;height:50px;">
 				です
 				</span>
 
