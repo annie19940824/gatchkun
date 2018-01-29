@@ -3,6 +3,7 @@ padding: 0.25em 0.75em;
 color: #494949;
 background: transparent;
 border-left: solid 8px #eee598;
+margin-bottom: 24px;
 }
 
 span.hosoku {
@@ -22,6 +23,10 @@ span.hosoku {
 }
 
 span.condition {
-	margin-left: 15px;
-	margin-right: 10px;
+	margin-left: 10px;
+	margin-right: 7px;
+}
+
+span.conditions {
+	margin-right: 30px;
 }

@@ -48,7 +48,7 @@
 
 	<!--  第二ヘッダー -->
 	<div style="background-color: black;">
-　　	<div class="container" style="padding-bottom: 25px;">
+	<div class="container" style="padding: 15px 0px 15px 0px;">
 		<div class="row">
 			<div class="col-xs-12 visible-xs">
 	
