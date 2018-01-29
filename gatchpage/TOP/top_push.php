@@ -70,11 +70,12 @@ $login_condition =$_SESSION['login_user']['conditions'];
                 <div>
                     <a href="../chatpage.php?id=<?php echo $login_user['user_id']; ?>" style="text-decoration: none;">
                         <button type="submit" class="tochat">
-                        <img src="../LOGIN/profile_image/<?php echo $login_user['picture'] ;?>">
+                            <img src="../LOGIN/profile_image/<?php echo $login_user['picture'] ;?>" class="himajin-pic">
+                            <img src="../../asset/images/<?php echo $login_user['conditions'] ;?>" class="himajin-cond">
                         </button>
                     </a>
-                    <p><?php echo $login_user['user_name']; ?></p>
-                    <p><?php echo $login_user['tubuyaki'];?></p>
+                    <p class="himajin-name"><?php echo $login_user['user_name']; ?></p>
+                    <p class="himajin-tub"><?php echo $login_user['tubuyaki'];?></p>
                 </div>
             <?php endforeach ?>
         </div><!-- himajin -->
@@ -103,7 +104,6 @@ $login_condition =$_SESSION['login_user']['conditions'];
             </div>
         <?php endforeach ?>
     </div><!-- gatch -->
-
 <script type="text/javascript" src="condition.js?id="<?= date(); ?>></script>
 <script type="text/javascript" src="push.js"></script>
 
