@@ -87,12 +87,6 @@ if (!isset($_GET['id'])) {
 	<link rel="stylesheet" href="../asset/rin/Rin-3.3.7-2/dist/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="../asset/rin/Rin-3.3.7-2/dist/css/chatmain.css">
 </head>
-
-
-
-
-
-
 <body>
 	<h1 style="text-align: center;">はい合致チャット画面</h1>
   <p style="text-align: center; font-size: 20px">
@@ -110,7 +104,6 @@ if (!isset($_GET['id'])) {
           ユーザー名:<?php echo $other_profile['user_name']; ?><br>
           登録日時 :<?php echo $other_profile['created'];?>
         </span>
-    
           <form method="POST" action="">
             <textarea name="chat"></textarea>
             <br>
@@ -123,15 +116,13 @@ if (!isset($_GET['id'])) {
             </div>
           <?php } ?>
           <br>
-      
-          <br><br>
-         
+          <br>
+          <br>
       </div><!-- 5/12 -->
 
       <div class="col-xs-7"><!-- 7/12 -->
         <div class="chat_boder" style="width: 400px; height: 50px;border: solid #008080;">
           <h3 style="text-align: center;">チャット画面</h3>
-         
 
           <?php foreach($tweets as $t){ ?>
             <?php if($t['user_id']==$user){ // 自分だったら  ?>
@@ -147,9 +138,7 @@ if (!isset($_GET['id'])) {
                 </div>
                 <div class="chat-area">
                   <div class="chat-hukidashi">
-                  
                     <?php echo $t['chat']; ?>
-                  
                   </div>
                 </div>
               </div>
@@ -163,9 +152,7 @@ if (!isset($_GET['id'])) {
                  <?php echo $other_profile['user_name'] ; ?>
                 <div class="chat-area">
                   <div class="chat-hukidashi someone">
-                  
                    <?php echo $t['chat']; ?>
-                  
                    </div>
                  </div>
                </div>
@@ -175,30 +162,9 @@ if (!isset($_GET['id'])) {
       </div><!-- 7/12 -->
 
             <!--  ここまでチャット画面 -->
-<<<<<<< HEAD
-			
-			<!-- ここまで相手のプロフィール -->
-=======
-			<div class="col-xs-4" ><!-- 12/12 -->
-        <h3 style="text-align: center;" >合致メイト</h3>
-        ようこそ：<?php echo $other_profile['user_name']; ?>さん<br>
-        <img src="LOGIN/profile_image/<?php echo $other_profile['picture'];?>" width="50px"><br>
-        <span style="font-size: 12px">
-          id:<?php echo $other_profile['user_id']; ?>/
-          ユーザー名:<?php echo $other_profile['user_name']; ?><br>
-          登録日時 :<?php echo $other_profile['created'];?>
-        </span>
-		  </div><!-- 12/12 -->
-			
->>>>>>> yusuke
 		</div>
 	</div>
 
-<?php
-
-require('../asset/footer.php');
-
-
-?>
+<?php require('../asset/footer.php'); ?>
 </body>
 </html>

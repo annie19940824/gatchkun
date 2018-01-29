@@ -5,8 +5,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Rin</title>
-<<<<<<< HEAD
-
 	<link rel="stylesheet" type="text/css" href="../asset/css/bootstrap.css">
 	  <!-- ========fontawesome========-->
     <link rel="stylesheet" type="text/css" href="../asset/font-awesome-4.7.0/css/font-awesome.min.css">
@@ -52,11 +50,6 @@
 		}
 	}
 	</style>
-=======
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	  <!-- ========fontawesome========-->
-    <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
->>>>>>> yusuke
 </head>
 <body>
 
@@ -67,13 +60,8 @@
 			 <div class="col-xs-10">
 			   <div class="navbar-header">
 				<a href="" class="navbar-brand">
-<<<<<<< HEAD
-					<img src="../asset/images/gatchi_logo88.gif" style="width:150px;height:70px; bottom: :10px;">	
+					<img src="../asset/images/gatchi_logo88.gif" style="width:150px;height:70px; bottom: :10px;">
 					</a>
-=======
-					<img src="../../asset/images/gatchi_logo88.gif" style="width:150px;height:70px; bottom: :10px;">
-				</a>
->>>>>>> yusuke
 					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
