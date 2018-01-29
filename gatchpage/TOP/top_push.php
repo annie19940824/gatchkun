@@ -59,36 +59,38 @@ $login_condition =$_SESSION['login_user']['conditions'];
 <body>
     <?php require('../../asset/head.php'); ?>
 
-    <h3 class="theme" style="margin: 170px 0 0 6%;">
-        ログインしている暇人一覧
-    </h3>
-    <div class="himajin-container">
-        <div class="icon">
-            <i class="fa fa-caret-left" aria-hidden="true"></i>
-        </div>
-        <div id="himajin">
-            <?php foreach($login_users as $login_user): ?>
-                <div>
-                    <a href="../chatpage.php?id=<?php echo $login_user['user_id']; ?>" style="text-decoration: none;">
-                        <button type="submit" class="tochat">
-                            <img src="../LOGIN/profile_image/<?php echo $login_user['picture'] ;?>" class="himajin-pic">
-                            <img src="../../asset/images/<?php echo $login_user['conditions'] ;?>" class="himajin-cond">
-                        </button>
-                    </a>
-                    <p class="himajin-name"><?php echo $login_user['user_name']; ?></p>
-                    <p class="himajin-tub"><?php echo $login_user['tubuyaki'];?></p>
-                </div>
-            <?php endforeach ?>
-        </div><!-- himajin -->
-        <div class="icon" style="text-align: right;">
-            <i class="fa fa-caret-right" aria-hidden="true"></i>
-        </div>
-    </div><!-- himajin-container -->
+    <div class="container" style="width: 100%;">
+        <h3 class="theme" style="margin: 195px 0 24px 7%;">
+            ログインしている暇人一覧
+        </h3>
+        <div class="himajin-container">
+            <div class="icon">
+                <i class="fa fa-caret-left" aria-hidden="true"></i>
+            </div>
+            <div id="himajin">
+                <?php foreach($login_users as $login_user): ?>
+                    <div>
+                        <a href="../chatpage.php?id=<?php echo $login_user['user_id']; ?>" style="text-decoration: none;">
+                            <button type="submit" class="tochat">
+                                <img src="../LOGIN/profile_image/<?php echo $login_user['picture'] ;?>" class="himajin-pic">
+                                <img src="../../asset/images/<?php echo $login_user['conditions'] ;?>" class="himajin-cond">
+                            </button>
+                        </a>
+                        <p class="himajin-name"><?php echo $login_user['user_name']; ?></p>
+                        <p class="himajin-tub"><?php echo $login_user['tubuyaki'];?></p>
+                    </div>
+                <?php endforeach ?>
+            </div><!-- himajin -->
+            <div class="icon" style="text-align: right;">
+                <i class="fa fa-caret-right" aria-hidden="true"></i>
+            </div>
+        </div><!-- himajin-container -->
+    </div><!-- container -->
 
-    <h3 class="theme" style="margin-left: 6%;">
-        合致候補の暇人
-    </h3>
     <div id="gatch" class="container">
+        <h3 class="theme" style="text-align: left;">
+            合致候補の暇人
+        </h3>
         <div class="row">
             <?php foreach($condition_gatch as $condition_gatch): ?>
                 <div class="col-xs-6">

@@ -63,18 +63,12 @@ body{
 		top: 70px;
 		left: 70px;
 }
-.tochat img:hover{
+.tochat .himajin-pic:hover{
 	border: 5px solid yellow;
 }
-.tochat .himajin-cond:hover{
-	border: none;
-}
-.tochat img:active{
+.tochat .himajin-pic:active{
 	position: relative;
 		top: 3px;
-}
-.tochat .himajin-cond:active{
-	position: none;
 }
 .himajin-name{
 	display: block;
@@ -99,7 +93,7 @@ body{
 #gatch {
 	width: 86%;
 	text-align: center;
-	margin: 30px 7%;
+	margin: 0 0 25px 7%;
 }
 #gatch .tochat{
 	padding: 0;
