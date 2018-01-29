@@ -9,8 +9,11 @@ if (!isset($_SESSION['login_user']['user_id'])) {
 $login_id = $_SESSION['login_user']['user_id'];
 $login_condition =$_SESSION['login_user']['conditions'];
 
-require('himajin.php'); // [$login_users]に暇人全員のデータを格納してある
-require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデータを格納してある
+// [$login_users]に暇人全員のデータを格納
+require('himajin.php');
+
+//[$condition_gatch]に合致ユーザーのデータを格納
+require('condition_gatch.php');
 ?>
 
 <!DOCTYPE html>
@@ -28,15 +31,8 @@ require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデ�
     <!-- ========jQuery======== -->
     <script src="../../YUSUKE1/jQuery/jquery-3.1.1.js"></script>
     <script src="../../YUSUKE1/jQuery/jquery-migrate-1.4.1.js"></script>
-    <!-- ========AJAX======== -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- ========push.js======== -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
-    <!-- ========PHPで定義した変数をJSで使う======== -->
-    <script type="text/javascript">
-        var login_id = <?php echo json_encode($login_id); ?>;
-        var login_condition = <?php echo json_encode($login_condition); ?>;
-    </script>
 </head>
 
 <body>
@@ -53,7 +49,7 @@ require('condition_gatch.php'); //[$condition_gatch]に合致ユーザーのデ�
             <div id="himajin">
                 <?php foreach($login_users as $login_user): ?>
                     <div>
-                        <a href="   " style="text-decoration: none;">
+                        <a href="../chatpage.php?id=<?php echo $login_user['user_id']; ?>" style="text-decoration: none;">
                             <button class="tochat" id="<?php echo $login_user['user_id']; ?>" onclick="push(<?php echo $login_user['user_id']; ?>)">
                                 <img src="../LOGIN/profile_image/<?php echo $login_user['picture'] ;?>" class="himajin-pic">
                                 <img src="../../asset/images/<?php echo $login_user['conditions'] ;?>" class="himajin-cond">
