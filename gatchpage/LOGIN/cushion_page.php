@@ -38,75 +38,148 @@ require('../../dbconect_gatch.php');
 <head>
 	<meta charset="utf-8">
 	<title>コンディション設定ページ</title>
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" type="text/css" href="../../asset/rin/Rin-3.3.7-2/dist/css/bootstrap.css">
+	<!-- ========fontawesome========-->
+    <link rel="stylesheet" type="text/css" href="../../asset/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- ========stylesheet======== -->
+	<link rel="stylesheet" type="text/css" href="../../asset/css/bootstrap.css">
+	<!-- ========共通CSS======== -->
+	<link rel="stylesheet" type="text/css" href="../../asset/css/common.css">
 	<!-- Theme style  -->
 	<link rel="stylesheet" type="text/css" href="../../asset/rin/Rin-3.3.7-2/dist/css/cushion_page.css">
 </head>
-<body>
+<body style="margin-top: 70px;">
+	<?= require('../../asset/head2.php'); ?>
 
-<header>
-	<div class="container">
-		<div class="row">
-			<div class="col-xs-4">
-				<img src="../../asset/images/gatchi_logo88.gif" width="40%">
-			</div>
-			<div class="col-xs-8" float="left">
-	 			<img src="../../asset/images/header_asset02.jpg" width="35%">
-			</div>
-		</div>
+	<div id="heading">
+		<p>ようこそ、暇人の　
+			<span style="color: red"><?php echo $_SESSION['login_user']['user_name'] ?>
+			</span>　
+		さん</p>
 	</div>
-</header>
 
-<div id="heading">
-	<p>ようこそ、暇人の　
-		<span style="color: red"><?php echo $_SESSION['login_user']['user_name'] ?>
-		</span>　
-	さん</p>
-	<h1>今のあなたの気分は？</h1>
-	<h3 style="margin-bottom: 30px">ひとつだけ選択できます。</h3>
+	<div class="container">
+	<div class="row">
+	<div class="col-xs-6">
+	
+		<h3 class="theme">今のあなたの気分は？ (ひとつだけ選択)</h3>
 
-   <form action="" method="POST">
-   <p style="margin-bottom: 15px">
+   			<form action="" method="POST">
+   			<p style="margin-bottom: 1px">
+   			<input type="radio" name="conditions" value="i_nomi.gif">
+   			<span class="condition">
+   			<img src="../../asset/images/i_nomi.gif" style="width: 45px;">
+   			</span>
+   			飲みに行こ
+   			</p>
 
-   <input type="radio" name="conditions" value="i_nomi.gif">飲みに行こ
+   			<br>
+   			
+   			<p style="margin-bottom: 1px">
+   			<input type="radio" name="conditions" value="i_drive.gif">
+   			<span class="condition">
+   			<img src="../../asset/images/i_drive.gif" style="width: 45px;">
+   			</span>
+   			ドライブ行こ
+   			</p>
 
-   <input style="margin-left: 25px" type="radio" name="conditions" value="i_drive.gif">ドライブ行こ
+   			<br>
 
-   <input style="margin-left: 25px" type="radio" name="conditions" value="i_takunomi.gif  ">宅飲みしよ
+   			<p style="margin-bottom: 1px">
+   			<input type="radio" name="conditions" value="i_takunomi.gif  ">
+   			<span class="condition">
+   			<img src="../../asset/images/i_takunomi.gif" style="width: 45px;">
+   			</span>
+   			宅飲みしよ
+   			</p>
 
-		<br>
-		<br>
+			<br>
 
-		<input type="radio" name="conditions" value="i_game.gif">ゲームしよ
+			<p style="margin-bottom: 1px">
+			<input type="radio" name="conditions" value="i_game.gif">
+			<span class="condition">
+			<img src="../../asset/images/i_game.gif" style="width: 45px;">
+   			</span>
+   			ゲームしよ
+   			</p>
 
-		<input style="margin-left: 25px" type="radio" name="conditions" value="i_cafe.gif">カフェろ
+   			<br>
 
-		<input style="margin-left: 25px" type="radio" name="conditions" value="i_meshi.gif">メシ行こ
+   			<p style="margin-bottom: 1px">
+			<input type="radio" name="conditions" value="i_cafe.gif">
+			<span class="condition">
+			<img src="../../asset/images/i_cafe.gif" style="width: 45px;">
+   			</span>
+   			カフェろ
+   			</p>
 
-		<br>
-		<br>
+   			<br>
 
-		<input type="radio" name="conditions" value="i_kaimono.gif">買い物行こ
+   			<p style="margin-bottom: 1px">
+			<input type="radio" name="conditions" value="i_meshi.gif">
+			<span class="condition">
+			<img src="../../asset/images/i_meshi.gif" style="width: 45px;">
+   			</span>
+   			メシ行こ
+   			</p>
 
-		<input style="margin-left: 25px" type="radio" name="conditions" value="i_karaoke.gif">カラオケ行こ
+			<br>
 
-		<input style="margin-left: 25px" type="radio" name="conditions" value="i_sonota.gif">その他
+			<p style="margin-bottom: 1px">
+			<input type="radio" name="conditions" value="i_kaimono.gif">
+			<span class="condition">
+			<img src="../../asset/images/i_kaimono.gif" style="width: 45px;">
+   			</span>
+   			買い物行こ
+   			</p>
+
+   			<br>
+
+   			<p style="margin-bottom: 1px">
+			<input type="radio" name="conditions" value="i_karaoke.gif">
+			<span class="condition">
+			<img src="../../asset/images/i_karaoke.gif" style="width: 45px;">
+   			</span>
+   			カラオケ行こ
+   			</p>
+
+   			<br>
+
+   			<p style="margin-bottom: 1px">
+			<input type="radio" name="conditions" value="i_sonota.gif">
+			<span class="condition">
+			<img src="../../asset/images/i_sonota.gif" style="width: 45px;">
+   			</span>
+   			その他
+   			</p>
+
         </p>
+    </div>
+    	
+    
 
-	<h1>とりあえずつぶやいておきましょう</h1>
-	<h3 style="margin-bottom: 30px; color: navy">暇人募集のつぶやき（２０文字以内）</h3>
-	<textarea name="tubuyaki" rows="4" placeholder="例：金沢駅前で暇してます"></textarea>
+    <div class="col-xs-6">
+
+	<h3 class="theme">ログインする前につぶやいておきましょう</h3>
+		
+		<p>20文字以内で入力できます</p>
+		<textarea style="width:85%;" name="tubuyaki" placeholder="例：金沢駅前で暇してます"></textarea>
+	<br>
 	<br>
 
-<a href="*">
-	<!-- <img src="../images/search_friend_btn.gif" class="search"> -->
-	<input type="submit" value="合致候補を探す">
-</a>
-</form>
+		<a href="*">
+			<!-- <img src="../images/search_friend_btn.gif" class="search"> -->
+		<input type="submit" class="btn btn-primary btn-lg" value="合致候補を探す">
+		</a>
+	</div>
+			</form>
+	</div>
+	</div>
 </div>
-	<footer style="width: 100%; background-color: #f8f2f2 ; float: left; padding-bottom: 20px;" >
 
-    </footer>
+<br>
+<br>
+
+<?= require('../../asset/footer.php'); ?>
+	
 </body>
 </html>

@@ -11,6 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	  <!-- ========fontawesome========-->
     <link rel="stylesheet" type="text/css" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <!-- ========共通CSS======== -->
+	<link rel="stylesheet" type="text/css" href="../../asset/css/common.css">
 
 
 	<style type="text/css">
@@ -18,12 +20,6 @@
 	@media ( min-width: 768px ) {
 
 
-    .footer-text{
-     text-align: center;
-     margin:30px;
-
-
-    }
 }
 
 	</style>
@@ -65,13 +61,13 @@
 			<div class="col-md-6 col-sm-6 hidden-xs" style="background-color: black; margin-right: 10px;">
 			 
 			 <div class="footer-text">  	
-			     <a href="../gatchpage/OTHER/privacy.php" style="color:#efe597; border-bottom: solid 1px #efe597;">個人情報保護方針</a>
-			     <a href="../gatchpage/OTHER/q&a.php" style="color:#efe597;border-bottom: solid 1px #efe597;" > よくある質問</a> 
-			     <a href="../gatchpage/OTHER/management.php" style="color:#efe597;border-bottom: solid 1px #efe597;"> お問合せ  </a>
-			     <a href="	" style="color:#efe597;border-bottom: solid 1px #efe597;">退会手続き</a> 
+			     <a href="../gatchpage/OTHER/privacy.php" style="color:#efe597;">個人情報保護方針</a>
+			     <a href="../gatchpage/OTHER/q&a.php" style="color:#efe597;" > よくある質問</a> 
+			     <a href="../gatchpage/OTHER/management.php" style="color:#efe597;"> お問合せ  </a>
+			     <a href="	" style="color:#efe597;">退会手続き</a>
                          
 
-                s <p style="color: white;">	@2018　team hai gatch </p>
+                <p style="color: white;">	©️2018　team hai gatch </p>
   
             </div>
   			</div>
