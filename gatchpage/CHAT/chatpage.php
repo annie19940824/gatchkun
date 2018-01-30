@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require('../dbconect_gatch.php');
+require('../../dbconect_gatch.php');
  /*require('../asset/head.php');*/
 
 $login_id = $_SESSION['login_user']['user_id'];
