@@ -77,7 +77,7 @@ require('condition_gatch.php');
                         <button class="tochat" id="<?php echo $condition_gatch['user_id']?>" onclick="push(<?php echo $login_user['user_id']; ?>)">
                         <div class="gatch-box">
                             <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>" class="gatch-pic">
-                            <p style="margin-left: 30px; font-size: 30px">
+                            <p>
                                 <?php echo $condition_gatch['user_name'];?>
                                 <br>
                                 <span class="gatch-tubuyaki">
