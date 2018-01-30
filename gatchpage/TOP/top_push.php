@@ -72,7 +72,7 @@ require('condition_gatch.php');
             </h3>
             <div class="row">
                 <?php foreach($condition_gatch as $condition_gatch): ?>
-                    <div class="col-xs-6">
+                    <div class="col-xs-6" style="padding: 0;">
                         <a href="../chatpage.php?id=<?php echo $condition_gatch['user_id']; ?>" style="text-decoration: none; color: black;">
                             <button class="tochat" id="<?php echo $condition_gatch['user_id']?>" onclick="push(<?php echo $login_user['user_id']; ?>)">
                             <div class="gatch-box">
