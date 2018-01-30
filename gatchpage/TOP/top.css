@@ -93,7 +93,11 @@ body{
 #gatch {
 	width: 86%;
 	text-align: center;
-	margin: -15px 0 25px 7%;
+	margin: -20px auto 30px;
+}
+#gatch .container{
+	width: 100%;
+	margin: 0 auto;
 }
 #gatch .tochat{
 	padding: 0;
@@ -118,7 +122,6 @@ body{
 	width: 550px;
 	height: 100px;
 	background-color: #efe597;
-	display: inline-block;
 	box-sizing: border-box;
 	text-align: left;
 	margin-bottom: 50px;

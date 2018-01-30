@@ -19,7 +19,6 @@ require('condition_gatch.php');
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-
     <meta charset="utf-8">
     <title>練習</title>
     <!-- ========stylesheet======== -->
@@ -66,30 +65,32 @@ require('condition_gatch.php');
         </div><!-- himajin-container -->
     </div><!-- container -->
 
-    <div id="gatch" class="container">
-        <h3 class="theme" style="text-align: left;">
+    <div id="gatch">
+        <div class="container">
+            <h3 class="theme" style="text-align: left;">
             合致候補の暇人
-        </h3>
-        <div class="row">
-            <?php foreach($condition_gatch as $condition_gatch): ?>
-                <div class="col-xs-6">
-                    <a href="../chatpage.php?id=<?php echo $condition_gatch['user_id']; ?>" style="text-decoration: none; color: black;">
-                        <button class="tochat" id="<?php echo $condition_gatch['user_id']?>" onclick="push(<?php echo $login_user['user_id']; ?>)">
-                        <div class="gatch-box">
-                            <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>" class="gatch-pic">
-                            <p>
-                                <?php echo $condition_gatch['user_name'];?>
-                                <br>
-                                <span class="gatch-tubuyaki">
-                                <?php echo $condition_gatch['tubuyaki'];?>
-                                </span>
-                            </p>
-                            <img src="../../asset/images/<?php echo $condition_gatch['conditions'];?>" class="gatch-cond">
-                        </div>
-                        </button>
-                    </a>
-                </div>
-            <?php endforeach ?>
+            </h3>
+            <div class="row">
+                <?php foreach($condition_gatch as $condition_gatch): ?>
+                    <div class="col-xs-6">
+                        <a href="../chatpage.php?id=<?php echo $condition_gatch['user_id']; ?>" style="text-decoration: none; color: black;">
+                            <button class="tochat" id="<?php echo $condition_gatch['user_id']?>" onclick="push(<?php echo $login_user['user_id']; ?>)">
+                            <div class="gatch-box">
+                                <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>" class="gatch-pic">
+                                <p>
+                                    <?php echo $condition_gatch['user_name'];?>
+                                    <br>
+                                    <span class="gatch-tubuyaki">
+                                    <?php echo $condition_gatch['tubuyaki'];?>
+                                    </span>
+                                </p>
+                                <img src="../../asset/images/<?php echo $condition_gatch['conditions'];?>" class="gatch-cond">
+                            </div>
+                            </button>
+                        </a>
+                    </div>
+                <?php endforeach ?>
+            </div>
         </div>
     </div><!-- gatch -->
 
