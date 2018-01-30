@@ -1,12 +1,10 @@
 <?php
-require('../../dbconect_gatch.php');
-require('ID_sql.php');
-
 session_start();
+require('../../dbconect_gatch.php');
 
 $login_id = $_SESSION['login_user']['user_id'];
 $login_condition =$_SESSION['login_user']['conditions'];
-
+require('ID_sql.php');
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -19,68 +17,80 @@ $login_condition =$_SESSION['login_user']['conditions'];
     <meta name="author" content="FreeHTML5.co" />
 
     <title>ID発行・入力</title>
-
     <!-- ========BootStrap======== -->
-    <link rel="stylesheet" href="../../asset/rin/Rin-3.3.7-2/dist/css/bootstrap.css">
-
+    <link rel="stylesheet" href="../../asset/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../asset/css/common.css">
+    <!-- ========stylesheet======== -->
+    <link rel="stylesheet" type="text/css" href="ID.css">
     <!-- ========jQuery======== -->
-    <script src="../jQuery/jquery-3.1.1.js"</script>
-    <script src="../jQuery/jquery-migrate-1.4.1.js"></script>
+    <script src="../../YUSUKE1/jQuery/jquery-3.1.1.js"</script>
+    <script src="../../YUSUKE1/jQuery/jquery-migrate-1.4.1.js"></script>
     <!-- ========AJAX======== -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript">
         var clipboadCopy = function(){
             var id = document.getElementById("onetime");
+            var r_str = <?php echo json_encode($r_str); ?>;
             id.select();
             document.execCommand("copy");
+            alert(r_str + 'をコピーしました');
         }
     </script>
 </head>
 <body>
-    <h1>はい合致edit</h1>
-
-    <br>
-    <br>
+<div class="header">
+    <?php require('../../asset/head.php'); ?>
+</div>
     <div class="container">
- 	      <div class="row">
-            <div class="col-xs-6">
-                <h4>ID出力画面</h4>
+ 	    <div class="row row1">
+            <div class="col-xs-9">
+                <h3 class="theme">
+                    合致トモの追加用ワンタイムパスワード（友人に追加してもらう）
+                </h3>
+                <p>
+                    他のユーザーがあなたを友達として追加する時に、このパスワードが必要になります。<br>
+                    このパスワードを、メッセージアプリなどで友達に送ってください。
+                </p>
                 <div>
-      					    <form method="POST" action="">
-      						  <input  type="text" name="onetimeId" value="<?php echo $r_str; ?>" id="onetime" >
-      						  </input>
-      						  <input type="submit" name="idCreate" class="btn btn-primary" value="コピーする" onclick="clipboadCopy()">
-      					    </form>
+				    <form method="POST" action="">
+				        <input  type="text" name="onetimeId" value="<?php echo $r_str; ?>" id="onetime" class="input">
+                        </input>
+                        <input type="submit" name="idCreate" value="パスワードをコピーする" onclick="clipboadCopy()">
+				    </form>
                 </div>
                 <!-- 履歴 -->
-                <div class="past">
-				            <h4>コピー履歴</h4>
-				            <?php foreach ($created_id as $key): ?>
-			                  <?php echo $key['random_created']; ?>
-			                  <p style="font-size:15px;">
-	                          <?php echo $key['random']; ?>
+                <!-- <div class="past">
+			        <?php // foreach ($created_id as $key): ?>
+                        <?php // echo $key['random_created']; ?>
+                        <p style="font-size:15px;">
+                            <?php //echo $key['random']; ?>
                         </p>
-				            <?php endforeach; ?>
-
-        				    <br>
-        				    <br>
-        				    <br>
-        				    <br>
-        					  <a href="../TOP/top_push.php">トップへ</a>
+			        <?php //endforeach; ?>
+                </div> -->
+            </div><!-- col-xs-9 -->
+        </div>
+        <div class="row row2">
+            <div class="col-xs-9">
+                <h3 class="theme">
+                    合致トモの追加用ワンタイムパスワード入力フォーム（友人を追加する）
+                </h3>
+                <p>
+                    あなたが他のユーザーを友達として追加する時に、ここにパスワードを入力します。<br>
+                    発行から24時間以上経過したパスワードは使用できません。
+                </p>
+                <div>
+                    <form method="POST" action="">
+                        <input  type="text" name="idInput" placeholder="友達から受け取ったIDを入力してください" class="input">
+                        </input>
+                        <input type="submit" value="合致トモを追加する">
+                    </form>
                 </div>
-			      </div><!-- col-xs-6 -->
-            <div class="col-xs-6">
-                <h4>ID入力画面</h4>
-                    <div>
-                        <form method="POST" action="">
-                            <input  type="text" name="idInput" placeholder="友達から受け取ったIDを入力してください">
-                            </input>
-                            <input type="submit" value="友達追加" class="btn btn-primary">
-                        </form>
-                    </div>
-            </div><!-- col-xs-6 -->
+            </div><!-- col-xs-9 -->
         </div><!-- row -->
     </div><!-- container -->
+    <div class="footer">
+        <?php require('../../asset/footer.php'); ?>
+    </div>
 
  </body>
  </html>

@@ -15,7 +15,7 @@ date_default_timezone_set('Asia/Manila');
 	foreach ($created as $key) {
 
 		$today = strtotime(date("Y/m/d H:i:s"));
-		$deleteDayTime = strtotime(date("Y/m/d H:i:s",strtotime($key['random_created'] . "+24 hour")));
+		$deleteDayTime = strtotime(date("Y/m/d H:i:s",strtotime($key['random_created'] . "+1 second")));
 
 		if ($today > $deleteDayTime){
 
@@ -27,7 +27,7 @@ date_default_timezone_set('Asia/Manila');
 			$stmt = $dbh->prepare($sql);
 			$stmt->execute($data);
 
-			echo "<br>".$key['random']."<br>上記のIDは24時間入力されませんでした<br>新たなIDを発行・コピーしてください<br>";
+			echo $key['random']."<br>上記のIDは24時間入力されませんでした<br>新たなIDを発行・コピーしてください<br>";
 		} // if
 	} // foreach
 ?>
