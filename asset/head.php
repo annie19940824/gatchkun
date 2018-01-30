@@ -28,8 +28,10 @@
 
            <div class="col-xs-2" style="padding-top: 20px;">
            	<div style="text-align: center;">
-			   <i class="fa fa-user-plus" aria-hidden="true" style="font-size: 35px"></i>
-               <i class="fa fa-bell" aria-hidden="true" style="font-size: 35px"></i>
+           		<a href="../ID/ID_create_input.php" style="color: black; text-decoration: none;">
+			    	<i class="fa fa-user-plus" aria-hidden="true" style="font-size: 35px"></i>
+			    </a>
+                <i class="fa fa-bell" aria-hidden="true" style="font-size: 35px"></i>
 		   </div>
          </div>
      	</div>
