@@ -1,5 +1,5 @@
 <header>
-	<div class="navbar navbar-default navbar-fixed-top" style="background-color: #f4f4f4;
+	<div class="navbar navbar-default navbar-fixed-top" style="background-color: white;
 ">
 
 		<div class="container">
