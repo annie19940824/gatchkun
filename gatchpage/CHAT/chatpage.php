@@ -2,7 +2,7 @@
 
 session_start();
 require('../../dbconect_gatch.php');
- //require('../../asset/head.php');
+
 
 $login_id = $_SESSION['login_user']['user_id'];
 $login_condition =$_SESSION['login_user']['conditions'];
@@ -90,7 +90,14 @@ if (!isset($_GET['id'])) {
 	<link rel="stylesheet" type="text/css" href="../../asset/css/chatmain.css">
 </head>
 
-<body style="margin-top: 100px;">
+<body>
+
+   <?php require('../../asset/head.php');?>
+  
+
+
+<div style="margin-top:100px; ">
+
   <div class="container">
 		<div class="row">
 			
@@ -179,8 +186,9 @@ if (!isset($_GET['id'])) {
      </div><!-- 7/12 -->
    </div><!-- row -->
 </div><!-- container -->
-
-
+<div style="margin-bottom: 20px">
+</div>
+</div>
 
 <?php
 require('../../asset/footer.php');
