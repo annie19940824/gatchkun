@@ -125,7 +125,7 @@ body{
 
 .gatch-box{
 	width: 550px;
-	height: 100px;
+	height: 125px;
 	background-color: #efe597;
 	box-sizing: border-box;
 	text-align: left;
@@ -134,14 +134,14 @@ body{
 }
 .gatch-pic{
 	float: left;
-	width: 100px;
-	height: 100px;
+	width: 125px;
+	height: 125px;
 	padding: 10px;
 }
 .gatch-cond{
 	float: right;
-	width: 100px;
-	height: 100px;
+	width: 125px;
+	height: 125px;
 	padding: 10px;
 }
 .gatch-tubuyaki{

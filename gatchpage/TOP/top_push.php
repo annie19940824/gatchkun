@@ -83,6 +83,10 @@ require('condition_gatch.php');
                                     <span class="gatch-tubuyaki">
                                     <?php echo $condition_gatch['tubuyaki'];?>
                                     </span>
+                                    <br>
+                                    <span>
+                                     最終ログイン：<?php echo $condition_gatch['created'];?>
+                                    </span>
                                 </p>
                                 <img src="../../asset/images/<?php echo $condition_gatch['conditions'];?>" class="gatch-cond">
                             </div>
