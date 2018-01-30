@@ -3,7 +3,6 @@
 session_start();
 require('../../dbconect_gatch.php');
 
-
 $login_id = $_SESSION['login_user']['user_id'];
 $login_condition =$_SESSION['login_user']['conditions'];
 
@@ -11,11 +10,13 @@ $user = $_SESSION['login_user']['user_id'];
 $other = $_GET['id'];
 
 if (!isset($_GET['id'])) {
-  header('Location: /TOP/top_push.php');
+  header('Location:../TOP/top_push.php');
   exit();
 }
 
+
   if(!empty($_POST)){
+  
           $errors = array();
           $chat = htmlspecialchars($_POST['chat']);
 
@@ -51,7 +52,7 @@ if (!isset($_GET['id'])) {
               ON `gatch_chat`.`users_id`=`gatchi_users`.`user_id`
               WHERE (user_id = ? AND other_id =?)
               OR (user_id=? AND other_id=?)
-              ORDER BY `gatch_chat`.`created` DESC
+              ORDER BY `gatch_chat`.`created` ASC
         ';
        $data = array($user,$other,$other,$user);
        $stmt = $dbh->prepare($sql);
@@ -91,17 +92,22 @@ if (!isset($_GET['id'])) {
 </head>
 
 <body>
-
+ 
    <?php require('../../asset/head.php');?>
+ <br>
+ <br>
+ <br>
+ <br> 
+
+
+<div style="margin-top:100px;">
   
-
-
-<div style="margin-top:100px; ">
 
   <div class="container">
 		<div class="row">
-			
       <div class="col-xs-5"><!-- 5/12 -->
+  
+
        <h3 class="theme">チャットルーム</h3>
           <h3>チャット相手<?php echo $other_profile['user_name']; ?>さん</h3>
           <img src="../LOGIN/profile_image/<?php echo $other_profile['picture'];?>" style="width:50px ;height:50px;">
@@ -109,6 +115,15 @@ if (!isset($_GET['id'])) {
            <span style="font-size: 12px">
            <p class="himajin-tub"><?php echo  $other_profile ['tubuyaki'];?></p>
             最終ログイン:<?php echo $other_profile['created'];?>
+           
+            <br>
+
+            <span class="obi">
+             コンディションは
+             <img id="test" src="../../asset/images/<?= $_SESSION['login_user']['conditions'] ?>" style="width:50px;height:50px;">
+          です
+          <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+          </span>
           </span>
     
           <br>   
@@ -116,15 +131,19 @@ if (!isset($_GET['id'])) {
 
        <div class="col-xs-7"><!-- 7/12 -->
       
-        <div class="chat_boder" style="width: 700px; height: 600px;border: 2px solid #cccccc;">
-         <p style="text-align: center ; font-size: 20px; padding-bottom: 20px; 
-          background-color: #cccccc">
-           <strong style="font-size: 35px"><?php echo $other_profile['user_name']; ?></strong>
-           さんとのトーク</p>
+        <div class="chat_boder chat_area" style="width: 700px; height: 600px;border: 2px solid #cccccc;">
+        
+         <p style="text-align: center ; font-size: 20px; padding-bottom: 20px; background-color: #cccccc">
+            <strong style="font-size: 35px">
+            <?php echo $other_profile['user_name']; ?>  
+            </strong>
+           さんとのトーク
+         </p>
 
             
               
-                 <div class="col-xs-6">
+                 <div class="col-xs-6"><!-- 6/12 -->
+               
                   <?php foreach($tweets as $t){ ?>
                      <?php if($t['user_id']==$user){ // 自分だったら  ?>
                           
@@ -157,7 +176,7 @@ if (!isset($_GET['id'])) {
                             </div>
 
                           <?php }?><!-- if -->
-                        <?php }?><!-- foreach -->
+                        <?php }?><!-- foreach -->  
                   </div><!-- 6/12 -->
 
         
@@ -167,10 +186,10 @@ if (!isset($_GET['id'])) {
                <div class="chat_send">
                    <form method="POST" action="">
                     <div class="col-xs-10">
-                     <textarea></textarea>
+                     <textarea name='chat' placeholder="メッセージを入力してください。"></textarea>
                      </div>
                      <div class="col-xs-2">
-                          <input type="submit" value="送信する" class="btn btn-primary" style="width: 140px;height: 50px; background-color:#cdffcc;color:#42484d; border-color: 2px #cccccc">
+                          <input type="submit" value="送信する" class="btn btn-primary" style="width: 140px;height: 50px; background-color:#cdffcc;color:#42484d; border-color: 3px #cccccc">
                      </div>
                     </form>
                              <?php if(isset($errors) && $errors == 'blank'){ ?>
