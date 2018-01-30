@@ -85,9 +85,9 @@ if (!isset($_GET['id'])) {
 	<title>チャットページ</title>
 
 	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="../asset/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="../asset/css/common.css">
-	<link rel="stylesheet" type="text/css" href="../asset/rin/Rin-3.3.7-2/dist/css/chatmain.css">
+	<link rel="stylesheet" href="../../asset/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="../../asset/css/common.css">
+	<link rel="stylesheet" type="text/css" href="../../asset/css/chatmain.css">
 </head>
 
 <body style="margin-top: 80px;">
@@ -97,7 +97,7 @@ if (!isset($_GET['id'])) {
       <div class="col-xs-5"><!-- 5/12 -->
        <h3 class="theme">チャットルーム</h3>
           <h3>チャット相手<?php echo $other_profile['user_name']; ?>さん</h3>
-          <img src="LOGIN/profile_image/<?php echo $other_profile['picture'];?>" style="width:50px ;height:50px;">
+          <img src="../LOGIN/profile_image/<?php echo $other_profile['picture'];?>" style="width:50px ;height:50px;">
           
            <span style="font-size: 12px">
            <p class="himajin-tub"><?php echo  $other_profile ['tubuyaki'];?></p>
@@ -110,73 +110,79 @@ if (!isset($_GET['id'])) {
        <div class="col-xs-7"><!-- 7/12 -->
       
         <div class="chat_boder" style="width: 700px; height: 600px;border: solid #008080;">
-         <p style="text-align: center ; font-size: 20px; padding-bottom: 20px;  background-color: #cccccc">
-           <strong><?php echo $other_profile['user_name']; ?></strong>
+         <p style="text-align: center ; font-size: 20px; padding-bottom: 20px; 
+          background-color: #cccccc">
+           <strong style="font-size: 35px"><?php echo $other_profile['user_name']; ?></strong>
            さんとのトーク</p>
 
-            <div>
-              <?php foreach($tweets as $t){ ?>
-                <?php if($t['user_id']==$user){ // 自分だったら  ?>
+            
               
-                <!-- 自分のつぶやき -->
-                <div class="chat-box">
-                  <div class="chat-face">
-                    <img src="LOGIN/profile_image/<?php echo  $user_profile['picture']; ?>" alt="自分のチャット画像です。" width="90" height="90">
-                  </div>
-                  
-                  <div>
-                   <?php echo $user_profile['user_name'] ; ?>
-                  </div>
-                  <div class="chat-area">
-                    <div class="chat-hukidashi">
-                      <?php echo $t['chat']; ?>
-                    </div>
-                  </div>
-                </div>
+                 <div class="col-xs-6">
+                  <?php foreach($tweets as $t){ ?>
+                     <?php if($t['user_id']==$user){ // 自分だったら  ?>
+                          
+                            <!-- 自分のつぶやき -->
+                            <div class="chat-box">
+                              <div class="chat-face">
+                                <img src="../LOGIN/profile_image/<?php echo  $user_profile['picture']; ?>" alt="自分のチャット画像です。" width="90" height="90">
+                              </div>
+                              
+                              <div>
+                               <?php echo $user_profile['user_name'] ; ?>
+                              </div>
+                              <div class="chat-area">
+                                <div class="chat-hukidashi">
+                                  <?php echo $t['chat']; ?>
+                                </div>
+                              </div>
+                            </div>
+                   <?php }else{ //相手だったら ?>
+                    </div><!-- 6/12 -->
+                    <div class="col-xs-6"><!-- 相手のつぶやき -->
+                    
+                           <div class="chat-box">
+                             <div class="chat-face">
+                              <img src="../LOGIN/profile_image/<?php echo $other_profile['picture'];  ?>" alt="相手のチャット画像です。" width="90" height="90">
+                            </div>
+                              
+                             <div>
+                               <?php echo $other_profile['user_name'] ; ?>
+                            </div>
 
-            <?php }else{ //相手だったら ?>
-              
-              <!-- 相手のつぶやき -->
-              <div class="chat-box">
-               
-                <div class="chat-face">
-                  <img src="LOGIN/profile_image/<?php echo $other_profile['picture'];  ?>" alt="相手のチャット画像です。" width="90" height="90">
-                </div>
-                  
-                 <div>
-                   <?php echo $other_profile['user_name'] ; ?>
-                </div>
+                            <div class="chat-area">
+                            <div class="chat-hukidashi someone">
+                              
+                               <?php echo $t['chat']; ?>
+                              
+                            </div>
+                            </div>
 
-                <div class="chat-area">
-                <div class="chat-hukidashi someone">
-                  
-                   <?php echo $t['chat']; ?>
-                  
-                </div>
-                </div>
-
-              <?php }?><!-- if -->
-            <?php }?><!-- foreach -->
-     
+                          <?php }?><!-- if -->
+                        <?php }?><!-- foreach -->
+                  </div><!-- 6/12 -->
 
         
       <!-- 送信画面 -->
-
-            <div class="chat_send">
-               <form method="POST" action="">
-                 <textarea></textarea>
-                     <br>
-                      <input type="submit" value="送信" class="btn btn-primary">
-                       </form>
-
-                         <?php if(isset($errors) && $errors == 'blank'){ ?>
-                         <div class="alert alert-danger">
-                          何も入力されていません。
-                         </div>
-                         <?php } ?>
-                         <br>   
-            </div><!-- chat_send -->
+             
           </div><!-- ボーダー -->
+               <div class="chat_send">
+                   <form method="POST" action="">
+                     
+                    <div class="col-xs-11">
+                     <textarea></textarea>
+                     </div>
+                     <div class="col-xs-1">
+                          <input type="submit" value="送信" class="btn btn-primary" style="width: 87px;height: 50px">
+                     </div>
+                    </form>
+
+                             <?php if(isset($errors) && $errors == 'blank'){ ?>
+                             <div class="alert alert-danger">
+                              何も入力されていません。
+                             </div>
+                             <?php } ?>
+                             <br>   
+                </div><!-- chat_send -->
         </div>
      </div><!-- 7/12 -->
    </div><!-- row -->

@@ -49,7 +49,7 @@ require('condition_gatch.php');
             <div id="himajin">
                 <?php foreach($login_users as $login_user): ?>
                     <div>
-                        <a href="../chatpage.php?id=<?php echo $login_user['user_id']; ?>" style="text-decoration: none;">
+                        <a href="../CHAT/chatpage.php?id=<?php echo $login_user['user_id']; ?>" style="text-decoration: none;">
                             <button class="tochat" id="<?php echo $login_user['user_id']; ?>" onclick="push(<?php echo $login_user['user_id']; ?>)">
                                 <img src="../LOGIN/profile_image/<?php echo $login_user['picture'] ;?>" class="himajin-pic">
                                 <img src="../../asset/images/<?php echo $login_user['conditions'] ;?>" class="himajin-cond">
