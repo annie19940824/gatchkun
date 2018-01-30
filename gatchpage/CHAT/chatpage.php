@@ -2,7 +2,7 @@
 
 session_start();
 require('../dbconect_gatch.php');
- require('../asset/head.php');
+ /*require('../asset/head.php');*/
 
 $login_id = $_SESSION['login_user']['user_id'];
 $login_condition =$_SESSION['login_user']['conditions'];
@@ -68,12 +68,13 @@ if (!isset($_GET['id'])) {
 
 /*相手のプロフィールを表示したい*/
 
-       $sql='SELECT `user_id`,`user_name`,`picture`,`created`
+       $sql='SELECT `user_id`,`user_name`,`picture`,`tubuyaki`,`created`
              FROM `gatchi_users` WHERE `user_id`=?';
        $data = array($other);
        $stmt = $dbh->prepare($sql);
        $stmt->execute($data);
        $other_profile = $stmt->fetch(PDO::FETCH_ASSOC);
+
 
 ?>
 <!DOCTYPE html>
@@ -95,24 +96,23 @@ if (!isset($_GET['id'])) {
 			
       <div class="col-xs-5"><!-- 5/12 -->
        <h3 class="theme">チャットルーム</h3>
-        <h3>
-          チャット相手<?php echo $other_profile['user_name']; ?>さん</h3>
-        <img src="LOGIN/profile_image/<?php echo $other_profile['picture'];?>" style="width:10px height:10px;">
-        <span style="font-size: 12px">
-          id:<?php echo $other_profile['user_id']; ?>/
-          ユーザー名:<?php echo $other_profile['user_name']; ?><br>
-          登録日時 :<?php echo $other_profile['created'];?>
-        </span>
+          <h3>チャット相手<?php echo $other_profile['user_name']; ?>さん</h3>
+          <img src="LOGIN/profile_image/<?php echo $other_profile['picture'];?>" style="width:50px ;height:50px;">
+          
+           <span style="font-size: 12px">
+           <p class="himajin-tub"><?php echo  $other_profile ['tubuyaki'];?></p>
+            最終ログイン:<?php echo $other_profile['created'];?>
+          </span>
     
           <br>   
       </div><!-- 5/12 -->
 
-      <div class="col-xs-7"><!-- 7/12 -->
+       <div class="col-xs-7"><!-- 7/12 -->
       
         <div class="chat_boder" style="width: 700px; height: 600px;border: solid #008080;">
-　　　　   <p style="text-align: center ; font-size: 20px; background-color: #cccccc">
-           <strong>aaaaa</strong>
-           さんのチャットページ</p>
+         <p style="text-align: center ; font-size: 20px; padding-bottom: 20px;  background-color: #cccccc">
+           <strong><?php echo $other_profile['user_name']; ?></strong>
+           さんとのトーク</p>
 
             <div>
               <?php foreach($tweets as $t){ ?>
@@ -157,14 +157,14 @@ if (!isset($_GET['id'])) {
 
               <?php }?><!-- if -->
             <?php }?><!-- foreach -->
-        </div>
+     
 
         
       <!-- 送信画面 -->
-          <div class="col-xs-3">
+
             <div class="chat_send">
                <form method="POST" action="">
-                 <textarea name="chat"></textarea>
+                 <textarea></textarea>
                      <br>
                       <input type="submit" value="送信" class="btn btn-primary">
                        </form>
@@ -176,12 +176,7 @@ if (!isset($_GET['id'])) {
                          <?php } ?>
                          <br>   
             </div><!-- chat_send -->
-           </div><!-- 3/12 -->
-           <div class="col-xs-9">
-             
-
-           </div>
-
+          </div><!-- ボーダー -->
         </div>
      </div><!-- 7/12 -->
    </div><!-- row -->
@@ -190,7 +185,7 @@ if (!isset($_GET['id'])) {
 
 
 <?php
-require('../asset/footer.php');
+/*require('../asset/footer.php');*/
 ?>
 </body>
 
