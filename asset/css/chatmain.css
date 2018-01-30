@@ -28,14 +28,13 @@
 
 
 .chat-hukidashi {
-    display: inline-block; /*コメントの文字数に合わせて可変*/
+    display: inline-block; 
     padding: 15px 20px;
-    margin-left: 120px;
+    margin-left: 200px;
     margin-top: 8px;
-    /* border: 1px solid gray; ←削除 */
     border-radius: 10px;
-    position: relative; /*追記*/
-    background-color: #D9F0FF; /*追記*/
+    position: relative; 
+    background-color:#cccccc;
 }
 
 
@@ -50,7 +49,7 @@
     height: 0px;
     border-style: solid;
     border-width: 10px 10px 10px 0;
-    border-color: transparent #D9F0FF transparent transparent;
+    border-color: transparent #cccccc transparent transparent;
 }
 
 

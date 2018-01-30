@@ -2,7 +2,7 @@
 
 session_start();
 require('../../dbconect_gatch.php');
- /*require('../asset/head.php');*/
+ //require('../../asset/head.php');
 
 $login_id = $_SESSION['login_user']['user_id'];
 $login_condition =$_SESSION['login_user']['conditions'];
@@ -90,7 +90,7 @@ if (!isset($_GET['id'])) {
 	<link rel="stylesheet" type="text/css" href="../../asset/css/chatmain.css">
 </head>
 
-<body style="margin-top: 80px;">
+<body style="margin-top: 100px;">
   <div class="container">
 		<div class="row">
 			
@@ -109,7 +109,7 @@ if (!isset($_GET['id'])) {
 
        <div class="col-xs-7"><!-- 7/12 -->
       
-        <div class="chat_boder" style="width: 700px; height: 600px;border: solid #008080;">
+        <div class="chat_boder" style="width: 700px; height: 600px;border: 2px solid #cccccc;">
          <p style="text-align: center ; font-size: 20px; padding-bottom: 20px; 
           background-color: #cccccc">
            <strong style="font-size: 35px"><?php echo $other_profile['user_name']; ?></strong>
@@ -124,14 +124,10 @@ if (!isset($_GET['id'])) {
                             <!-- 自分のつぶやき -->
                             <div class="chat-box">
                               <div class="chat-face">
-                                <img src="../LOGIN/profile_image/<?php echo  $user_profile['picture']; ?>" alt="自分のチャット画像です。" width="90" height="90">
-                              </div>
-                              
-                              <div>
-                               <?php echo $user_profile['user_name'] ; ?>
+                                <img src="../LOGIN/profile_image/<?php echo  $user_profile['picture']; ?>" alt="自分のチャット画像です。" style=" width:90px; height:90px; margin-left:30px">
                               </div>
                               <div class="chat-area">
-                                <div class="chat-hukidashi">
+                                <div class="chat-hukidashi" style="margin-left: 150px">
                                   <?php echo $t['chat']; ?>
                                 </div>
                               </div>
@@ -143,11 +139,7 @@ if (!isset($_GET['id'])) {
                            <div class="chat-box">
                              <div class="chat-face">
                               <img src="../LOGIN/profile_image/<?php echo $other_profile['picture'];  ?>" alt="相手のチャット画像です。" width="90" height="90">
-                            </div>
-                              
-                             <div>
-                               <?php echo $other_profile['user_name'] ; ?>
-                            </div>
+                            </div
 
                             <div class="chat-area">
                             <div class="chat-hukidashi someone">
@@ -167,19 +159,19 @@ if (!isset($_GET['id'])) {
           </div><!-- ボーダー -->
                <div class="chat_send">
                    <form method="POST" action="">
-                     
-                    <div class="col-xs-11">
+                    <div class="col-xs-10">
                      <textarea></textarea>
                      </div>
-                     <div class="col-xs-1">
-                          <input type="submit" value="送信" class="btn btn-primary" style="width: 87px;height: 50px">
+                     <div class="col-xs-2">
+                          <input type="submit" value="送信する" class="btn btn-primary" style="width: 140px;height: 50px; background-color:#cdffcc;color:#42484d; border-color: 2px #cccccc">
                      </div>
                     </form>
-
                              <?php if(isset($errors) && $errors == 'blank'){ ?>
                              <div class="alert alert-danger">
                               何も入力されていません。
                              </div>
+
+
                              <?php } ?>
                              <br>   
                 </div><!-- chat_send -->
@@ -191,7 +183,7 @@ if (!isset($_GET['id'])) {
 
 
 <?php
-/*require('../asset/footer.php');*/
+require('../../asset/footer.php');
 ?>
 </body>
 
