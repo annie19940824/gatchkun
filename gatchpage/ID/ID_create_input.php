@@ -51,7 +51,7 @@ require('ID_sql.php');
                     他のユーザーがあなたを友達として追加する時に、このパスワードが必要になります。<br>
                     このパスワードを、メッセージアプリなどで友達に送ってください。
                 </p>
-                <div>
+                <div onMouseDown="return false;" onSelectStart="return false;" unselectable="on">
 				    <form method="POST" action="">
 				        <input  type="text" name="onetimeId" value="<?php echo $r_str; ?>" id="onetime" class="input">
                         </input>

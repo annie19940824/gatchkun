@@ -1,6 +1,14 @@
 <?php
 	session_start();
-	$_SESSION = array();
+	require('../dbconect_gatch.php');
+	$sql = "UPDATE `gatchi_users`
+			   SET `login` = 0
+			 WHERE `user_id` =?
+	       ";
+
+	$data = array($_SESSION['login_user']['user_id']);
+	$stmt = $dbh->prepare($sql);
+	$stmt->execute($data);
 
 	if (ini_get("session.use_cookies")) {
 	    $params = session_get_cookie_params();

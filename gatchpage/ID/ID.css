@@ -12,3 +12,9 @@ p{
 .footer{
 	margin-top: 100px;
 }
+#onetime{
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
