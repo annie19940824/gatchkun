@@ -35,3 +35,11 @@ span.obi {
 	position: left;
 	margin-top: auto;
 }
+
+h5.read {
+	padding: 0.25em 0.75em;
+	margin-bottom: 25px;
+	background: transparent;
+	border-left: solid 4px #cfcfcf;
+	border-bottom: solid 1px #cfcfcf;
+}

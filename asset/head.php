@@ -6,7 +6,7 @@
 		   <div class="row">
 			 <div class="col-xs-2">
 				<a href="">
-					<img src="../asset/images/gatchi_logo88.gif" style="width:95%; bottom: :10px;">
+					<img src="../../asset/images/gatchi_logo88.gif" style="width:95%; bottom: :10px;">
 					</a>
 			</div>
 			<div class="col-xs-8">
@@ -18,9 +18,9 @@
 
 				<div class="navbar-collapse collapse" id="navbar-main" style="margin-left: 60px;">
 					<ul class="nav navbar-nav">
-						<li><a href="../gatchpage/TOP/top_push.php">Top</a></li>
-						<li><a href="../gatchpage/LOGIN/cushion_page.php">マイページ</a></li>
-						<li><a href="../gatchpage/ID/ID_create_input.php">友達追加</a></li>
+						<li><a href="../../gatchpage/TOP/top_push.php">Top</a></li>
+						<li><a href="../../gatchpage/LOGIN/cushion_page.php">マイページ</a></li>
+						<li><a href="../../gatchpage/ID/ID_create_input.php">友達追加</a></li>
 						<li><a href="../../asset/logout.php">ログアウト</a></li>
 				    </ul>
 			    </div>
@@ -47,9 +47,11 @@
 			<div class="col-md-4 col-sm-4 hidden-xs" style="background-color: black;">
 
 
-				<span class="obi" style="color:#efe597;">あなたのコンディションは
-					<img id="test" src="../asset/images/<?= $_SESSION['login_user']['conditions'] ?>" style="width:50px;height:50px;">
-				です
+				<span class="obi" style="color:#efe597;">
+					<i class="fa fa-hand-o-right" aria-hidden="true"></i>あなたのコンディションは
+					<img id="test" src="../../asset/images/<?= $_SESSION['login_user']['conditions'] ?>" style="width:50px;height:50px;">
+					です
+					<i class="fa fa-hand-o-left" aria-hidden="true"></i>
 				</span>
 
 			</div>
@@ -57,8 +59,10 @@
 
 			</div>
 			<div class="col-md-4 col-sm-4 hidden-xs text-right" style="background-color: black; margin-top: 13px;">
-				<a  href="../LOGIN/cushion_page.php" style="color:#efe597;">
+				<a  href="../../gatchpage/LOGIN/cushion_page.php" style="color:#efe597;">
+				<i class="fa fa-hand-o-right" aria-hidden="true"></i>
 				コンディションを変更する
+				<i class="fa fa-hand-o-left" aria-hidden="true"></i>
 			    </a>
             </div>
 		</div>

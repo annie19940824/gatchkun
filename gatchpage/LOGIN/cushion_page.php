@@ -47,8 +47,8 @@ require('../../dbconect_gatch.php');
 	<!-- Theme style  -->
 	<link rel="stylesheet" type="text/css" href="../../asset/rin/Rin-3.3.7-2/dist/css/cushion_page.css">
 </head>
-<body style="margin-top: 70px;">
-	<?php require('../../asset/head2.php'); ?>
+<body style="margin-top: 115px;">
+	<?php require('../../asset/head3.php'); ?>
 
 	<div id="heading">
 		<p>ようこそ、暇人の　

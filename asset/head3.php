@@ -59,8 +59,8 @@
 			</div>
 
 			<div class="col-md-6 col-sm-6 text-center" style="background-color: black; color: #efe597;">
-				<i class="fa fa-hand-o-right" aria-hidden="true"></i>	
-				ログイン・新規会員登録
+				<i class="fa fa-hand-o-right" aria-hidden="true"></i>
+				あなたの現在のコンディションを、そっと登録してね
 				<i class="fa fa-hand-o-left" aria-hidden="true"></i>
 			</div>
 

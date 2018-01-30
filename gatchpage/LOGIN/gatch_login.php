@@ -159,7 +159,7 @@ if(!empty($_POST)){ // [J-01]
 	<!-- ========共通CSS======== -->
 	<link rel="stylesheet" type="text/css" href="../../asset/css/common.css">
 </head>
-<body style="margin-top: 70px;">
+<body style="margin-top: 145px;">
 <?php require('../../asset/head2.php'); ?>
 
 	<div class="container">
