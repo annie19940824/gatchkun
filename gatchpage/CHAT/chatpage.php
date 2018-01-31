@@ -95,7 +95,7 @@ if (!isset($_GET['id'])) {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
 </head>
 
-<body>
+<body style="width: 100%; height: 100%;">
   <?php require('../../asset/head.php');?>
       <div class="container" style="margin-top: 180px;">
 		    <div class="row">
@@ -175,9 +175,6 @@ if (!isset($_GET['id'])) {
           </div><!-- 7/12 -->
         </div><!-- row -->
       </div><!-- container -->
-<?php
-  require('../../asset/footer.php');
-?>
 
 <script src="http://localhost:3000/socket.io/socket.io.js"></script>
 <script>
