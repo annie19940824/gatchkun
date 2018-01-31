@@ -91,6 +91,7 @@ require('ID_sql.php');
     <div class="footer">
         <?php require('../../asset/footer.php'); ?>
     </div>
+    <?php require('created-destroy.php'); ?>
 
  </body>
  </html>

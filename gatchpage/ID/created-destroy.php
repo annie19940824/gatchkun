@@ -27,7 +27,7 @@ date_default_timezone_set('Asia/Manila');
 			$stmt = $dbh->prepare($sql);
 			$stmt->execute($data);
 
-			echo $key['random']."<br>上記のIDは24時間入力されませんでした<br>新たなIDを発行・コピーしてください<br>";
+			// echo $key['random']."<br>上記のIDは24時間入力されませんでした<br>新たなIDを発行・コピーしてください<br>";
 		} // if
 	} // foreach
 ?>
