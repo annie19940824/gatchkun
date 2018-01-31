@@ -64,7 +64,7 @@ body{
 		left: 70px;
 }
 .tochat .himajin-pic:hover{
-	border: 5px solid #33ff00;
+	border: 4px solid #f0ebcb;
 }
 .tochat .himajin-pic:active{
 	position: relative;
@@ -93,7 +93,16 @@ body{
 #gatch {
 	width: 86%;
 	text-align: center;
-	margin: -15px 0 25px 7%;
+	margin: -20px auto 30px;
+}
+#gatch .container{
+	width: 100%;
+	margin: 0 auto;
+}
+#gatch .row{
+	width: 100%;
+	padding: 0;
+	margin: 0 auto;
 }
 #gatch .tochat{
 	padding: 0;
@@ -106,7 +115,8 @@ body{
 	height: 100px;
 }
 #gatch .gatch-box:hover{
-	background-color: #33ff00
+	/*background-color: #33ff00;*/
+	background-color: #f0ebcb;
 }
 #gatch .tochat:active{
 	position: relative;
@@ -114,10 +124,9 @@ body{
 }
 
 .gatch-box{
-	width: 600px;
-	height: 100px;
+	width: 550px;
+	height: 128px;
 	background-color: #efe597;
-	display: inline-block;
 	box-sizing: border-box;
 	text-align: left;
 	margin-bottom: 50px;
@@ -125,16 +134,24 @@ body{
 }
 .gatch-pic{
 	float: left;
-	width: 100px;
-	height: 100px;
+	width: 125px;
+	height: 125px;
 	padding: 10px;
 }
 .gatch-cond{
 	float: right;
-	width: 100px;
-	height: 100px;
+	width: 125px;
+	height: 125px;
 	padding: 10px;
 }
 .gatch-tubuyaki{
 	font-size: 20px;
+}
+.gatch-box p {
+	margin-top: 5px;
+	margin-left: 30px;
+	font-size: 25px;
+}
+.gatch-box p span{
+	font-size: 15px;
 }
