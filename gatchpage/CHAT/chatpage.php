@@ -96,14 +96,16 @@ if (!isset($_GET['id'])) {
 </head>
 
 <body style="width: 100%; height: 100%;">
-  <?php require('../../asset/head.php');?>
-      <div class="container" style="margin-top: 180px;">
+  <div style="height: 20%;">
+    <?php require('../../asset/head.php');?>
+  </div>
+      <div class="container" style="margin-top: 150px;">
 		    <div class="row">
           <div class="col-xs-5"><!-- 5/12 -->
             <h3 class="theme">チャットルーム</h3>
             <h3>チャット相手<?php echo $other_profile['user_name']; ?>さん</h3>
-            <img src="../LOGIN/profile_image/<?php echo $other_profile['picture'];?>" style="width:50px ;height:50px;">
-            <div style="font-size: 12px">
+            <img src="../LOGIN/profile_image/<?php echo $other_profile['picture'];?>" style="width:50px; height: 50px;">
+            <div style="font-size: 15px">
               <p class="himajin-tub"><?php echo  $other_profile ['tubuyaki'];?></p>
             最終ログイン:<?php echo $other_profile['created'];?>
 
@@ -118,33 +120,35 @@ if (!isset($_GET['id'])) {
           </div><!-- 5/12 -->
 
           <div class="col-xs-7" style="margin-top: 25px;"><!-- 7/12 -->
-            <div class="chat_boder chat_area" style="width: 700px; height: 600px;border: 2px solid #cccccc;">
-              <p style="text-align: center ; font-size: 20px; padding-bottom: 20px; background-color: #cccccc">
-                <strong style="font-size: 35px">
-                  <?php echo $other_profile['user_name']; ?>
-                </strong>
-                さんとのトーク
-              </p>
+            <div class="row">
+              <div class="col-xs-12">
+                <div style="text-align: center; font-size: 20px; background-color: #cccccc">
+                    <strong style="font-size: 35px">
+                      <?php echo $other_profile['user_name']; ?>
+                    </strong>
+                      さんとのトーク
+                </div>
+              </div>
+            </div>
+            <div class="row chat_border chat_area">
               <div class="col-xs-6"><!-- 6/12 -->
                 <?php foreach($tweets as $t){ ?>
                   <?php if($t['user_id']==$user){ // 自分だったら  ?>
                     <!-- 自分のつぶやき -->
                     <div class="chat-box">
                       <div class="chat-face">
-                        <img src="../LOGIN/profile_image/<?php echo  $user_profile['picture']; ?>" alt="自分のチャット画像です。" style=" width:90px; height:90px; margin-left:30px">
+                        <img src="../LOGIN/profile_image/<?php echo  $user_profile['picture']; ?>" alt="自分のチャット画像です。" >
                       </div>
-                      <div class="chat-area">
-                        <div class="chat-hukidashi" style="margin-left: 150px">
-                          <?php echo $t['chat']; ?>
-                        </div>
+                      <div class="chat-hukidashi">
+                        <?php echo $t['chat']; ?>
                       </div>
                     </div>
-                  <?php }else{ //相手だったら ?>
+                  <?php }elseif($t['user_id']==$other){ //相手だったら ?>
               </div><!-- 6/12 -->
               <div class="col-xs-6"><!-- 相手のつぶやき -->
                     <div class="chat-box">
                       <div class="chat-face">
-                        <img src="../LOGIN/profile_image/<?php echo $other_profile['picture'];  ?>" alt="相手のチャット画像です。" width="90" height="90">
+                        <img src="../LOGIN/profile_image/<?php echo $other_profile['picture'];  ?>" alt="相手のチャット画像です。">
                       </div>
                       <div class="chat-area">
                         <div class="chat-hukidashi someone">
@@ -157,13 +161,10 @@ if (!isset($_GET['id'])) {
               </div><!-- 6/12 -->
             </div>
            <!-- 送信画面 -->
-            <div class="chat_send">
+            <div class="row chat_send">
               <form method="POST" action="">
-                <div class="col-xs-10">
-                  <textarea name='chat' placeholder="メッセージを入力してください。" style="overflow: hidden;"></textarea>
-                </div>
-                <div class="col-xs-2">
-                        <input type="submit" value="送信する" class="btn btn-primary" style="width: 140px; height: 50px; background-color:#cdffcc;color:#42484d; border-color: 3px #cccccc;">
+                <div class="col-xs-12" class="message">
+                  <textarea name='chat' placeholder="メッセージを入力してください。"></textarea><input type="submit" value="送信する" class="btn">
                 </div>
               </form>
               <?php if(isset($errors) && $errors == 'blank'){ ?>

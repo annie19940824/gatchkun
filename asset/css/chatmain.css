@@ -1,40 +1,39 @@
 .chat-box {
     width: 100%;
     height: auto;
-    overflow: hidden; /*floatÇÃâèú*/
-    margin-bottom: 20px;
+    overflow: hidden;
+    margin-bottom: 10px;
 }
 
 .chat-face {
-    float: left;
-    margin-right: -120px;
+    display: inline-block;
 }
 
 
 
 .chat-face img{
-    border-radius: 30px;
     border: 1px solid #ccc;
-    box-shadow: 0 0 4px #ddd;
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
 }
 
-
-.chat-area {
-    width: 100%;
-    float: right;
+.chat_border{
+    height: 370px;
+    border-right: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
 }
-
 
 
 
 .chat-hukidashi {
-    display: inline-block; 
-    padding: 15px 20px;
-    margin-left: 200px;
-    margin-top: 8px;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0 0 20px;
     border-radius: 10px;
-    position: relative; 
+    position: relative;
     background-color:#cccccc;
+    font-size: 12px;
 }
 
 
@@ -63,9 +62,26 @@
 }
 textarea {
   resize: none;
-  width:670px;
+  width: 100%;
   height:50px;
-  float: left;
+  overflow: hidden;
+  width: 80%;
+  border-bottom: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
+}
+input.btn{
+    width:20%;
+    height: 50px;
+    background-color:#cdffcc;
+    color: #42484d;
+    border: 1px solid #cccccc;
+    display: inline;
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+.message{
+    height: 50px;
 }
 
 .chat_area{
@@ -74,4 +90,7 @@ textarea {
 }
 .chat_area::-webkit-scrollbar{
     display: none;
+}
+.col-xs-6{
+    padding:0;
 }
