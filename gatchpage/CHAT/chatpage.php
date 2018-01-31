@@ -105,21 +105,17 @@ if (!isset($_GET['id'])) {
 
 
 <div style="margin-top:100px;">
-  
 
   <div class="container">
 		<div class="row">
       <div class="col-xs-5"><!-- 5/12 -->
-  
-
        <h3 class="theme">チャットルーム</h3>
           <h3>チャット相手<?php echo $other_profile['user_name']; ?>さん</h3>
           <img src="../LOGIN/profile_image/<?php echo $other_profile['picture'];?>" style="width:50px ;height:50px;">
-          
-           <span style="font-size: 12px">
-           <p class="himajin-tub"><?php echo  $other_profile ['tubuyaki'];?></p>
+            <span style="font-size: 12px">
+            <p class="himajin-tub"><?php echo  $other_profile ['tubuyaki'];?></p>
             最終ログイン:<?php echo $other_profile['created'];?>
-           
+
             <br>
 
             <span class="obi">
@@ -129,27 +125,21 @@ if (!isset($_GET['id'])) {
           <i class="fa fa-hand-o-left" aria-hidden="true"></i>
           </span>
           </span>
-    
-          <br>   
+
+          <br>
       </div><!-- 5/12 -->
 
        <div class="col-xs-7"><!-- 7/12 -->
-      
         <div class="chat_boder chat_area" style="width: 700px; height: 600px;border: 2px solid #cccccc;">
-        
          <p style="text-align: center ; font-size: 20px; padding-bottom: 20px; background-color: #cccccc">
             <strong style="font-size: 35px">
-            <?php echo $other_profile['user_name']; ?>  
+              <?php echo $other_profile['user_name']; ?>
             </strong>
            さんとのトーク
          </p>
-
-            
-              
-                 <div class="col-xs-6"><!-- 6/12 -->
+            <div class="col-xs-6"><!-- 6/12 -->
                   <?php foreach($tweets as $t){ ?>
                      <?php if($t['user_id']==$user){ // 自分だったら  ?>
-                          
                             <!-- 自分のつぶやき -->
                             <div class="chat-box">
                               <div class="chat-face">
@@ -163,34 +153,23 @@ if (!isset($_GET['id'])) {
                             </div>
                    <?php }else{ //相手だったら ?>
                     </div><!-- 6/12 -->
-                    
                     <div class="col-xs-6"><!-- 相手のつぶやき -->
-                    
-                           <div class="chat-box">
+                      <div class="chat-box">
                              <div class="chat-face">
                               <img src="../LOGIN/profile_image/<?php echo $other_profile['picture'];  ?>" alt="相手のチャット画像です。" width="90" height="90">
                             </div>
 
                             <div class="chat-area">
                             <div class="chat-hukidashi someone">
-                              
                                <?php echo $t['chat']; ?>
-                              
                             </div>
                             </div>
 
                           <?php }?><!-- if -->
-                        <?php }?><!-- foreach -->  
-                  
+                        <?php }?><!-- foreach -->
                   </div><!-- 6/12 -->
-
-        
-     
-             
           </div><!-- ボーダー -->
            <!-- 送信画面 -->
-
-           
                <div class="chat_send">
                    <form method="POST" action="">
                     <div class="col-xs-10">
@@ -218,7 +197,7 @@ if (!isset($_GET['id'])) {
 </div>
 
 <?php
-require('../../asset/footer.php');
+  require('../../asset/footer.php');
 ?>
 
 <script src="http://localhost:3000/socket.io/socket.io.js"></script>
