@@ -143,7 +143,6 @@ if (!isset($_GET['id'])) {
             
               
                  <div class="col-xs-6"><!-- 6/12 -->
-               
                   <?php foreach($tweets as $t){ ?>
                      <?php if($t['user_id']==$user){ // 自分だったら  ?>
                           
@@ -160,12 +159,13 @@ if (!isset($_GET['id'])) {
                             </div>
                    <?php }else{ //相手だったら ?>
                     </div><!-- 6/12 -->
+                    
                     <div class="col-xs-6"><!-- 相手のつぶやき -->
                     
                            <div class="chat-box">
                              <div class="chat-face">
                               <img src="../LOGIN/profile_image/<?php echo $other_profile['picture'];  ?>" alt="相手のチャット画像です。" width="90" height="90">
-                            </div
+                            </div>
 
                             <div class="chat-area">
                             <div class="chat-hukidashi someone">
@@ -177,12 +177,16 @@ if (!isset($_GET['id'])) {
 
                           <?php }?><!-- if -->
                         <?php }?><!-- foreach -->  
+                  
                   </div><!-- 6/12 -->
 
         
-      <!-- 送信画面 -->
+     
              
           </div><!-- ボーダー -->
+           <!-- 送信画面 -->
+
+           
                <div class="chat_send">
                    <form method="POST" action="">
                     <div class="col-xs-10">
