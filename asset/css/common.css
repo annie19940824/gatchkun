@@ -43,3 +43,11 @@ h5.read {
 	border-left: solid 4px #cfcfcf;
 	border-bottom: solid 1px #cfcfcf;
 }
+
+h4.read {
+	padding: 0.25em 0.75em;
+	margin-bottom: 25px;
+	background: transparent;
+	border-left: solid 4px #cfcfcf;
+	border-bottom: solid 1px #cfcfcf;
+}
