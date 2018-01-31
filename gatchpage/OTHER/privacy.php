@@ -32,6 +32,8 @@ $login_condition =$_SESSION['login_user']['conditions'];
 	<div class="col-xs-12">
 		<div id="main-box">
 
+
+<!-- ここから先を使いましょう -->
 		<h3 class="theme">◆当SNSの個人情報の取り扱いについて</h3>
 
 			<p>当SNSでは、個人情報保護法及びその他の関連法令並びに各ガイドラインを遵守し、

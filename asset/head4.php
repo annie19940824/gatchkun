@@ -21,7 +21,7 @@
 		<div class="row">
 			<div class="col-xs-2 ">			   
 			   <!-- <div class="navbar-header"> -->
-				<a href="">
+				<a href="../../gatchpage/TOP/top_push.php">
 					<img src="../../asset/images/gatchi_logo88.gif" style="width:95%; bottom: :10px;">
 				</a>
 			</div>
