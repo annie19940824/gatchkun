@@ -2,24 +2,22 @@
     width: 100%;
     height: auto;
     overflow: hidden;
-    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .chat-face {
     display: inline-block;
-    margin-left: 20px;
 }
 
 
 
-.chat-face img{
-    border: 1px solid #ccc;
+.chat-face img{ 
     width: 50px;
     height: 50px;
 }
 
 .chat_border{
-    height: 370px;
+    height: 380px;
     border-right: 1px solid #cccccc;
     border-left: 1px solid #cccccc;
 }
@@ -27,18 +25,21 @@
 
 
 .my-hukidashi {
+    height: auto;
+    max-width: 85%;
     display: inline-block;
     padding: 10px 20px;
-    margin: 10px 0 0 20px;
+    margin: 5px 20px 0 20px;
     border-radius: 10px;
     position: relative;
     background-color: #BCF5A9;
     font-size: 12px;
 }
 .other-hukidashi {
+    height: auto;
     display: inline-block;
     padding: 10px 20px;
-    margin: 10px 0 0 20px;
+    margin: 5px 0 0 20px;
     border-radius: 10px;
     position: relative;
     background-color: #cccccc;
@@ -94,7 +95,7 @@ input.btn{
 }
 
 .chat_area{
-    overflow-y: auto;
+    overflow-y: scroll;
     white-space: nowrap;
 }
 .chat_area::-webkit-scrollbar{

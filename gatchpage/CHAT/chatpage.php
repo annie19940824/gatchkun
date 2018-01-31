@@ -91,6 +91,9 @@ if (!isset($_GET['id'])) {
 	<link rel="stylesheet" type="text/css" href="../../asset/css/chatmain.css">
   <!-- ========fontawesome========-->
   <link rel="stylesheet" type="text/css" href="../../asset/font-awesome-4.7.0/css/font-awesome.min.css">
+  <!-- ========jQuery======== -->
+  <script src="../../YUSUKE1/jQuery/jquery-3.1.1.js"></script>
+  <script src="../../YUSUKE1/jQuery/jquery-migrate-1.4.1.js"></script>
   <!-- ========push.js======== -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
 </head>
@@ -124,12 +127,12 @@ if (!isset($_GET['id'])) {
                         </strong>
                         さんとのトーク
                     </div>
-                    <div class="chat_border chat_area">
+                    <div class="chat_border chat_area" id="chat">
                         <?php foreach($tweets as $t){ ?>
-                            <div class="row chat-box">
+                            <div class="chat-box">
                                 <?php if($t['user_id']==$other){ // 相手だったら  ?>
                                     <!-- 相手のつぶやき -->
-                                    <div class="otherbox">
+                                    <div class="otherbox" style="float: left; margin-left:25px;">
                                         <div class="chat-face">
                                             <img src="../LOGIN/profile_image/<?php echo  $other_profile['picture']; ?>" alt="相手のチャット画像です。" >
                                         </div>
@@ -139,9 +142,11 @@ if (!isset($_GET['id'])) {
                                     </div>
                                 <?php }elseif($t['user_id']==$user){ //自分だったら ?>
                                     <!-- 自分のつぶやき -->
-                                    <div class="mybox" style="float: right;">
+                                    <div class="mybox" style="float: right; margin-right:25px;">
                                         <div class="my-hukidashi">
-                                            <?php echo $t['chat']; ?>
+                                            <p style="word-wrap: break-word; white-space: normal;">
+                                                  <?php echo $t['chat']; ?>
+                                            </p>
                                         </div>
                                         <div class="chat-face">
                                             <img src="../LOGIN/profile_image/<?php echo $user_profile['picture'];  ?>" alt="自分のチャット画像です。">
@@ -168,7 +173,11 @@ if (!isset($_GET['id'])) {
             </div><!-- 7/12 -->
         </div><!-- row -->
     </div><!-- container -->
-
+<script type="text/javascript">
+ window.onload = function () {
+ document.getElementById( "chat" ).scrollTop = 150;
+}
+</script>
 <script src="http://localhost:3000/socket.io/socket.io.js"></script>
 <script>
     var myId = <?= $_SESSION['login_user']['user_id']; ?>;
