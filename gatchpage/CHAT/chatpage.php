@@ -16,7 +16,7 @@ if (!isset($_GET['id'])) {
 
 
   if(!empty($_POST)){
-  
+
           $errors = array();
           $chat = htmlspecialchars($_POST['chat']);
 
@@ -89,15 +89,17 @@ if (!isset($_GET['id'])) {
 	<link rel="stylesheet" href="../../asset/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="../../asset/css/common.css">
 	<link rel="stylesheet" type="text/css" href="../../asset/css/chatmain.css">
+  <!-- ========fontawesome========-->
+  <link rel="stylesheet" type="text/css" href="../../asset/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
- 
+
    <?php require('../../asset/head.php');?>
  <br>
  <br>
  <br>
- <br> 
+ <br>
 
 
 <div style="margin-top:100px;">

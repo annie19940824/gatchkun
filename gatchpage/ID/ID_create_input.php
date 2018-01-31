@@ -17,6 +17,8 @@ require('ID_sql.php');
     <meta name="author" content="FreeHTML5.co" />
 
     <title>ID発行・入力</title>
+    <!-- ========fontawesome========-->
+    <link rel="stylesheet" type="text/css" href="../../asset/font-awesome-4.7.0/css/font-awesome.min.css">
     <!-- ========BootStrap======== -->
     <link rel="stylesheet" href="../../asset/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../asset/css/common.css">
