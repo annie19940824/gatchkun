@@ -29,6 +29,8 @@ require('ID_sql.php');
     <script src="../../YUSUKE1/jQuery/jquery-migrate-1.4.1.js"></script>
     <!-- ========AJAX======== -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- ========push.js======== -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
     <script type="text/javascript">
         var clipboadCopy = function(){
             var id = document.getElementById("onetime");
@@ -94,6 +96,16 @@ require('ID_sql.php');
         <?php require('../../asset/footer.php'); ?>
     </div>
     <?php require('created-destroy.php'); ?>
+
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script>
+    var myId = <?= $_SESSION['login_user']['user_id']; ?>;
+    var myName = "<?= $_SESSION['login_user']['user_name']; ?>";
+    var picture = "<?= $_SESSION['login_user']['picture']; ?>";
+    var socket = io('http://localhost:3000');
+</script>
+<script type="text/javascript" src="../TOP/push.js"></script>
+</body>
 
  </body>
  </html>

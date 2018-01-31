@@ -91,6 +91,8 @@ if (!isset($_GET['id'])) {
 	<link rel="stylesheet" type="text/css" href="../../asset/css/chatmain.css">
   <!-- ========fontawesome========-->
   <link rel="stylesheet" type="text/css" href="../../asset/font-awesome-4.7.0/css/font-awesome.min.css">
+  <!-- ========push.js======== -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
 </head>
 
 <body>
@@ -205,7 +207,7 @@ if (!isset($_GET['id'])) {
 
 
                              <?php } ?>
-                             <br>   
+                             <br>
                 </div><!-- chat_send -->
         </div>
      </div><!-- 7/12 -->
@@ -218,6 +220,15 @@ if (!isset($_GET['id'])) {
 <?php
 require('../../asset/footer.php');
 ?>
+
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script>
+    var myId = <?= $_SESSION['login_user']['user_id']; ?>;
+    var myName = "<?= $_SESSION['login_user']['user_name']; ?>";
+    var picture = "<?= $_SESSION['login_user']['picture']; ?>";
+    var socket = io('http://localhost:3000');
+</script>
+<script type="text/javascript" src="../TOP/push.js"></script>
 </body>
 
 </html>
