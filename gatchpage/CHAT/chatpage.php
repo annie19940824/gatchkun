@@ -106,17 +106,19 @@ if (!isset($_GET['id'])) {
         <div class="row">
             <div class="col-xs-5"><!-- 5/12 -->
                 <h3 class="theme">チャットルーム</h3>
-                <h3>チャット相手<?php echo $other_profile['user_name']; ?>さん</h3>
-                <img src="../LOGIN/profile_image/<?php echo $other_profile['picture'];?>" style="width:50px; height: 50px;">
-                <div style="font-size: 15px">
-                    <p class="himajin-tub"><?php echo  $other_profile ['tubuyaki'];?></p>
-                    最終ログイン:<?php echo $other_profile['created'];?>
-                    <div class="obi">
+                <h3>チャット相手　<?php echo $other_profile['user_name']; ?>　さん</h3>
+                <div style="display: inline-block; width: 150px;" >
+                    <img src="../LOGIN/profile_image/<?php echo $other_profile['picture'];?>" style="width:120px; height: 120px;">
+                </div>
+                <div style="font-size: 15px; display: inline-block; height: 100px; width: 300px">
+                        <P><?php echo  $other_profile ['tubuyaki'];?></P>
+                        最終ログイン:<?php echo $other_profile['created'];?>
+                        <p>
                         コンディションは
-                        <img src="../../asset/images/<?= $_SESSION['login_user']['conditions'] ?>" style="width:50px;height:50px;">
+                        <img src="../../asset/images/<?= $_SESSION['login_user']['conditions'] ?>" style="width:50px;height:50px; display: inline-block;">
                         です
                         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-                    </div>
+                        </p>
                 </div>
             </div><!-- 5/12 -->
             <div class="col-xs-7" style="margin-top: 25px;"><!-- 7/12 -->
