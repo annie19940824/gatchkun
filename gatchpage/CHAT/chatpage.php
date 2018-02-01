@@ -99,10 +99,10 @@ if (!isset($_GET['id'])) {
 </head>
 
 <body style="width: 100%; height: 100%;">
-    <div style="height: 20%;">
+    <div>
         <?php require('../../asset/head.php');?>
     </div>
-    <div class="container" style="margin-top: 150px;">
+    <div class="container" style="margin-top: 170px;">
         <div class="row">
             <div class="col-xs-5"><!-- 5/12 -->
                 <h3 class="theme">チャットルーム</h3>
@@ -124,8 +124,8 @@ if (!isset($_GET['id'])) {
             </div><!-- 5/12 -->
             <div class="col-xs-7" style="margin-top: 25px;"><!-- 7/12 -->
                 <div class="col-xs-12">
-                    <div style="text-align: center; font-size: 20px; background-color: #cccccc">
-                        <strong style="font-size: 35px">
+                    <div style="text-align: center; font-size: 20px; background-color: #cccccc; height: 40px;">
+                        <strong style="font-size: 25px">
                             <?php echo $other_profile['user_name']; ?>
                         </strong>
                         さんとのトーク
