@@ -7,7 +7,6 @@ $password='';
 if(!empty($_POST)){ // [J-01]
 	// このif文の中はログインボタンを押したときのみ動作する
 	if (!empty($_POST['login'])) {
-	echo 'ログインボタンを押しました<br>';
 
 		// $username = $_POST['username'];
 		$email = $_POST['email'];
@@ -33,7 +32,6 @@ if(!empty($_POST)){ // [J-01]
 		} // [J-04]passwordの文字数に関する条件閉鎖
 
 		if(empty($errors)){ // [J-05]
-			echo 'エラーがありませんでした。確認画面へ移動します<br>';
 
 		// DBと入力項目が一致するかチェックを行う
 		// SQL文を作成する
@@ -52,7 +50,6 @@ if(!empty($_POST)){ // [J-01]
 		// 1行取得する
 		$record = $stmt->fetch(PDO::FETCH_ASSOC);
 		if($record){ // [J-06]
-			echo '合致しました<br>';
 
 			// $record['id'] -> DBの値
 			// $record['username'] -> DBの値
@@ -121,7 +118,6 @@ if(!empty($_POST)){ // [J-01]
 	}
 
 	if(empty($errors)){
-		echo 'エラーがありませんでした。確認画面へ移動します<br>';
 
 		move_uploaded_file($_FILES['profile_image']['tmp_name'],'profile_image/'.$_FILES['profile_image']['name']);
 		// これで画像を保存することができる
