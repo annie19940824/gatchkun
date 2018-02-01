@@ -73,7 +73,7 @@ require('condition_gatch.php');
             <div class="row">
                 <?php foreach($condition_gatch as $condition_gatch): ?>
                     <div class="col-xs-6" style="padding: 0;">
-                        <a href="../CHAT/chatpage.php?id=<?php echo $login_user['user_id']; ?>" style="text-decoration: none; color: black;">
+                        <a href="../CHAT/chatpage.php?id=<?php echo $condition_gatch['user_id']; ?>" style="text-decoration: none; color: black;">
                             <button class="tochat" id="<?php echo $condition_gatch['user_id']?>" onclick="push(<?php echo $condition_gatch['user_id']; ?>)">
                             <div class="gatch-box">
                                 <img src="../LOGIN/profile_image/<?php echo $condition_gatch['picture'];?>" class="gatch-pic">
