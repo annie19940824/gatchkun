@@ -112,14 +112,15 @@ if (!isset($_GET['id'])) {
                 </div>
                 <div style="font-size: 15px; display: inline-block; height: 100px; width: 300px">
                         <P><?php echo  $other_profile ['tubuyaki'];?></P>
-                        最終ログイン:<?php echo $other_profile['created'];?>
-                        <p>
                         コンディションは
                         <img src="../../asset/images/<?= $_SESSION['login_user']['conditions'] ?>" style="width:50px;height:50px; display: inline-block;">
                         です
                         <i class="fa fa-hand-o-left" aria-hidden="true"></i>
                         </p>
                 </div>
+                <p style="margin-top: 15px;">
+                  最終ログイン:　<?php echo $other_profile['created'];?>
+                </p>
             </div><!-- 5/12 -->
             <div class="col-xs-7" style="margin-top: 25px;"><!-- 7/12 -->
                 <div class="col-xs-12">
@@ -177,7 +178,7 @@ if (!isset($_GET['id'])) {
     </div><!-- container -->
 <script type="text/javascript">
  window.onload = function () {
- document.getElementById( "chat" ).scrollTop = 150;
+ document.getElementById( "chat" ).scrollTop = 100000;
 }
 </script>
 <script src="http://localhost:3000/socket.io/socket.io.js"></script>
